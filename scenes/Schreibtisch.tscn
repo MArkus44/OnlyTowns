@@ -59,9 +59,15 @@ __meta__ = {
 }
 
 [node name="Bildschirm" type="TextureButton" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 965.0
+margin_top = 497.0
+margin_right = 1296.0
+margin_bottom = 762.0
 texture_normal = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+margin_right = 20.0
+margin_bottom = 20.0
