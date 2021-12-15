@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/Menu_Save.png" type="Texture" id=1]
+[ext_resource path="res://assets/Menu_Hintergrund.png" type="Texture" id=2]
+[ext_resource path="res://assets/Menu_Exit.png" type="Texture" id=3]
+[ext_resource path="res://assets/Menu_Settings.png" type="Texture" id=4]
+[ext_resource path="res://assets/Menu_Play.png" type="Texture" id=5]
+
+[node name="Menu" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="TextureButton" parent="."]
+margin_left = 810.418
+margin_top = 373.78
+margin_right = 1027.42
+margin_bottom = 458.78
+texture_normal = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="TextureButton" parent="."]
+margin_left = 1649.0
+margin_top = 11.0
+margin_right = 1788.0
+margin_bottom = 132.0
+texture_normal = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="TextureButton" parent="."]
+margin_left = 1816.15
+margin_top = -1.12245
+margin_right = 1912.15
+margin_bottom = 135.878
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" type="TextureButton" parent="."]
+margin_left = 790.214
+margin_top = 550.007
+margin_right = 1062.21
+margin_bottom = 680.007
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
