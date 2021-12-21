@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 
 # Declare member variables here. Examples:
@@ -12,4 +12,4 @@ func _ready():
 
 
 func _pressed():
-	get_tree().change_scene("res://scenes/Test.tscn")
+	$WindowBildschirm.popup()

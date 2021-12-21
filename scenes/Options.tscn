@@ -1,5 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://skripte/Pause.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Kenney Pixel.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/Fonts Data/Kenney Pixel.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
@@ -20,7 +22,9 @@ font_data = ExtResource( 4 )
 margin_left = 1620.0
 margin_right = 1920.0
 margin_bottom = 100.0
+custom_fonts/font = ExtResource( 2 )
 text = "Back"
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -51,6 +55,7 @@ margin_left = 331.5
 margin_top = 164.0
 margin_right = 472.5
 margin_bottom = 211.0
+custom_fonts/font = ExtResource( 2 )
 text = "Volume"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -79,6 +84,7 @@ margin_left = 313.5
 margin_top = 292.5
 margin_right = 501.5
 margin_bottom = 338.5
+custom_fonts/font = ExtResource( 2 )
 text = "Helligkeit"
 __meta__ = {
 "_edit_use_anchors_": false
