@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Bauunternehmen",
+"language": "GDScript",
+"path": "res://skripte/Bauunternehmen.gd"
+}, {
+"base": "Node2D",
+"class": "Gebaeude",
+"language": "GDScript",
+"path": "res://skripte/Gebaeude.gd"
+} ]
+_global_script_class_icons={
+"Bauunternehmen": "",
+"Gebaeude": ""
+}
+
 [application]
 
 config/name="OnlyTowns"

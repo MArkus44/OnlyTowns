@@ -23,10 +23,10 @@ __meta__ = {
 }
 
 [node name="PlayButton" type="TextureButton" parent="."]
-margin_left = 810.418
-margin_top = 373.78
-margin_right = 1027.42
-margin_bottom = 458.78
+margin_left = 873.276
+margin_top = 501.741
+margin_right = 1073.28
+margin_bottom = 701.741
 texture_normal = ExtResource( 5 )
 expand = true
 script = ExtResource( 8 )
@@ -58,6 +58,7 @@ __meta__ = {
 }
 
 [node name="Save" type="TextureButton" parent="."]
+visible = false
 margin_left = 790.214
 margin_top = 550.007
 margin_right = 1062.21

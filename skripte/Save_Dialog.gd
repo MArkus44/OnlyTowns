@@ -1,4 +1,4 @@
-extends TextureButton
+extends WindowDialog
 
 
 # Declare member variables here. Examples:
@@ -8,8 +8,7 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
-
-func _pressed():
-	get_tree().change_scene("res://scenes/Menu.tscn")
+func _on_Save_pressed():
+	self.popup()
