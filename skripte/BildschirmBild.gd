@@ -12,4 +12,4 @@ func _ready():
 
 
 func _pressed():
-	$BildschirmBild/WindowBildschirm.popup()
+	$WindowBildschirm.popup()
