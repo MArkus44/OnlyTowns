@@ -22,25 +22,7 @@
 [ext_resource path="res://assets/Pause.png" type="Texture" id=20]
 [ext_resource path="res://assets/Bildschirm/Fenster_Save.png" type="Texture" id=21]
 [ext_resource path="res://skripte/Save_Dialog.gd" type="Script" id=22]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends TextureButton
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-"
+[ext_resource path="res://scenes/Lampe.gd" type="Script" id=23]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 19 )
@@ -92,7 +74,7 @@ margin_top = 345.0
 margin_right = 760.0
 margin_bottom = 741.0
 texture_normal = ExtResource( 5 )
-script = SubResource( 1 )
+script = ExtResource( 23 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -175,7 +157,6 @@ __meta__ = {
 }
 
 [node name="WindowAntraege" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge"]
-visible = true
 margin_left = 431.0
 margin_top = -137.0
 margin_right = 1465.0
@@ -186,17 +167,17 @@ __meta__ = {
 }
 
 [node name="Fenster" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
-margin_left = 2.0
-margin_top = -16.0
-margin_right = 1039.0
-margin_bottom = 819.0
+margin_left = -4.0
+margin_top = -9.0
+margin_right = 1033.0
+margin_bottom = 826.0
 texture = ExtResource( 12 )
 expand = true
 
 [node name="Wohngebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
-margin_left = 300.0
+margin_left = 160.0
 margin_top = 150.0
-margin_right = 364.0
+margin_right = 224.0
 margin_bottom = 214.0
 texture_normal = ExtResource( 16 )
 script = ExtResource( 17 )
@@ -215,27 +196,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Wirtschaftsgebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
-margin_left = 300.0
-margin_top = 450.0
-margin_right = 364.0
-margin_bottom = 514.0
-texture_normal = ExtResource( 16 )
-
-[node name="Freizeitgebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
-margin_left = 599.0
-margin_top = 150.0
-margin_right = 663.0
-margin_bottom = 214.0
-texture_normal = ExtResource( 16 )
-
-[node name="Infrastruktur" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
-margin_left = 600.0
-margin_top = 450.0
-margin_right = 664.0
-margin_bottom = 514.0
-texture_normal = ExtResource( 16 )
-
-[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
+[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="." method="antrag_gebaeude"]
