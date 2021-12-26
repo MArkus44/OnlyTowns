@@ -22,7 +22,7 @@
 [ext_resource path="res://assets/Pause.png" type="Texture" id=20]
 [ext_resource path="res://assets/Bildschirm/Fenster_Save.png" type="Texture" id=21]
 [ext_resource path="res://skripte/Save_Dialog.gd" type="Script" id=22]
-[ext_resource path="res://scenes/Lampe.gd" type="Script" id=23]
+[ext_resource path="res://skripte/Lampe.gd" type="Script" id=23]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 19 )

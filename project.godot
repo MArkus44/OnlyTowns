@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "TextureButton",
 "class": "Lampe",
 "language": "GDScript",
-"path": "res://scenes/Lampe.gd"
+"path": "res://skripte/Lampe.gd"
 } ]
 _global_script_class_icons={
 "Bauunternehmen": "",
