@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/Tisch/Computer.png" type="Texture" id=1]
 [ext_resource path="res://assets/Tisch/Drucker.png" type="Texture" id=2]
@@ -23,6 +23,9 @@
 [ext_resource path="res://assets/Bildschirm/Fenster_Save.png" type="Texture" id=21]
 [ext_resource path="res://skripte/Save_Dialog.gd" type="Script" id=22]
 [ext_resource path="res://skripte/Lampe.gd" type="Script" id=23]
+[ext_resource path="res://skripte/Freizeitgebaeudepop.gd" type="Script" id=24]
+[ext_resource path="res://Fonts/Kenney Pixel.tres" type="DynamicFont" id=25]
+[ext_resource path="res://skripte/Freizeitgebaeude.gd" type="Script" id=26]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 19 )
@@ -104,6 +107,7 @@ __meta__ = {
 }
 
 [node name="WindowBildschirm" type="WindowDialog" parent="Bildschirm/BildschirmBild"]
+visible = true
 margin_left = -899.0
 margin_top = -487.0
 margin_right = 811.0
@@ -190,8 +194,9 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 5.0
 margin_top = 60.0
-margin_right = 77.0
-margin_bottom = 96.0
+margin_right = 88.0
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 25 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -203,6 +208,16 @@ margin_top = 416.0
 margin_right = 226.0
 margin_bottom = 480.0
 texture_normal = ExtResource( 16 )
+script = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
+margin_right = 20.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 25 )
+script = ExtResource( 24 )
 
 [node name="Wirtschaftsgebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
 margin_left = 623.0
