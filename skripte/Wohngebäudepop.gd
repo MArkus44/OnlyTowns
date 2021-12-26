@@ -21,8 +21,10 @@ func _ready():
 	#self.anchor_right = 100
 	#self.anchor_top = 100
 	#self.anchor_bottom = 100
-	add_item("drgw4g", 1, 0)
-	add_item("fxghrh", 2, 0)
+	add_item("Einfamilienhaus", 1, 0)
+	add_item("Mehrfamilienhaus", 2, 0)
+	add_item("Wohnkomplex",3,0)
+	add_item("Wokkenkratzer",4,0)
 	self.rect_position = Vector2(1920/2-50,1080/2-50)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
