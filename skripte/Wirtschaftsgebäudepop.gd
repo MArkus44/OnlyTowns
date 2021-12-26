@@ -15,5 +15,5 @@ func _ready():
 	add_item("Bürokomplex", 5, 0)
 	add_item("Marktplatz", 6 ,0)
 	add_item("Autohaus", 7, 0)
-	self.rect_position = Vector2(1920/2-50,1080/2-50)
+	self.rect_position = Vector2(1920/2-100,1080/2-100)
 	

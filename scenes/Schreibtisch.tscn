@@ -28,7 +28,7 @@
 [ext_resource path="res://skripte/Freizeitgebaeude.gd" type="Script" id=26]
 [ext_resource path="res://skripte/Wirtschaftsgebaeude.gd" type="Script" id=27]
 [ext_resource path="res://skripte/Infrastruktur.gd" type="Script" id=28]
-[ext_resource path="res://scenes/PopupMenu.gd" type="Script" id=29]
+[ext_resource path="res://skripte/Infrastrukturpop.gd" type="Script" id=29]
 [ext_resource path="res://skripte/Wirtschaftsgebäudepop.gd" type="Script" id=30]
 
 [node name="Node2D" type="Node2D"]
@@ -234,6 +234,7 @@ script = ExtResource( 27 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = ExtResource( 25 )
 script = ExtResource( 30 )
 
 [node name="Infrastruktur" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
@@ -247,8 +248,9 @@ script = ExtResource( 28 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = ExtResource( 25 )
 script = ExtResource( 29 )
 
-[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
+[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="." method="antrag_gebaeude"]
