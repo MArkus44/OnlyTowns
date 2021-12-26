@@ -8,19 +8,6 @@ extends PopupMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	var wohn = get_parent()
-	#var wohnanchor = wohn.
-#	var wohnpos = wohn.get_position()
-	#print(wohnanchor)
-#	print(wohnpos)
-	var pos = get_position()
-	var rel = self.get_canvas_transform()
-	print(rel)
-	print(pos)
-	#self.anchor_left = 100
-	#self.anchor_right = 100
-	#self.anchor_top = 100
-	#self.anchor_bottom = 100
 	add_item("Einfamilienhaus", 1, 0)
 	add_item("Mehrfamilienhaus", 2, 0)
 	add_item("Wohnkomplex",3,0)
