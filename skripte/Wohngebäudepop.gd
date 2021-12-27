@@ -10,6 +10,3 @@ extends PopupMenu
 func _ready():
 	self.rect_position = Vector2(1920/2-100,1080/2-100)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
