@@ -138,6 +138,18 @@ func get_geld():
 func set_geld(wert):
 	geld = wert
 	
+func get_beliebtheit():
+	return beliebtheit
+	
+func set_beliebtheit(wert):
+	beliebtheit = wert
+	
+func get_bevoelkerung():
+	return bevoelkerung
+	
+func set_bevoelkerung(wert):
+	bevoelkerung = wert
+	
 func save():
 	var data = {
 		"geld": geld,
