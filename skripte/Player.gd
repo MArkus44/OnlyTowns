@@ -22,10 +22,6 @@ var gebaeude_gebaut = []
 var gebaeude_ausstehend = []
 var gebaeude_array = []
 # var gebaeude_uebrig = []
-var wohn = []
-var wirt = []
-var freiz = []
-var infra = []
 
 var bauunternehmen_array = []
 const Bauunternehmen = preload("res://skripte/Bauunternehmen.gd")
@@ -95,12 +91,16 @@ func hinzufuegen():
 			
 			if typ == 0:
 				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu".add_item(name, i, 0)
+				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu".add_separator()
 			elif typ == 1:
 				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu".add_item(name, i, 0)
+				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu".add_separator()
 			elif typ == 2:
 				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu".add_item(name, i, 0)
+				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu".add_separator()
 			else:
 				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu".add_item(name, i, 0)
+				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu".add_separator()
 			gebaeude_array.append(gebaeude)
 				
 func geld_einfluss_gebaeude():
@@ -123,7 +123,7 @@ func neuer_regelmaessige_mitteilung():
 	
 func antrag_gebaeude(index):
 	gebaeude_tmp = index
-	print(gebaeude_tmp)
+	print(gebaeude_tmp, gebaeude_array[index].get_name())
 	
 func antrag_stellen():
 	var rn = RandomNumberGenerator.new().randi_range(0, 100)

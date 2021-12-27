@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://assets/Tisch/Computer.png" type="Texture" id=1]
 [ext_resource path="res://assets/Tisch/Drucker.png" type="Texture" id=2]
@@ -49,6 +49,18 @@ bg_color = Color( 0.913725, 0.913725, 0.913725, 0 )
 
 [sub_resource type="DynamicFont" id=6]
 outline_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0.333333, 0.666667, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0.333333, 0.666667, 1 )
+
+[sub_resource type="StyleBoxLine" id=7]
+color = Color( 1, 1, 1, 1 )
+thickness = 3
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 19 )
@@ -225,6 +237,8 @@ margin_left = 5.0
 margin_top = 60.0
 margin_right = 88.0
 margin_bottom = 115.0
+custom_styles/panel = SubResource( 8 )
+custom_styles/separator = SubResource( 7 )
 custom_fonts/font = ExtResource( 25 )
 script = ExtResource( 18 )
 __meta__ = {
@@ -245,6 +259,8 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_styles/panel = SubResource( 8 )
+custom_styles/separator = SubResource( 7 )
 custom_fonts/font = ExtResource( 25 )
 script = ExtResource( 24 )
 
@@ -259,6 +275,8 @@ script = ExtResource( 27 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_styles/panel = SubResource( 8 )
+custom_styles/separator = SubResource( 7 )
 custom_fonts/font = ExtResource( 25 )
 script = ExtResource( 30 )
 
@@ -273,6 +291,8 @@ script = ExtResource( 28 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_styles/panel = SubResource( 8 )
+custom_styles/separator = SubResource( 7 )
 custom_fonts/font = ExtResource( 25 )
 script = ExtResource( 29 )
 
@@ -280,3 +300,6 @@ script = ExtResource( 29 )
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="." method="antrag_gebaeude"]
+[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="." method="antrag_gebaeude"]
+[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu" to="." method="antrag_gebaeude"]
+[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu" to="." method="antrag_gebaeude"]
