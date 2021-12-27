@@ -8,7 +8,7 @@ extends WindowDialog
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	self.get_close_button().visible = false
 
 func _on_Save_pressed():
 	self.popup()
