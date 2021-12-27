@@ -123,7 +123,7 @@ func neuer_regelmaessige_mitteilung():
 	
 func antrag_gebaeude(index):
 	gebaeude_tmp = index
-	print(gebaeude_tmp, gebaeude_array[index].get_name())
+	print(gebaeude_array[gebaeude_tmp].get_name_gebaeude())
 	
 func antrag_stellen():
 	var rn = RandomNumberGenerator.new().randi_range(0, 100)
