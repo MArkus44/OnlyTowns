@@ -22,6 +22,10 @@ var gebaeude_gebaut = []
 var gebaeude_ausstehend = []
 var gebaeude_array = []
 # var gebaeude_uebrig = []
+var wohn = []
+var wirt = []
+var freiz = []
+var infra = []
 
 var bauunternehmen_array = []
 const Bauunternehmen = preload("res://skripte/Bauunternehmen.gd")
@@ -33,6 +37,7 @@ var gebaeude_tmp = Gebaeude.new()
 func _ready():
 	print("Running.")
 	setup()
+	load_game()
 	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex))
 
 func setup():
@@ -77,7 +82,7 @@ func hinzufuegen():
 			var level = config.get_value(str(i + 1), "level")
 			var bauzeit = config.get_value(str(i + 1), "bauzeit")
 			var spezifischer_faktor = config.get_value(str(i + 1), "spezifischer_faktor")
-			var typ = config.get_value(str(i + 1), "typ")
+			var typ = int(config.get_value(str(i + 1), "typ"))
 			gebaeude.set_name_gebaeude(name)
 			gebaeude.set_kosten(int(kosten))
 			gebaeude.set_geld_einfluss(int(geld_einfluss))
@@ -87,6 +92,15 @@ func hinzufuegen():
 			gebaeude.set_bauzeit(int(bauzeit))
 			gebaeude.set_spezifischer_faktor(int(spezifischer_faktor))
 			gebaeude.set_typ(int(typ))
+			
+			if typ == 0:
+				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu".add_item(name, i, 0)
+			elif typ == 1:
+				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu".add_item(name, i, 0)
+			elif typ == 2:
+				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu".add_item(name, i, 0)
+			else:
+				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu".add_item(name, i, 0)
 			gebaeude_array.append(gebaeude)
 				
 func geld_einfluss_gebaeude():
@@ -134,3 +148,9 @@ func save():
 	var file = File.new()
 	file.open("user://savegame.save", File.WRITE)
 	file.store_line(to_json(data))
+	
+func load_game():
+	var file = File.new()
+	file.open("user://savegame.save", File.READ)
+	var data = parse_json(file.get_line())
+	print(data)
