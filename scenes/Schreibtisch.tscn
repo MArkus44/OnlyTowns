@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://assets/Tisch/Computer.png" type="Texture" id=1]
 [ext_resource path="res://assets/Tisch/Drucker.png" type="Texture" id=2]
@@ -24,38 +24,37 @@
 [ext_resource path="res://skripte/Save_Dialog.gd" type="Script" id=22]
 [ext_resource path="res://skripte/Lampe.gd" type="Script" id=23]
 [ext_resource path="res://skripte/Freizeitgebaeudepop.gd" type="Script" id=24]
-[ext_resource path="res://skripte/Wohngebäudeconf.gd" type="Script" id=25]
+[ext_resource path="res://Fonts/Kenney Pixel.tres" type="DynamicFont" id=25]
 [ext_resource path="res://skripte/Freizeitgebaeude.gd" type="Script" id=26]
 [ext_resource path="res://skripte/Wirtschaftsgebaeude.gd" type="Script" id=27]
 [ext_resource path="res://skripte/Infrastruktur.gd" type="Script" id=28]
 [ext_resource path="res://skripte/Infrastrukturpop.gd" type="Script" id=29]
 [ext_resource path="res://skripte/Wirtschaftsgebäudepop.gd" type="Script" id=30]
 [ext_resource path="res://assets/Fonts Data/Kenney Pixel.ttf" type="DynamicFontData" id=31]
+[ext_resource path="res://skripte/Beliebtheit.gd" type="Script" id=32]
+[ext_resource path="res://skripte/Geld.gd" type="Script" id=33]
+[ext_resource path="res://skripte/Bevölkerung.gd" type="Script" id=34]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 1
 outline_color = Color( 1, 1, 1, 0 )
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
-
-[sub_resource type="DynamicFont" id=4]
-outline_color = Color( 1, 1, 1, 0 )
-
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=4]
 outline_color = Color( 1, 1, 1, 0 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.913725, 0.913725, 0.913725, 0 )
 
-[sub_resource type="DynamicFont" id=10]
-size = 25
-font_data = ExtResource( 31 )
+[sub_resource type="DynamicFont" id=6]
+outline_color = Color( 1, 1, 1, 0 )
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0, 0.333333, 0.666667, 1 )
 border_width_left = 10
 border_width_top = 10
@@ -63,11 +62,15 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color( 0, 0.333333, 0.666667, 1 )
 
-[sub_resource type="StyleBoxLine" id=7]
+[sub_resource type="StyleBoxLine" id=8]
 color = Color( 1, 1, 1, 1 )
 thickness = 3
 
 [sub_resource type="DynamicFont" id=9]
+size = 25
+font_data = ExtResource( 31 )
+
+[sub_resource type="DynamicFont" id=10]
 size = 25
 font_data = ExtResource( 31 )
 
@@ -78,6 +81,18 @@ font_data = ExtResource( 31 )
 [sub_resource type="DynamicFont" id=12]
 size = 25
 font_data = ExtResource( 31 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.0901961, 0.67451, 0.0313726, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.760784, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.0156863, 0.278431, 0.0156863, 1 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.803922, 0, 1, 1 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 19 )
@@ -164,8 +179,8 @@ margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0
 margin_bottom = 493.0
-custom_fonts/title_font = SubResource( 2 )
 custom_styles/panel = SubResource( 1 )
+custom_fonts/title_font = SubResource( 2 )
 window_title = "Display"
 script = ExtResource( 15 )
 __meta__ = {
@@ -189,12 +204,11 @@ __meta__ = {
 }
 
 [node name="Save_Dialog" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Save"]
-visible = true
 margin_top = -1.0
 margin_right = 582.0
 margin_bottom = 398.0
-custom_fonts/title_font = SubResource( 4 )
 custom_styles/panel = SubResource( 3 )
+custom_fonts/title_font = SubResource( 4 )
 script = ExtResource( 22 )
 
 [node name="TextureRect" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog"]
@@ -217,28 +231,25 @@ __meta__ = {
 }
 
 [node name="WindowAntraege" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge"]
-visible = true
 margin_left = 431.0
 margin_top = -137.0
 margin_right = 1465.0
 margin_bottom = 688.0
-custom_fonts/title_font = SubResource( 6 )
 custom_styles/panel = SubResource( 5 )
+custom_fonts/title_font = SubResource( 6 )
 script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Fenster" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
+visible = false
 margin_left = -4.0
 margin_top = -9.0
 margin_right = 1033.0
 margin_bottom = 826.0
 texture = ExtResource( 12 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Wohngebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
 margin_left = 160.0
@@ -257,23 +268,13 @@ margin_left = 5.0
 margin_top = 60.0
 margin_right = 88.0
 margin_bottom = 115.0
-custom_fonts/font = SubResource( 10 )
-custom_styles/panel = SubResource( 8 )
-custom_styles/separator = SubResource( 7 )
+custom_styles/panel = SubResource( 7 )
+custom_styles/separator = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu"]
-visible = true
-margin_left = 104.0
-margin_top = 40.0
-margin_right = 404.0
-margin_bottom = 145.0
-rect_min_size = Vector2( 300, 105 )
-window_title = "Bitte bestätigen..."
-script = ExtResource( 25 )
 
 [node name="Freizeitgebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
 margin_left = 162.0
@@ -289,19 +290,10 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 9 )
-custom_styles/panel = SubResource( 8 )
-custom_styles/separator = SubResource( 7 )
+custom_styles/panel = SubResource( 7 )
+custom_styles/separator = SubResource( 8 )
+custom_fonts/font = SubResource( 10 )
 script = ExtResource( 24 )
-
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu"]
-visible = true
-margin_left = 141.0
-margin_top = -133.0
-margin_right = 441.0
-margin_bottom = -28.0
-rect_min_size = Vector2( 300, 105 )
-window_title = "Bitte bestätigen..."
 
 [node name="Wirtschaftsgebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
 margin_left = 623.0
@@ -314,19 +306,10 @@ script = ExtResource( 27 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_styles/panel = SubResource( 7 )
+custom_styles/separator = SubResource( 8 )
 custom_fonts/font = SubResource( 11 )
-custom_styles/panel = SubResource( 8 )
-custom_styles/separator = SubResource( 7 )
 script = ExtResource( 30 )
-
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu"]
-visible = true
-margin_left = -320.0
-margin_top = 134.0
-margin_right = -20.0
-margin_bottom = 239.0
-rect_min_size = Vector2( 300, 105 )
-window_title = "Bitte bestätigen..."
 
 [node name="Infrastruktur" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
 margin_left = 622.0
@@ -339,25 +322,91 @@ script = ExtResource( 28 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_styles/panel = SubResource( 7 )
+custom_styles/separator = SubResource( 8 )
 custom_fonts/font = SubResource( 12 )
-custom_styles/panel = SubResource( 8 )
-custom_styles/separator = SubResource( 7 )
 script = ExtResource( 29 )
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu"]
-visible = true
-margin_left = -318.0
-margin_top = -125.0
-margin_right = -18.0
-margin_bottom = -20.0
-rect_min_size = Vector2( 300, 105 )
-window_title = "Bitte bestätigen..."
+[node name="Beliebtheit" type="ProgressBar" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
+margin_left = 783.0
+margin_top = 464.0
+margin_right = 1425.0
+margin_bottom = 594.0
+custom_styles/fg = SubResource( 13 )
+custom_styles/bg = SubResource( 14 )
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+value = 32.02
+script = ExtResource( 32 )
+
+[node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Beliebtheit"]
+margin_left = -236.587
+margin_top = 0.412598
+margin_right = -25.5873
+margin_bottom = 119.413
+custom_fonts/font = ExtResource( 25 )
+text = "Beliebtheit"
+align = 2
+valign = 1
+
+[node name="Geld" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
+margin_left = 781.0
+margin_top = 307.0
+margin_right = 1424.0
+margin_bottom = 437.0
+custom_styles/normal = SubResource( 15 )
+custom_fonts/font = ExtResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "100"
+align = 1
+valign = 1
+script = ExtResource( 33 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Geld"]
+margin_left = -236.587
+margin_top = 0.412598
+margin_right = -25.5873
+margin_bottom = 119.413
+custom_fonts/font = ExtResource( 25 )
+text = "Geld"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bevölkerung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
+margin_left = 778.0
+margin_top = 620.0
+margin_right = 1431.0
+margin_bottom = 744.0
+custom_styles/normal = SubResource( 16 )
+custom_fonts/font = ExtResource( 25 )
+text = "100"
+align = 1
+valign = 1
+script = ExtResource( 34 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Bevölkerung"]
+margin_left = -303.0
+margin_right = -25.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 25 )
+text = "Bevölkerung"
+align = 2
+valign = 1
 
 [connection signal="pressed" from="Pause" to="." method="save"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="." method="antrag_gebaeude"]
-[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="." method="antrag_gebaeude"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu" to="." method="antrag_gebaeude"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu" to="." method="antrag_gebaeude"]
