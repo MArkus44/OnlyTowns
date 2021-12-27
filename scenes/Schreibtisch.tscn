@@ -204,6 +204,7 @@ __meta__ = {
 }
 
 [node name="Save_Dialog" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Save"]
+visible = true
 margin_top = -1.0
 margin_right = 582.0
 margin_bottom = 398.0
@@ -231,6 +232,7 @@ __meta__ = {
 }
 
 [node name="WindowAntraege" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge"]
+visible = true
 margin_left = 431.0
 margin_top = -137.0
 margin_right = 1465.0
@@ -243,7 +245,6 @@ __meta__ = {
 }
 
 [node name="Fenster" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
-visible = false
 margin_left = -4.0
 margin_top = -9.0
 margin_right = 1033.0
@@ -404,8 +405,8 @@ align = 2
 valign = 1
 
 [connection signal="pressed" from="Pause" to="." method="save"]
-[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
+[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="." method="antrag_gebaeude"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="." method="antrag_gebaeude"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu" to="." method="antrag_gebaeude"]
