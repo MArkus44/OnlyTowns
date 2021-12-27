@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/Tisch/Computer.png" type="Texture" id=1]
 [ext_resource path="res://assets/Tisch/Drucker.png" type="Texture" id=2]
@@ -24,31 +24,35 @@
 [ext_resource path="res://skripte/Save_Dialog.gd" type="Script" id=22]
 [ext_resource path="res://skripte/Lampe.gd" type="Script" id=23]
 [ext_resource path="res://skripte/Freizeitgebaeudepop.gd" type="Script" id=24]
-[ext_resource path="res://Fonts/Kenney Pixel.tres" type="DynamicFont" id=25]
 [ext_resource path="res://skripte/Freizeitgebaeude.gd" type="Script" id=26]
 [ext_resource path="res://skripte/Wirtschaftsgebaeude.gd" type="Script" id=27]
 [ext_resource path="res://skripte/Infrastruktur.gd" type="Script" id=28]
 [ext_resource path="res://skripte/Infrastrukturpop.gd" type="Script" id=29]
 [ext_resource path="res://skripte/Wirtschaftsgebäudepop.gd" type="Script" id=30]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
+[ext_resource path="res://assets/Fonts Data/Kenney Pixel.ttf" type="DynamicFontData" id=31]
 
 [sub_resource type="DynamicFont" id=2]
 size = 1
 outline_color = Color( 1, 1, 1, 0 )
 
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
+
+[sub_resource type="DynamicFont" id=4]
+outline_color = Color( 1, 1, 1, 0 )
+
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=6]
 outline_color = Color( 1, 1, 1, 0 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.913725, 0.913725, 0.913725, 0 )
 
-[sub_resource type="DynamicFont" id=6]
-outline_color = Color( 1, 1, 1, 0 )
+[sub_resource type="DynamicFont" id=10]
+size = 25
+font_data = ExtResource( 31 )
 
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0, 0.333333, 0.666667, 1 )
@@ -61,6 +65,18 @@ border_color = Color( 0, 0.333333, 0.666667, 1 )
 [sub_resource type="StyleBoxLine" id=7]
 color = Color( 1, 1, 1, 1 )
 thickness = 3
+
+[sub_resource type="DynamicFont" id=9]
+size = 25
+font_data = ExtResource( 31 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 25
+font_data = ExtResource( 31 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 25
+font_data = ExtResource( 31 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 19 )
@@ -147,8 +163,8 @@ margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0
 margin_bottom = 493.0
-custom_styles/panel = SubResource( 1 )
 custom_fonts/title_font = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 window_title = "Display"
 script = ExtResource( 15 )
 __meta__ = {
@@ -176,8 +192,8 @@ visible = true
 margin_top = -1.0
 margin_right = 582.0
 margin_bottom = 398.0
-custom_styles/panel = SubResource( 3 )
 custom_fonts/title_font = SubResource( 4 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 22 )
 
 [node name="TextureRect" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog"]
@@ -205,8 +221,8 @@ margin_left = 431.0
 margin_top = -137.0
 margin_right = 1465.0
 margin_bottom = 688.0
-custom_styles/panel = SubResource( 5 )
 custom_fonts/title_font = SubResource( 6 )
+custom_styles/panel = SubResource( 5 )
 script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -237,9 +253,9 @@ margin_left = 5.0
 margin_top = 60.0
 margin_right = 88.0
 margin_bottom = 115.0
+custom_fonts/font = SubResource( 10 )
 custom_styles/panel = SubResource( 8 )
 custom_styles/separator = SubResource( 7 )
-custom_fonts/font = ExtResource( 25 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -259,9 +275,9 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 9 )
 custom_styles/panel = SubResource( 8 )
 custom_styles/separator = SubResource( 7 )
-custom_fonts/font = ExtResource( 25 )
 script = ExtResource( 24 )
 
 [node name="Wirtschaftsgebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
@@ -275,9 +291,9 @@ script = ExtResource( 27 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 11 )
 custom_styles/panel = SubResource( 8 )
 custom_styles/separator = SubResource( 7 )
-custom_fonts/font = ExtResource( 25 )
 script = ExtResource( 30 )
 
 [node name="Infrastruktur" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
@@ -291,14 +307,14 @@ script = ExtResource( 28 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 12 )
 custom_styles/panel = SubResource( 8 )
 custom_styles/separator = SubResource( 7 )
-custom_fonts/font = ExtResource( 25 )
 script = ExtResource( 29 )
 
 [connection signal="pressed" from="Pause" to="." method="save"]
-[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
+[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="." method="antrag_gebaeude"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="." method="antrag_gebaeude"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu" to="." method="antrag_gebaeude"]
