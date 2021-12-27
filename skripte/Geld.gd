@@ -5,7 +5,6 @@ func _ready():
 
 func _process(delta):
 	self.text = str(get_geld())
-	print(get_geld())
 	
 func get_geld():
 	var Geld = get_parent().get_parent().get_parent().get_parent().get_geld()
