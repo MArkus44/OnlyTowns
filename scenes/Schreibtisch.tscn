@@ -24,7 +24,6 @@
 [ext_resource path="res://skripte/Save_Dialog.gd" type="Script" id=22]
 [ext_resource path="res://skripte/Lampe.gd" type="Script" id=23]
 [ext_resource path="res://skripte/Freizeitgebaeudepop.gd" type="Script" id=24]
-[ext_resource path="res://Fonts/Kenney Pixel.tres" type="DynamicFont" id=25]
 [ext_resource path="res://skripte/Freizeitgebaeude.gd" type="Script" id=26]
 [ext_resource path="res://skripte/Wirtschaftsgebaeude.gd" type="Script" id=27]
 [ext_resource path="res://skripte/Infrastruktur.gd" type="Script" id=28]
@@ -70,6 +69,10 @@ font_data = ExtResource( 31 )
 bg_color = Color( 0.0156863, 0.278431, 0.0156863, 1 )
 
 [sub_resource type="DynamicFont" id=18]
+size = 60
+font_data = ExtResource( 31 )
+
+[sub_resource type="DynamicFont" id=23]
 size = 60
 font_data = ExtResource( 31 )
 
@@ -288,7 +291,7 @@ margin_left = 778.0
 margin_top = 620.0
 margin_right = 1431.0
 margin_bottom = 744.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = SubResource( 23 )
 custom_styles/normal = SubResource( 6 )
 text = "100"
 align = 1
