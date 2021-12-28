@@ -13,4 +13,4 @@ func _ready():
 
 func _pressed():
 	$WindowBildschirm.popup()
-	$Node2D/AnimationPlayer.play("Schreibtisch -> Desktop")
+	$AnimationPlayer.play("Schreibtisch -> Desktop")

@@ -329,17 +329,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Node2D" type="Node2D" parent="Bildschirm/BildschirmBild"]
-position = Vector2( 800, 100 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bildschirm/BildschirmBild/Node2D"]
-root_node = NodePath("../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bildschirm/BildschirmBild"]
 anims/RESET = SubResource( 24 )
 "anims/Schreibtisch -> Desktop" = SubResource( 25 )
 script = ExtResource( 25 )
 
 [node name="WindowBildschirm" type="WindowDialog" parent="Bildschirm/BildschirmBild"]
-visible = true
 margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0
