@@ -28,7 +28,6 @@ const Bauunternehmen = preload("res://skripte/Bauunternehmen.gd")
 const Gebaeude = preload("res://skripte/Gebaeude.gd")
 const Ereignisse = preload("res://skripte/Ereignisse.gd")
 # var antrag_tmp = Antrag.new()
-var gebaeude_tmp = Gebaeude.new()
 
 func _ready():
 	print("Running.")
@@ -122,15 +121,14 @@ func neuer_regelmaessige_mitteilung():
 	# mitteilungen_uebrig[0].anzeigen()
 	
 func antrag_gebaeude(index):
-	gebaeude_tmp = index
-	print(gebaeude_array[gebaeude_tmp].get_name_gebaeude())
-	return gebaeude_array[gebaeude_tmp].get_name_gebaeude()
+	print(gebaeude_array[index].get_name_gebaeude())
+	return gebaeude_array[index].get_name_gebaeude()
 	
-func antrag_stellen():
+func antrag_stellen(index):
 	var rn = RandomNumberGenerator.new().randi_range(0, 100)
 	if rn * beliebtheit > 40:
-		gebaeude_ausstehend.append(str(gebaeude_tmp) + ';' + (gebaeude_array[gebaeude_tmp].get_bauzeit()) + zeit)
-		geld -= gebaeude_array[gebaeude_tmp].get_kosten()
+		gebaeude_ausstehend.append(str(index) + ';' + (gebaeude_array[index].get_bauzeit()) + zeit)
+		geld -= gebaeude_array[index].get_kosten()
 	
 	
 func get_geld():
