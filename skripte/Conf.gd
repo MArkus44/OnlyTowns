@@ -2,6 +2,7 @@ extends ConfirmationDialog
 
 
 var text = "Nix gut diese"
+var id = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,10 +11,11 @@ func _ready():
 	self.rect_position = Vector2(1920/2-100,1080/2-100)
 
 
-func _on_PopupMenu_id_pressed(id):
-	var gebaude = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().antrag_gebaeude(id)
+func _on_PopupMenu_id_pressed(index):
+	id = index
 	var kosten =comma_sep(str((get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_kosten())*-1))
-	dialog_text = "Möchten sie " + gebaude + " für " + kosten + " € wirklich bauen?" 
+	var gebaeude = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_name_gebaeude()
+	dialog_text = "Möchten sie " + gebaeude + " für " + kosten + " € wirklich bauen?" 
 	popup()
 
 func comma_sep(number):
@@ -27,3 +29,8 @@ func comma_sep(number):
 		res += string[i]
 
 	return res
+
+
+func _on_ConfirmationDialog_confirmed():
+	var gebaude = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().antrag_gebaeude(id)
+	
