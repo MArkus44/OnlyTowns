@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://assets/Tisch/Computer.png" type="Texture" id=1]
 [ext_resource path="res://assets/Tisch/Drucker.png" type="Texture" id=2]
@@ -34,14 +34,14 @@
 [ext_resource path="res://skripte/Beliebtheit.gd" type="Script" id=32]
 [ext_resource path="res://skripte/Geld.gd" type="Script" id=33]
 [ext_resource path="res://skripte/Bevölkerung.gd" type="Script" id=34]
-[ext_resource path="res://skripte/Wohngebäudeconf.gd" type="Script" id=35]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
+[ext_resource path="res://skripte/Conf.gd" type="Script" id=35]
 
 [sub_resource type="DynamicFont" id=2]
 size = 1
 outline_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0901961, 0.67451, 0.0313726, 1 )
@@ -49,23 +49,39 @@ bg_color = Color( 0.0901961, 0.67451, 0.0313726, 1 )
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.760784, 0.0588235, 0.0588235, 1 )
 
+[sub_resource type="DynamicFont" id=17]
+size = 60
+font_data = ExtResource( 31 )
+
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.0156863, 0.278431, 0.0156863, 1 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 60
+font_data = ExtResource( 31 )
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.803922, 0, 1, 1 )
 
+[sub_resource type="DynamicFont" id=19]
+size = 60
+font_data = ExtResource( 31 )
+
+[sub_resource type="DynamicFont" id=8]
+outline_color = Color( 1, 1, 1, 0 )
+
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=10]
 outline_color = Color( 1, 1, 1, 0 )
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.913725, 0.913725, 0.913725, 0 )
 
-[sub_resource type="DynamicFont" id=10]
-outline_color = Color( 1, 1, 1, 0 )
+[sub_resource type="DynamicFont" id=13]
+size = 25
+font_data = ExtResource( 31 )
 
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0, 0.333333, 0.666667, 1 )
@@ -78,10 +94,6 @@ border_color = Color( 0, 0.333333, 0.666667, 1 )
 [sub_resource type="StyleBoxLine" id=12]
 color = Color( 1, 1, 1, 1 )
 thickness = 3
-
-[sub_resource type="DynamicFont" id=13]
-size = 25
-font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=14]
 size = 25
@@ -180,8 +192,8 @@ margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0
 margin_bottom = 493.0
-custom_styles/panel = SubResource( 1 )
 custom_fonts/title_font = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 window_title = "Display"
 script = ExtResource( 15 )
 __meta__ = {
@@ -199,10 +211,10 @@ margin_left = 783.0
 margin_top = 464.0
 margin_right = 1425.0
 margin_bottom = 594.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 25 )
 custom_styles/fg = SubResource( 3 )
 custom_styles/bg = SubResource( 4 )
-custom_fonts/font = ExtResource( 25 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 value = 32.02
 script = ExtResource( 32 )
 
@@ -211,7 +223,7 @@ margin_left = -236.587
 margin_top = 0.412598
 margin_right = -25.5873
 margin_bottom = 119.413
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = SubResource( 17 )
 text = "Beliebtheit"
 align = 2
 valign = 1
@@ -221,10 +233,10 @@ margin_left = 781.0
 margin_top = 307.0
 margin_right = 1424.0
 margin_bottom = 437.0
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 25 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 25 )
+custom_styles/normal = SubResource( 5 )
 text = "100"
 align = 1
 valign = 1
@@ -238,7 +250,7 @@ margin_left = -236.587
 margin_top = 0.412598
 margin_right = -25.5873
 margin_bottom = 119.413
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = SubResource( 18 )
 text = "Geld"
 align = 2
 valign = 1
@@ -251,8 +263,8 @@ margin_left = 778.0
 margin_top = 620.0
 margin_right = 1431.0
 margin_bottom = 744.0
-custom_styles/normal = SubResource( 6 )
 custom_fonts/font = ExtResource( 25 )
+custom_styles/normal = SubResource( 6 )
 text = "100"
 align = 1
 valign = 1
@@ -265,7 +277,7 @@ __meta__ = {
 margin_left = -303.0
 margin_right = -25.0
 margin_bottom = 119.0
-custom_fonts/font = ExtResource( 25 )
+custom_fonts/font = SubResource( 19 )
 text = "Bevölkerung"
 align = 2
 valign = 1
@@ -285,8 +297,8 @@ visible = true
 margin_top = -1.0
 margin_right = 582.0
 margin_bottom = 398.0
-custom_styles/panel = SubResource( 7 )
 custom_fonts/title_font = SubResource( 8 )
+custom_styles/panel = SubResource( 7 )
 script = ExtResource( 22 )
 
 [node name="TextureRect" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog"]
@@ -314,18 +326,18 @@ margin_left = 431.0
 margin_top = -137.0
 margin_right = 1465.0
 margin_bottom = 688.0
-custom_styles/panel = SubResource( 9 )
 custom_fonts/title_font = SubResource( 10 )
+custom_styles/panel = SubResource( 9 )
 script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Fenster" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
-margin_left = -4.0
-margin_top = -9.0
-margin_right = 1033.0
-margin_bottom = 826.0
+margin_left = 23.0
+margin_top = 6.0
+margin_right = 1060.0
+margin_bottom = 841.0
 texture = ExtResource( 12 )
 expand = true
 
@@ -346,9 +358,9 @@ margin_left = 5.0
 margin_top = 60.0
 margin_right = 88.0
 margin_bottom = 115.0
+custom_fonts/font = SubResource( 13 )
 custom_styles/panel = SubResource( 11 )
 custom_styles/separator = SubResource( 12 )
-custom_fonts/font = SubResource( 13 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -368,9 +380,9 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 14 )
 custom_styles/panel = SubResource( 11 )
 custom_styles/separator = SubResource( 12 )
-custom_fonts/font = SubResource( 14 )
 script = ExtResource( 24 )
 
 [node name="Wirtschaftsgebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
@@ -384,9 +396,9 @@ script = ExtResource( 27 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 15 )
 custom_styles/panel = SubResource( 11 )
 custom_styles/separator = SubResource( 12 )
-custom_fonts/font = SubResource( 15 )
 script = ExtResource( 30 )
 
 [node name="Infrastruktur" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
@@ -400,9 +412,9 @@ script = ExtResource( 28 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 16 )
 custom_styles/panel = SubResource( 11 )
 custom_styles/separator = SubResource( 12 )
-custom_fonts/font = SubResource( 16 )
 script = ExtResource( 29 )
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
@@ -416,13 +428,13 @@ dialog_autowrap = true
 script = ExtResource( 35 )
 
 [connection signal="pressed" from="Pause" to="." method="save"]
-[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
-[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
+[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="." method="antrag_gebaeude"]
-[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
+[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="." method="antrag_gebaeude"]
-[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
+[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu" to="." method="antrag_gebaeude"]
-[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
+[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu" to="." method="antrag_gebaeude"]
+[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
