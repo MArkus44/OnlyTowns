@@ -5,6 +5,8 @@ var text = "Nix gut diese"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_ok().text = "Ja"
+	get_cancel().text = "Nein"
 	self.rect_position = Vector2(1920/2-100,1080/2-100)
 
 
