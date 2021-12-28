@@ -3,6 +3,7 @@ extends Label
 func _ready():
 	pass # Replace with function body.
 
+# warning-ignore:unused_argument
 func _process(delta):
 	self.text = str(get_bevoelkerung())
 	
