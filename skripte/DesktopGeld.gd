@@ -1,11 +1,18 @@
 extends Label
 
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-# warning-ignore:unused_argument
 func _process(delta):
-	self.text =comma_sep(str(get_parent().get_parent().get_parent().get_parent().get_bevoelkerung()))
+	var geld_temp = str(get_parent().get_parent().get_parent().get_parent().get_geld())
+	self.text = "Geld: " + comma_sep(geld_temp) + "€"
 
 func comma_sep(number):
 	var string = str(number)
