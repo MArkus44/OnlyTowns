@@ -32,5 +32,5 @@ func comma_sep(number):
 
 
 func _on_ConfirmationDialog_confirmed():
-	var gebaude = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().antrag_gebaeude(id)
+	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().antrag_stellen(id)
 	

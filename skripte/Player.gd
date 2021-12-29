@@ -5,7 +5,7 @@ var g_config = "res://configs/Gebaeude.cfg"
 var e_config = "res://configs/Ereignisse.cfg"
 
 var geld = 0
-var beliebtheit = 1
+var beliebtheit = 0.51
 var bevoelkerung = 1000
 
 var zeit = 0
@@ -46,10 +46,13 @@ func _process(delta):
 	steuern()
 	
 	for i in range(len(gebaeude_ausstehend)):
-		if gebaeude_ausstehend[i].split(';')[1] == zeit:
-			bevoelkerung += gebaeude_array[gebaeude_ausstehend[i]].get_bevoelkerung_einfluss()
-			gebaeude_gebaut.append(gebaeude_array[gebaeude_ausstehend[i].split(';')[0]])
+		if int(gebaeude_ausstehend[i].split(';')[1]) <= zeit:
+			print(gebaeude_array[int(gebaeude_ausstehend[i].split(';')[0])].get_name_gebaeude())
+			bevoelkerung += gebaeude_array[int(gebaeude_ausstehend[i].split(';')[0])].get_bevoelkerung_einfluss()
+			beliebtheit += gebaeude_array[int(gebaeude_ausstehend[i].split(';')[0])].get_beliebtheit_einfluss()
+			gebaeude_gebaut.append(gebaeude_array[int(gebaeude_ausstehend[i].split(';')[0])])
 			gebaeude_ausstehend.remove(i)
+			print(beliebtheit)
 	#print(geld)
 
 func hinzufuegen():
@@ -127,8 +130,9 @@ func antrag_gebaeude(index):
 func antrag_stellen(index):
 	var rn = RandomNumberGenerator.new().randi_range(0, 100)
 	if rn * beliebtheit > 40:
-		gebaeude_ausstehend.append(str(index) + ';' + (gebaeude_array[index].get_bauzeit()) + zeit)
-		geld -= gebaeude_array[index].get_kosten()
+		gebaeude_ausstehend.append(str(index) + ';' + str((gebaeude_array[index].get_bauzeit()) + zeit))
+		print(gebaeude_array[int(gebaeude_ausstehend[-1].split(';')[0])].get_name_gebaeude(), gebaeude_ausstehend[-1].split(';')[1])
+		geld += gebaeude_array[index].get_kosten()
 	
 	
 func get_geld():
