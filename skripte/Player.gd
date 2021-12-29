@@ -5,7 +5,7 @@ var g_config = "res://configs/Gebaeude.cfg"
 var e_config = "res://configs/Ereignisse.cfg"
 
 var geld = 0
-var beliebtheit = 0.51
+var beliebtheit = 0.54
 var bevoelkerung = 1000
 
 var zeit = 0
