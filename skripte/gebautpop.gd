@@ -1,4 +1,4 @@
-extends TextureButton
+extends PopupMenu
 
 
 # Declare member variables here. Examples:
@@ -8,9 +8,5 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-func _pressed():
-	$WindowBildschirm.popup()
-#	$AnimationPlayer.play("Schreibtisch -> Desktop")
+	self.rect_position = Vector2(1920/2-100,1080/2-100)
+	add_item("test",1,0)

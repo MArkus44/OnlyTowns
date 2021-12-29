@@ -11,6 +11,6 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _pressed():
-	$WindowBildschirm.popup()
-#	$AnimationPlayer.play("Schreibtisch -> Desktop")
+func _pressed():	
+	$WindowGebaeude.popup()
+	$WindowGebaeude/PopupMenu.popup()
