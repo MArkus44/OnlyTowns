@@ -11,4 +11,4 @@ func _ready():
 	self.get_close_button().visible = false
 
 func _on_Save_pressed():
-	self.popup()
+	self.popup_centered()

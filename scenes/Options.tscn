@@ -47,7 +47,7 @@ margin_top = 28.5
 margin_right = 527.5
 margin_bottom = 74.5
 custom_fonts/font = SubResource( 1 )
-text = "Zahl"
+text = "?"
 __meta__ = {
 "_edit_use_anchors_": false
 }

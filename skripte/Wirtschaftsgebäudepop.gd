@@ -8,5 +8,4 @@ extends PopupMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.rect_position = Vector2(1920/2-100,1080/2-100)
-	
+	pass

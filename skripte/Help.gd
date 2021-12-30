@@ -10,7 +10,5 @@ extends TextureButton
 func _ready():
 	pass # Replace with function body.
 
-
-func _pressed():	
-	$WindowGebaeude.popup_centered()
-	$WindowGebaeude/PopupMenu.popup_centered()
+func _pressed():
+	$WindowDialog.popup_centered()

@@ -8,7 +8,6 @@ extends WindowDialog
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.rect_position = Vector2(105,50)
 	self.get_close_button().visible = false
 
 

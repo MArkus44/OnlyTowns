@@ -1,4 +1,4 @@
-extends TextureButton
+extends Label
 
 
 # Declare member variables here. Examples:
@@ -11,6 +11,6 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _pressed():	
-	$WindowGebaeude.popup_centered()
-	$WindowGebaeude/PopupMenu.popup_centered()
+
+func _process(delta):
+	text = "Level: " + str(get_parent().get_level())

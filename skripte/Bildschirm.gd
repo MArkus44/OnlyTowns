@@ -12,4 +12,5 @@ func _ready():
 
 
 func _pressed():
-	$BildschirmBild/WindowBildschirm.popup()
+#	$BildschirmBild/AnimationPlayer.play("Schreibtisch -> Desktop")
+	$BildschirmBild/WindowBildschirm.popup_centered()

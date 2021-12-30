@@ -12,4 +12,4 @@ func _ready():
 
 
 func _pressed():
-	$PopupMenu.popup()
+	$PopupMenu.popup_centered()

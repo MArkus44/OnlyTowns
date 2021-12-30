@@ -16,7 +16,7 @@ func _on_PopupMenu_id_pressed(index):
 	var kosten =comma_sep(str((get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_kosten())*-1))
 	var gebaeude = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_name_gebaeude()
 	dialog_text = "Möchten sie " + gebaeude + " für " + kosten + " € wirklich bauen?" 
-	popup()
+	popup_centered()
 
 func comma_sep(number):
 	var string = str(number)
@@ -32,5 +32,4 @@ func comma_sep(number):
 
 
 func _on_ConfirmationDialog_confirmed():
-	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().antrag_stellen(id)
-	
+	$WindowDialog.popup_centered()

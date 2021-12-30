@@ -12,4 +12,4 @@ func _ready():
 
 
 func _pressed():
-	$WindowAntraege.popup()
+	$WindowAntraege.popup_centered()
