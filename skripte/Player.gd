@@ -34,6 +34,9 @@ func _ready():
 	setup()
 	load_game()
 	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex))
+	set_geld_com(0)
+	set_beliebtheit_com(0.51)
+	set_bevoelkerung_com(1000)
 
 func setup():
 	hinzufuegen()
@@ -141,6 +144,26 @@ func get_geld():
 func set_geld(wert):
 	geld = wert
 	
+
+func set_geld_com(wert):
+	Console.add_command('set_geld',self, set_geld(0))\
+		.set_description('Sets Geld')\
+		.add_argument('geld',TYPE_INT)\
+		.register()
+
+func set_beliebtheit_com(wert):
+	Console.add_command('set_beliebtheit',self, set_beliebtheit(0.51))\
+		.set_description('Sets Beliebtheit   Wert: 0<Beliebtheit<1')\
+		.add_argument('beliebtheit',Console.FloatRangeType.new(0, 1.01, 0.01))\
+		.register()
+
+func set_bevoelkerung_com(wert):
+	Console.add_command('set_bevoelkerung',self, set_bevoelkerung(1000))\
+		.set_description('Sets Bevölkerung   Wert: 0<Bevölkerung')\
+		.add_argument('bevölkerung',TYPE_INT)\
+		.register()
+
+
 func get_beliebtheit():
 	return beliebtheit
 	
