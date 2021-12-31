@@ -32,4 +32,5 @@ func comma_sep(number):
 
 
 func _on_ConfirmationDialog_confirmed():
+	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().antrag_stellen(id)
 	$WindowDialog.popup_centered()

@@ -7,7 +7,7 @@ var e_config = "res://configs/Ereignisse.cfg"
 var geld = 0
 var beliebtheit = 0.54
 var bevoelkerung = 1000
-var levelSpieler=1
+var levelSpieler = 1
 
 var zeit = 0
 
@@ -42,7 +42,6 @@ func _ready():
 
 func setup():
 	hinzufuegen()
-	gebaeude_gebaut.append(gebaeude_array[0])
 
 func _process(delta):
 	zeit += delta  # in Sekunden
@@ -51,13 +50,14 @@ func _process(delta):
 	neuer_regelmaessige_mitteilung()
 	steuern()
 	
-	for i in range(len(gebaeude_ausstehend)):
-		if int(gebaeude_ausstehend[i].split(';')[1]) <= zeit:
-			print(gebaeude_array[int(gebaeude_ausstehend[i].split(';')[0])].get_name_gebaeude())
-			bevoelkerung += gebaeude_array[int(gebaeude_ausstehend[i].split(';')[0])].get_bevoelkerung_einfluss()
-			beliebtheit += gebaeude_array[int(gebaeude_ausstehend[i].split(';')[0])].get_beliebtheit_einfluss()
-			gebaeude_gebaut.append(gebaeude_array[int(gebaeude_ausstehend[i].split(';')[0])])
-			gebaeude_ausstehend.remove(i)
+	for i in gebaeude_ausstehend:
+		if int(i.split(';')[1]) <= zeit:
+			print(gebaeude_array[int(i.split(';')[0])].get_name_gebaeude())
+			bevoelkerung += gebaeude_array[int(i.split(';')[0])].get_bevoelkerung_einfluss()
+			beliebtheit += gebaeude_array[int(i.split(';')[0])].get_beliebtheit_einfluss()
+			print(typeof(gebaeude_array[int(i.split(';')[0])]))
+			gebaeude_gebaut.append(gebaeude_array[int(i.split(';')[0])])
+			gebaeude_ausstehend.remove(gebaeude_ausstehend.find(i))
 			print(beliebtheit)
 	#print(geld)
 
@@ -115,8 +115,8 @@ func geld_einfluss_gebaeude():
 	if zeit >= tmp_zeit_gebauede + zeit_zwischen_gebauede:
 		tmp_zeit_gebauede += zeit_zwischen_gebauede
 		# print("Gebaeude.")
-		for i in range(len(gebaeude_gebaut)):
-			set_geld(get_geld() + gebaeude_gebaut[i].get_geld_einfluss())
+		for i in gebaeude_gebaut:
+			geld += i.get_geld_einfluss()
 			
 func steuern():
 	if zeit >= tmp_zeit_steuern + zeit_zwischen_steuern:
@@ -149,9 +149,9 @@ func set_geld(wert):
 	
 
 func set_geld_com(wert):
-	Console.add_command('set_geld',self, set_geld(0))\
+	Console.add_command('set_geld', self, set_geld(0))\
 		.set_description('Sets Geld')\
-		.add_argument('geld',TYPE_INT)\
+		.add_argument('geld', TYPE_INT)\
 		.register()
 		
 func get_beliebtheit():
@@ -161,9 +161,9 @@ func set_beliebtheit(wert):
 	beliebtheit = wert
 	
 func set_beliebtheit_com(wert):
-	Console.add_command('set_beliebtheit',self, set_beliebtheit(0.51))\
+	Console.add_command('set_beliebtheit', self, set_beliebtheit(0.51))\
 		.set_description('Sets Beliebtheit   Wert: 0<Beliebtheit<1')\
-		.add_argument('beliebtheit',Console.FloatRangeType.new(0, 1.01, 0.01))\
+		.add_argument('beliebtheit', Console.FloatRangeType.new(0, 1.01, 0.01))\
 		.register()
 
 func get_bevoelkerung():
@@ -173,10 +173,11 @@ func set_bevoelkerung(wert):
 	bevoelkerung = wert
 	
 func set_bevoelkerung_com(wert):
-	Console.add_command('set_bevoelkerung',self, set_bevoelkerung(1000))\
+	Console.add_command('set_bevoelkerung', self, set_bevoelkerung(1000))\
 		.set_description('Sets Bevölkerung   Wert: 0<Bevölkerung')\
-		.add_argument('bevölkerung',TYPE_INT)\
+		.add_argument('bevölkerung', TYPE_INT)\
 		.register()
+		
 func get_level():
 	return levelSpieler
 	
@@ -184,48 +185,63 @@ func set_level2(wert):
 	levelSpieler = wert
 	
 func set_level_com(wert):
-	Console.add_command('set_level',self, set_level2(1))\
+	Console.add_command('set_level', self, set_level2(1))\
 		.set_description('Sets Level   Wert: 0<Level<11')\
-		.add_argument('level',TYPE_INT)\
+		.add_argument('level', TYPE_INT)\
 		.register()
 
-func set_level():
-	if(bevoelkerung<=850):
-		levelSpieler=1
-	elif(bevoelkerung<=1000):
-		levelSpieler=2
-	elif(bevoelkerung<=1250):
-		levelSpieler=3
-	elif(bevoelkerung<=1550):
-		levelSpieler=4
-	elif(bevoelkerung<=1800):
-		levelSpieler=5
-	elif(bevoelkerung<=2000):
-		levelSpieler=6
-	elif(bevoelkerung<=2500):
-		levelSpieler=7
-	elif(bevoelkerung<=3000):
-		levelSpieler=8
-	elif(bevoelkerung<=5000):
-		levelSpieler=9
-	elif(bevoelkerung<=20000):
-		levelSpieler=10
+func set_level(): 
+	if(bevoelkerung <= 850):
+		levelSpieler = 1
+	elif(bevoelkerung <= 1000):
+		levelSpieler = 2
+	elif(bevoelkerung <= 1250):
+		levelSpieler = 3
+	elif(bevoelkerung <= 1550):
+		levelSpieler = 4
+	elif(bevoelkerung <= 1800):
+		levelSpieler = 5
+	elif(bevoelkerung <= 2000):
+		levelSpieler = 6
+	elif(bevoelkerung <= 2500):
+		levelSpieler = 7
+	elif(bevoelkerung <= 3000):
+		levelSpieler = 8
+	elif(bevoelkerung <= 5000):
+		levelSpieler = 9
+	elif(bevoelkerung <= 20000):
+		levelSpieler = 10
 	else:
-		levelSpieler=11
+		levelSpieler = 11
 #		(Final)
+
 func save():
 	var data = {
 		"geld": geld,
 		"bevoelkerung": bevoelkerung,
-		"beliebtheit": beliebtheit
+		"beliebtheit": beliebtheit,
+		"gebaeude_gebaut": gebaeude_gebaut,
+		"gebaeude_ausstehend": gebaeude_ausstehend,
+		"level": levelSpieler,
+		"zeit": zeit
 	}
 	
 	var file = File.new()
 	file.open("user://savegame.save", File.WRITE)
 	file.store_line(to_json(data))
+	print("Saved: ", data)
+	file.close()
 	
 func load_game():
 	var file = File.new()
 	file.open("user://savegame.save", File.READ)
 	var data = parse_json(file.get_line())
-	print(data)
+	geld = data["geld"]
+	bevoelkerung = data["bevoelkerung"]
+	beliebtheit = data["beliebtheit"]
+	gebaeude_gebaut = data["gebaeude_gebaut"]
+	gebaeude_ausstehend = data["gebaeude_ausstehend"]
+	levelSpieler = data["level"]
+	zeit = data["zeit"]
+	print("Loaded: ", data)
+	file.close()
