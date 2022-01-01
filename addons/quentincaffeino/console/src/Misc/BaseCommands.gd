@@ -1,7 +1,6 @@
 
 extends Reference
 
-
 # @var  Console
 var _console
 
@@ -47,15 +46,6 @@ func _init(console):
 		.add_argument('fps', self._console.IntRangeType.new(10, 1000))\
 		.register()
 
-#	var scene = preload("res://scenes/Schreibtisch.tscn")
-#	scene.instance()
-#
-#	var f = funcref(Node2D,"set_geld")
-#	Console.add_command('set_geld',f, f.set_geld(10))\
-#		.set_description('Sets Geld')\
-#		.add_argument('geld',TYPE_INT)\
-#		.register()
-
 # Display help message or display description for the command.
 # @param    String|null  command_name
 # @returns  void
@@ -73,6 +63,7 @@ func _help(command_name = null):
 			"Type [color=#ffff66][url=help]help[/url] <command-name>[/color] show information about command.\n" + \
 			"Type [color=#ffff66][url=commands]commands[/url][/color] to get a list of all commands.\n" + \
 			"Type [color=#ffff66][url=quit]quit[/url][/color] to exit the application.")
+
 
 
 # Prints out engine version.

@@ -8,8 +8,6 @@ var id = 0
 func _ready():
 	get_ok().text = "Ja"
 	get_cancel().text = "Nein"
-	self.rect_position = Vector2(1920/2-100,1080/2-100)
-
 
 func _on_PopupMenu_id_pressed(index):
 	id = index

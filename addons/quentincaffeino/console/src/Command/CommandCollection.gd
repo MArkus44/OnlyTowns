@@ -2,7 +2,7 @@
 extends "res://addons/quentincaffeino/array-utils/src/Collection.gd"
 
 const CallbackBuilder = preload("res://addons/quentincaffeino/callback/src/CallbackBuilder.gd")
-
+const Collection = preload("res://addons/quentincaffeino/array-utils/src/Collection.gd")
 
 func _init(collection = {}).(collection):
 	pass

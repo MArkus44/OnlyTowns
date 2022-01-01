@@ -30,15 +30,20 @@ const Gebaeude = preload("res://skripte/Gebaeude.gd")
 const Ereignisse = preload("res://skripte/Ereignisse.gd")
 # var antrag_tmp = Antrag.new()
 
+var ran
+
 func _ready():
 	print("Running.")
 	setup()
-	load_game()
-	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex))
-	set_geld_com(0)
-	set_beliebtheit_com(0.51)
-	set_bevoelkerung_com(1000)
-	set_level_com(2)
+	print(ran)
+#	load_game()
+#	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex))
+	if(ran == false):
+		set_geld_com(0)
+		set_beliebtheit_com(0.51)
+		set_bevoelkerung_com(1000)
+		set_level_com(2)
+		ran = true
 
 func setup():
 	hinzufuegen()
@@ -148,18 +153,20 @@ func set_geld(wert):
 	geld = wert
 	
 
+# warning-ignore:unused_argument
 func set_geld_com(wert):
 	Console.add_command('set_geld', self, set_geld(0))\
 		.set_description('Sets Geld')\
 		.add_argument('geld', TYPE_INT)\
 		.register()
-		
+
 func get_beliebtheit():
 	return beliebtheit
 	
 func set_beliebtheit(wert):
 	beliebtheit = wert
 	
+# warning-ignore:unused_argument
 func set_beliebtheit_com(wert):
 	Console.add_command('set_beliebtheit', self, set_beliebtheit(0.51))\
 		.set_description('Sets Beliebtheit   Wert: 0<Beliebtheit<1')\
@@ -172,6 +179,7 @@ func get_bevoelkerung():
 func set_bevoelkerung(wert):
 	bevoelkerung = wert
 	
+# warning-ignore:unused_argument
 func set_bevoelkerung_com(wert):
 	Console.add_command('set_bevoelkerung', self, set_bevoelkerung(1000))\
 		.set_description('Sets Bevölkerung   Wert: 0<Bevölkerung')\
@@ -184,6 +192,7 @@ func get_level():
 func set_level2(wert):
 	levelSpieler = wert
 	
+# warning-ignore:unused_argument
 func set_level_com(wert):
 	Console.add_command('set_level', self, set_level2(1))\
 		.set_description('Sets Level   Wert: 0<Level<11')\
@@ -232,16 +241,16 @@ func save():
 	print("Saved: ", data)
 	file.close()
 	
-func load_game():
-	var file = File.new()
-	file.open("user://savegame.save", File.READ)
-	var data = parse_json(file.get_line())
-	geld = data["geld"]
-	bevoelkerung = data["bevoelkerung"]
-	beliebtheit = data["beliebtheit"]
-	gebaeude_gebaut = data["gebaeude_gebaut"]
-	gebaeude_ausstehend = data["gebaeude_ausstehend"]
-	levelSpieler = data["level"]
-	zeit = data["zeit"]
-	print("Loaded: ", data)
-	file.close()
+#func load_game():
+#	var file = File.new()
+#	file.open("user://savegame.save", File.READ)
+#	var data = parse_json(file.get_line())
+#	geld = data["geld"]
+#	bevoelkerung = data["bevoelkerung"]
+#	beliebtheit = data["beliebtheit"]
+#	gebaeude_gebaut = data["gebaeude_gebaut"]
+#	gebaeude_ausstehend = data["gebaeude_ausstehend"]
+#	levelSpieler = data["level"]
+#	zeit = data["zeit"]
+#	print("Loaded: ", data)
+#	file.close()
