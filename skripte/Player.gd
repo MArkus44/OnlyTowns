@@ -30,6 +30,7 @@ const Gebaeude = preload("res://skripte/Gebaeude.gd")
 const Ereignisse = preload("res://skripte/Ereignisse.gd")
 # var antrag_tmp = Antrag.new()
 
+var notification = false
 var ran
 
 func _ready():
@@ -198,6 +199,12 @@ func set_level_com(wert):
 		.set_description('Sets Level   Wert: 0<Level<11')\
 		.add_argument('level', TYPE_INT)\
 		.register()
+
+func get_notification():
+	return notification
+
+func set_notification():
+	notification = true
 
 func set_level(): 
 	if(bevoelkerung <= 850):

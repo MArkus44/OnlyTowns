@@ -63,7 +63,6 @@ func _init():
 
 
 func _ready():
-	_set_ran()
 	# Allow selecting console text
 	self.Text.set_selection_enabled(true)
 	# Follow console output (for scrolling)
