@@ -233,7 +233,9 @@ func ereignis():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var rn = rng.randi_range(1,29)
-	var ereignis = ereignisse_array[rn]
+	print(rn)
+	var ereigniss = ereignisse_array[rn]
+	print(ereigniss.get_name_ereignis())
 
 func _exit_tree():
 	Console.remove_command("set_geld")
