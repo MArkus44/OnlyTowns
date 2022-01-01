@@ -30,21 +30,17 @@ const Gebaeude = preload("res://skripte/Gebaeude.gd")
 const Ereignisse = preload("res://skripte/Ereignisse.gd")
 # var antrag_tmp = Antrag.new()
 
-var notification = false
-var ran
+var notification
 
 func _ready():
 	print("Running.")
 	setup()
-	print(ran)
 #	load_game()
 #	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex))
-	if(ran == false):
-		set_geld_com(0)
-		set_beliebtheit_com(0.51)
-		set_bevoelkerung_com(1000)
-		set_level_com(2)
-		ran = true
+	set_geld_com(0)
+	set_beliebtheit_com(0.51)
+	set_bevoelkerung_com(1000)
+	set_level_com(2)
 
 func setup():
 	hinzufuegen()
@@ -206,6 +202,13 @@ func get_notification():
 func set_notification():
 	notification = true
 
+
+func _exit_tree():
+	Console.remove_command("set_geld")
+	Console.remove_command("set_bevoelkerung")
+	Console.remove_command("set_beliebtheit")
+	Console.remove_command("set_level")
+	
 func set_level(): 
 	if(bevoelkerung <= 850):
 		levelSpieler = 1

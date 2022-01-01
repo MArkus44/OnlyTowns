@@ -10,6 +10,7 @@ const IntRangeType = preload('Type/IntRangeType.gd')
 const FloatRangeType = preload('Type/FloatRangeType.gd')
 const FilterType = preload('Type/FilterType.gd')
 
+
 ## Signals
 
 # @param  bool  is_console_shown
