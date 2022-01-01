@@ -24,6 +24,7 @@ var gebaeude_ausstehend = []
 var gebaeude_array = []
 # var gebaeude_uebrig = []
 
+var ereignisse_array = []
 var bauunternehmen_array = []
 const Bauunternehmen = preload("res://skripte/Bauunternehmen.gd")
 const Gebaeude = preload("res://skripte/Gebaeude.gd")
@@ -113,6 +114,32 @@ func hinzufuegen():
 				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu".add_separator()
 			gebaeude_array.append(gebaeude)
 				
+	config = ConfigFile.new()
+	err = config.load(e_config)
+	anzahl = config.get_value("Anzahl", "anzahl_ereignisse")
+	if err == 0:
+		for i in range (anzahl):
+			var ereignisse = Ereignisse.new()
+			var name = config.get_value(str(i + 1), "name")
+			var level = config.get_value(str(i + 1), "level")
+			var dauer = config.get_value(str(i + 1), "dauer")
+			var einkommen_einfluss = float(config.get_value(str(i + 1), "einkommen_einfluss"))
+			var geld_einfluss = float(config.get_value(str(i+1), "geld_einfluss"))
+			var bevoelkerung_einfluss = float(config.get_value(str(i + 1), "bevoelkerung_einfluss"))
+			var beliebtheit_einfluss = float(config.get_value(str(i + 1), "beliebtheit_einfluss"))
+			var kaputt = config.get_value(str(i + 1), "kaputt")
+			var antraege_verzoegerung =(config.get_value(str(i + 1), "antraege_verzoegerung"))
+			ereignisse.set_name_ereignis(name)
+			ereignisse.set_level(level)
+			ereignisse.set_dauer(dauer)
+			ereignisse.set_einkommen_einfluss(einkommen_einfluss)
+			ereignisse.set_geld_einfluss(geld_einfluss)
+			ereignisse.set_bevoelkerung_einfluss(bevoelkerung_einfluss)
+			ereignisse.set_beliebtheit_einfluss(beliebtheit_einfluss)
+			ereignisse.set_kaputt(kaputt)
+			ereignisse.set_antraege_verzoegerung(antraege_verzoegerung)
+			ereignisse_array.append(ereignisse)
+
 func geld_einfluss_gebaeude():
 	if zeit >= tmp_zeit_gebauede + zeit_zwischen_gebauede:
 		tmp_zeit_gebauede += zeit_zwischen_gebauede
@@ -202,6 +229,11 @@ func get_notification():
 func set_notification():
 	notification = true
 
+func ereignis():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var rn = rng.randi_range(1,29)
+	var ereignis = ereignisse_array[rn]
 
 func _exit_tree():
 	Console.remove_command("set_geld")

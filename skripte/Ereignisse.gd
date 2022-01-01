@@ -30,25 +30,25 @@ func get_dauer():
 	return dauer
 
 func set_einkommen_einfluss(var wert):
-	einkommen_einfluss = int(wert)
+	einkommen_einfluss = float(wert)
 	
 func get_einkommen_einfluss():
 	return einkommen_einfluss
 	
+func set_geld_einfluss(var wert):
+	geld_einfluss = float(wert)
+
 func get_geld_einfluss():
 	return geld_einfluss
-	
-func set_geld_einfluss(var wert):
-	geld_einfluss = int(wert)
 
 func set_bevoelkerung_einfluss(var wert):
-	bevoelkerung_einfluss = int(wert)
+	bevoelkerung_einfluss = float(wert)
 	
 func get_bevoelkerung_einfluss():
 	return bevoelkerung_einfluss
 	
 func set_beliebtheit_einfluss(var wert):
-	beliebtheit_einfluss = int(wert)
+	beliebtheit_einfluss = float(wert)
 	
 func get_beliebtheit_einfluss():
 	return beliebtheit_einfluss
@@ -59,8 +59,8 @@ func set_kaputt(var wert):
 func get_kaputt():
 	return kaputt
 
-func set_antraege_verzoegerung(wert):
-	antraege_verzoegerung = wert
+func set_antraege_verzoegerung(var wert):
+	antraege_verzoegerung = bool(wert)
 	
 func get_antraege_verzoegerung():
 	return antraege_verzoegerung

@@ -10,9 +10,11 @@ extends TextureButton
 func _ready():
 	modulate = Color(1,1,1)
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if (get_parent().get_notification() == true):
 		modulate = Color(1,0,0)
 
 func _pressed():
 	get_parent().set_notification()
+	get_parent().ereignis()

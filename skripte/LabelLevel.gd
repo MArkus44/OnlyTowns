@@ -12,5 +12,6 @@ func _ready():
 
 
 
+# warning-ignore:unused_argument
 func _process(delta):
 	text = "Level: " + str(get_parent().get_level())

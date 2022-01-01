@@ -10,6 +10,7 @@ extends Label
 func _ready():
 	pass # Replace with function body.
 
+# warning-ignore:unused_argument
 func _process(delta):
 	var geld_temp = str(get_parent().get_geld())
 	self.text ="Geld: " + comma_sep(geld_temp) + " €"
