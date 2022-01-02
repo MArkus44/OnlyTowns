@@ -8,6 +8,7 @@ var geld = 0
 var beliebtheit = 0.54
 var bevoelkerung = 1000
 var levelSpieler = 1
+var ereignis
 
 var zeit = 0
 
@@ -227,15 +228,51 @@ func get_notification():
 	return notification
 
 func set_notification():
-	notification = true
+	if (notification == true):
+		notification = false
+	else:
+		notification = true
 
 func ereignis():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var rn = rng.randi_range(1,29)
-	print(rn)
-	var ereigniss = ereignisse_array[rn]
-	print(ereigniss.get_name_ereignis())
+	var rn = rng.randi_range(0,28)
+	ereignis = ereignisse_array[rn]
+	if ( get_level() >= ereignis.get_level()):
+		print(rn)
+		print(ereignis.get_name_ereignis())
+	else: 
+		print(str(get_level()) + "<" + str(ereignis.get_level()))
+		print("Ereignis besitzt zu hohes level")
+		ereignis()
+
+func get_ereignis_name():
+	return ereignis.get_name_ereignis()
+
+func get_ereignis_level():
+	return ereignis.get_level()
+
+func get_ereignis_dauer():
+	return ereignis.get_dauer()
+
+func get_ereignis_einkommen_einfluss():
+	return ereignis.get_einkommen_einfluss()
+
+func get_ereignis_geld_einfluss():
+	return ereignis.geld_einfluss
+
+func get_ereignis_bevoelkerung_einfluss():
+	return ereignis.bevoelkerung_einfluss
+
+func get_ereignis_beliebtheit_einfluss():
+	return ereignis.beliebtheit_einfluss
+
+func get_ereignis_kaputt():
+	return ereignis.kaputt
+
+func get_ereignis_antraege_verzoegerung():
+	return ereignis.antraege_verzoegerung
+
 
 func _exit_tree():
 	Console.remove_command("set_geld")
@@ -285,16 +322,16 @@ func save():
 	print("Saved: ", data)
 	file.close()
 	
-#func load_game():
-#	var file = File.new()
-#	file.open("user://savegame.save", File.READ)
-#	var data = parse_json(file.get_line())
-#	geld = data["geld"]
-#	bevoelkerung = data["bevoelkerung"]
-#	beliebtheit = data["beliebtheit"]
-#	gebaeude_gebaut = data["gebaeude_gebaut"]
-#	gebaeude_ausstehend = data["gebaeude_ausstehend"]
-#	levelSpieler = data["level"]
-#	zeit = data["zeit"]
-#	print("Loaded: ", data)
-#	file.close()
+func load_game():
+	var file = File.new()
+	file.open("user://savegame.save", File.READ)
+	var data = parse_json(file.get_line())
+	geld = data["geld"]
+	bevoelkerung = data["bevoelkerung"]
+	beliebtheit = data["beliebtheit"]
+	gebaeude_gebaut = data["gebaeude_gebaut"]
+	gebaeude_ausstehend = data["gebaeude_ausstehend"]
+	levelSpieler = data["level"]
+	zeit = data["zeit"]
+	print("Loaded: ", data)
+	file.close()
