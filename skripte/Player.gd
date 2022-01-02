@@ -63,7 +63,7 @@ func _process(delta):
 			print(typeof(gebaeude_array[int(i.split(';')[0])]))
 			gebaeude_gebaut.append(gebaeude_array[int(i.split(';')[0])])
 			gebaeude_ausstehend.remove(gebaeude_ausstehend.find(i))
-			gebaeude_anzahl[i.get_index()] += 1
+			gebaeude_anzahl[i.split(';')[0].get_index()] += 1
 			print(gebaeude_anzahl)
 			print(beliebtheit)
 	#print(geld)
