@@ -44,12 +44,16 @@ func _ready():
 	set_beliebtheit_com(0.51)
 	set_bevoelkerung_com(1000)
 	set_level_com(2)
+	
+	for i in range(len(gebaeude_array) - 1):
+		$Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude/gebaut_pop.add_item(gebaeude_array[i].get_name_gebaeude(), i)
 
 func setup():
 	hinzufuegen()
 
 func _process(delta):
 	zeit += delta  # in Sekunden
+	gebaeude_pop()
 	set_level()
 	geld_einfluss_gebaeude()
 	neuer_regelmaessige_mitteilung()
@@ -60,10 +64,10 @@ func _process(delta):
 			print(gebaeude_array[int(i.split(';')[0])].get_name_gebaeude())
 			bevoelkerung += gebaeude_array[int(i.split(';')[0])].get_bevoelkerung_einfluss()
 			beliebtheit += gebaeude_array[int(i.split(';')[0])].get_beliebtheit_einfluss()
-			print(typeof(gebaeude_array[int(i.split(';')[0])]))
+			# print(typeof(gebaeude_array[int(i.split(';')[0])]))
 			gebaeude_gebaut.append(gebaeude_array[int(i.split(';')[0])])
 			gebaeude_ausstehend.remove(gebaeude_ausstehend.find(i))
-			gebaeude_anzahl[i.split(';')[0].get_index()] += 1
+			gebaeude_anzahl[int(i.split(';')[0])] += 1
 			print(gebaeude_anzahl)
 			print(beliebtheit)
 	#print(geld)
@@ -72,10 +76,6 @@ func hinzufuegen():
 	var config = ConfigFile.new()
 	var err = config.load(b_config)
 	var anzahl = config.get_value("Anzahl", "anzahl_unternehmen")
-	
-	for i in range(anzahl):
-		gebaeude_anzahl.append(int(0))
-		
 	if err == 0:
 		for i in range(anzahl):
 			var bauunternehmen = Bauunternehmen.new()
@@ -86,6 +86,8 @@ func hinzufuegen():
 	config = ConfigFile.new()
 	err = config.load(g_config)
 	anzahl = config.get_value("Anzahl", "anzahl_gebaeude")
+	for i in range(anzahl):
+		gebaeude_anzahl.append(int(0))
 	if err == 0:
 		for i in range(anzahl):
 			var gebaeude = Gebaeude.new()
@@ -313,6 +315,14 @@ func set_level():
 		levelSpieler = 11
 #		(Final)
 
+func gebaeude_pop():
+	var pop = $Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude/gebaut_pop
+	for i in range(len(gebaeude_array) - 1):
+		pop.set_item_text(i, "")
+		pop.set_item_text(i, gebaeude_array[i].get_name_gebaeude())
+	for i in range(len(gebaeude_anzahl) - 1):
+		pop.set_item_text(i, pop.get_item_text(i) + ":   " + str(gebaeude_anzahl[i]))
+
 func save():
 	var gebaeude_save_g = []
 	
@@ -325,6 +335,7 @@ func save():
 		"beliebtheit": beliebtheit,
 		"gebaeude_gebaut": gebaeude_save_g,
 		"gebaeude_ausstehend": gebaeude_ausstehend,
+		"gebaeude_anzahl": gebaeude_anzahl,
 		"level": levelSpieler,
 		"zeit": zeit
 	}
@@ -344,6 +355,7 @@ func load_game():
 	beliebtheit = data["beliebtheit"]
 	var gebaeude_load_g = data["gebaeude_gebaut"]
 	gebaeude_ausstehend = data["gebaeude_ausstehend"]
+	gebaeude_anzahl = data["gebaeude_anzahl"]
 	levelSpieler = data["level"]
 	zeit = data["zeit"]
 	

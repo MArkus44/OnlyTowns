@@ -13,4 +13,4 @@ func _ready():
 
 func _pressed():	
 	$WindowGebaeude.popup_centered()
-	$WindowGebaeude/PopupMenu.popup_centered()
+	$WindowGebaeude/gebaut_pop.popup_centered()
