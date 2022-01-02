@@ -9,6 +9,7 @@ var beliebtheit = 0.54
 var bevoelkerung = 1000
 var levelSpieler = 1
 var ereignis
+var bauunternehmen
 
 var zeit = 0
 
@@ -79,8 +80,14 @@ func hinzufuegen():
 	if err == 0:
 		for i in range(anzahl):
 			var bauunternehmen = Bauunternehmen.new()
-			var name = config.get_value(str(i + 1), "name_unternehmen")
-			bauunternehmen.set_name(name)
+			var name_unternehmen = config.get_value(str(i + 1), "name_unternehmen")
+			var beschreibung = config.get_value(str(i + 1), "beschreibung")
+			var multiplikator_geld = config.get_value(str(i + 1), "multiplikator_geld")
+			var multiplikator_bauzeit = config.get_value(str(i + 1), "multiplikator_bauzeit")
+			bauunternehmen.set_name(name_unternehmen)
+			bauunternehmen.set_beschreibung(beschreibung)
+			bauunternehmen.set_multiplikator_geld(multiplikator_geld)
+			bauunternehmen.set_multiplikator_bauzeit(multiplikator_bauzeit)
 			bauunternehmen_array.append(name)
 	
 	config = ConfigFile.new()
@@ -283,6 +290,17 @@ func get_ereignis_kaputt():
 func get_ereignis_antraege_verzoegerung():
 	return ereignis.antraege_verzoegerung
 
+func get_name_bauunternehmen():
+	return bauunternehmen.
+	
+func get_bauzeit():
+	return bauunternehmen.bauzeit
+
+func get_multiplikator_geld():
+	return bauunternehmen.multiplikator_geld
+
+func get_multiplikator_bauzeit():
+	return bauunternehmen.multiplikator_bauzeit
 
 func _exit_tree():
 	Console.remove_command("set_geld")
