@@ -23,6 +23,7 @@ var GebaeudeIndex = 0
 var gebaeude_gebaut = []
 var gebaeude_ausstehend = []
 var gebaeude_array = []
+var gebaeude_anzahl = []
 # var gebaeude_uebrig = []
 
 var ereignisse_array = []
@@ -62,6 +63,8 @@ func _process(delta):
 			print(typeof(gebaeude_array[int(i.split(';')[0])]))
 			gebaeude_gebaut.append(gebaeude_array[int(i.split(';')[0])])
 			gebaeude_ausstehend.remove(gebaeude_ausstehend.find(i))
+			gebaeude_anzahl[i.get_index()] += 1
+			print(gebaeude_anzahl)
 			print(beliebtheit)
 	#print(geld)
 
@@ -69,6 +72,10 @@ func hinzufuegen():
 	var config = ConfigFile.new()
 	var err = config.load(b_config)
 	var anzahl = config.get_value("Anzahl", "anzahl_unternehmen")
+	
+	for i in range(anzahl):
+		gebaeude_anzahl.append(int(0))
+		
 	if err == 0:
 		for i in range(anzahl):
 			var bauunternehmen = Bauunternehmen.new()
