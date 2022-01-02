@@ -37,7 +37,7 @@ var notification
 func _ready():
 	print("Running.")
 	setup()
-#	load_game()
+	load_game()
 #	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex))
 	set_geld_com(0)
 	set_beliebtheit_com(0.51)
@@ -100,6 +100,7 @@ func hinzufuegen():
 			gebaeude.set_bauzeit(int(bauzeit))
 			gebaeude.set_spezifischer_faktor(int(spezifischer_faktor))
 			gebaeude.set_typ(int(typ))
+			gebaeude.set_index(i)
 			
 			if typ == 0:
 				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu".add_item(name, i, 0)
@@ -238,12 +239,12 @@ func ereignis():
 	rng.randomize()
 	var rn = rng.randi_range(0,28)
 	ereignis = ereignisse_array[rn]
-	if ( get_level() >= ereignis.get_level()):
+	if (get_level() >= ereignis.get_level()):
 		print(rn)
 		print(ereignis.get_name_ereignis())
 	else: 
 		print(str(get_level()) + "<" + str(ereignis.get_level()))
-		print("Ereignis besitzt zu hohes level")
+		print("Ereignis besitzt zu hohes Level.")
 		ereignis()
 
 func get_ereignis_name():
@@ -306,11 +307,16 @@ func set_level():
 #		(Final)
 
 func save():
+	var gebaeude_save_g = []
+	
+	for i in gebaeude_gebaut:
+		gebaeude_save_g.append(i.get_index())
+	
 	var data = {
 		"geld": geld,
 		"bevoelkerung": bevoelkerung,
 		"beliebtheit": beliebtheit,
-		"gebaeude_gebaut": gebaeude_gebaut,
+		"gebaeude_gebaut": gebaeude_save_g,
 		"gebaeude_ausstehend": gebaeude_ausstehend,
 		"level": levelSpieler,
 		"zeit": zeit
@@ -329,9 +335,13 @@ func load_game():
 	geld = data["geld"]
 	bevoelkerung = data["bevoelkerung"]
 	beliebtheit = data["beliebtheit"]
-	gebaeude_gebaut = data["gebaeude_gebaut"]
+	var gebaeude_load_g = data["gebaeude_gebaut"]
 	gebaeude_ausstehend = data["gebaeude_ausstehend"]
 	levelSpieler = data["level"]
 	zeit = data["zeit"]
+	
+	for i in gebaeude_load_g:
+		gebaeude_gebaut.append(gebaeude_array[i])
+	
 	print("Loaded: ", data)
 	file.close()

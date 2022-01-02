@@ -12,6 +12,7 @@ var bauzeit
 var spezifischer_faktor
 var typ #	0 = "Wohngebäude"; 1 = "Wirtschaftsgebäude"
 var zustand # 	0 = "nicht gebaut"; 0 - 100 = "gebaut"; 100 = "neu gebaut, Startwert"
+var index
 
 func get_geld_einfluss():
 	return geld_einfluss
@@ -72,3 +73,9 @@ func set_typ(var wert):
 	
 func get_typ():
 	return typ
+	
+func set_index(var wert):
+	index = wert
+	
+func get_index():
+	return index
