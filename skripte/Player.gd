@@ -36,7 +36,7 @@ const Ereignisse = preload("res://skripte/Ereignisse.gd")
 var notification
 
 func _ready():
-	print("Running.")
+	t_print("Running.")
 	setup()
 	load_game()
 #	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex))
@@ -61,16 +61,16 @@ func _process(delta):
 	
 	for i in gebaeude_ausstehend:
 		if int(i.split(';')[1]) <= zeit:
-			print(gebaeude_array[int(i.split(';')[0])].get_name_gebaeude())
+			t_print(gebaeude_array[int(i.split(';')[0])].get_name_gebaeude())
 			bevoelkerung += gebaeude_array[int(i.split(';')[0])].get_bevoelkerung_einfluss()
 			beliebtheit += gebaeude_array[int(i.split(';')[0])].get_beliebtheit_einfluss()
-			# print(typeof(gebaeude_array[int(i.split(';')[0])]))
+			# t_print(typeof(gebaeude_array[int(i.split(';')[0])]))
 			gebaeude_gebaut.append(gebaeude_array[int(i.split(';')[0])])
 			gebaeude_ausstehend.remove(gebaeude_ausstehend.find(i))
 			gebaeude_anzahl[int(i.split(';')[0])] += 1
-			print(gebaeude_anzahl)
-			print(beliebtheit)
-	#print(geld)
+			t_print(gebaeude_anzahl)
+			t_print(beliebtheit)
+	#t_print(geld)
 
 func hinzufuegen():
 	var config = ConfigFile.new()
@@ -154,13 +154,13 @@ func hinzufuegen():
 func geld_einfluss_gebaeude():
 	if zeit >= tmp_zeit_gebauede + zeit_zwischen_gebauede:
 		tmp_zeit_gebauede += zeit_zwischen_gebauede
-		# print("Gebaeude.")
+		# t_print("Gebaeude.")
 		for i in gebaeude_gebaut:
 			geld += i.get_geld_einfluss()
 			
 func steuern():
 	if zeit >= tmp_zeit_steuern + zeit_zwischen_steuern:
-		# print("Steuern.")
+		# t_print("Steuern.")
 		tmp_zeit_steuern += zeit_zwischen_steuern
 		geld += 1000 * bevoelkerung * beliebtheit
 			
@@ -170,14 +170,14 @@ func neuer_regelmaessige_mitteilung():
 	# mitteilungen_uebrig[0].anzeigen()
 	
 func antrag_gebaeude(index):
-	print(gebaeude_array[index].get_name_gebaeude())
+	t_print(gebaeude_array[index].get_name_gebaeude())
 	return gebaeude_array[index].get_name_gebaeude()
 	
 func antrag_stellen(index):
 	var rn = RandomNumberGenerator.new().randi_range(0, 100)
 	if rn * beliebtheit > 40:
 		gebaeude_ausstehend.append(str(index) + ';' + str((gebaeude_array[index].get_bauzeit()) + zeit))
-		print(gebaeude_array[int(gebaeude_ausstehend[-1].split(';')[0])].get_name_gebaeude(), gebaeude_ausstehend[-1].split(';')[1])
+		t_print(str(gebaeude_array[int(gebaeude_ausstehend[-1].split(';')[0])].get_name_gebaeude()) + " " + str(gebaeude_ausstehend[-1].split(';')[1]))
 		geld += gebaeude_array[index].get_kosten()
 	
 	
@@ -249,11 +249,11 @@ func ereignis():
 	var rn = rng.randi_range(0,28)
 	ereignis = ereignisse_array[rn]
 	if (get_level() >= ereignis.get_level()):
-		print(rn)
-		print(ereignis.get_name_ereignis())
+		t_print(rn)
+		t_print(ereignis.get_name_ereignis())
 	else: 
-		print(str(get_level()) + "<" + str(ereignis.get_level()))
-		print("Ereignis besitzt zu hohes Level.")
+		t_print(str(get_level()) + "<" + str(ereignis.get_level()))
+		t_print("Ereignis besitzt zu hohes Level.")
 		ereignis()
 
 func get_ereignis_name():
@@ -343,7 +343,7 @@ func save():
 	var file = File.new()
 	file.open("user://savegame.save", File.WRITE)
 	file.store_line(to_json(data))
-	print("Saved: ", data)
+	t_print("Saved: " + str(data))
 	file.close()
 	
 func load_game():
@@ -362,5 +362,8 @@ func load_game():
 	for i in gebaeude_load_g:
 		gebaeude_gebaut.append(gebaeude_array[i])
 	
-	print("Loaded: ", data)
+	t_print("Loaded: " + str(data))
 	file.close()
+	
+func t_print(var wert):
+	print(str(zeit) + ": >>>  " + str(wert))
