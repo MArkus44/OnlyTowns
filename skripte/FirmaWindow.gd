@@ -18,8 +18,3 @@ func text():
 	$Firma2.text = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen(n2)
 	$Firma3.text = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen(n3)
 	$Firma4.text = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen(n4)
-
-func _process(delta):
-	if(wait==0):
-		text()
-		wait = 1

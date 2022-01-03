@@ -528,6 +528,7 @@ anims/RESET = SubResource( 7 )
 script = ExtResource( 25 )
 
 [node name="WindowBildschirm" type="WindowDialog" parent="Bildschirm/BildschirmBild"]
+visible = true
 margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0
@@ -682,6 +683,7 @@ __meta__ = {
 }
 
 [node name="WindowAntraege" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge"]
+visible = true
 margin_left = 262.0
 margin_top = -149.0
 margin_right = 1305.0
@@ -832,8 +834,8 @@ self_modulate = Color( 1, 0, 0, 0.576471 )
 use_parent_material = true
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 292.0
-margin_bottom = 63.0
+margin_right = 308.0
+margin_bottom = 208.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -842,31 +844,29 @@ __meta__ = {
 visible = true
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 292.0
-margin_bottom = 63.0
+margin_right = 308.0
+margin_bottom = 208.0
 script = ExtResource( 40 )
 
 [node name="Firma1" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog/WindowDialog"]
-margin_right = 40.0
-margin_bottom = 20.0
+margin_right = 100.0
+margin_bottom = 50.0
 
 [node name="Firma2" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog/WindowDialog"]
-margin_left = 199.5
-margin_top = -0.5
-margin_right = 239.5
-margin_bottom = 19.5
+margin_top = 50.0
+margin_right = 100.0
+margin_bottom = 100.0
 
 [node name="Firma3" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog/WindowDialog"]
-margin_left = 115.5
-margin_top = -1.0
-margin_right = 155.5
-margin_bottom = 19.0
+margin_left = 0.847168
+margin_top = 100.0
+margin_right = 100.0
+margin_bottom = 150.0
 
 [node name="Firma4" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog/WindowDialog"]
-margin_left = 52.3348
-margin_top = 1.0
-margin_right = 92.3348
-margin_bottom = 21.0
+margin_top = 150.0
+margin_right = 100.0
+margin_bottom = 200.0
 
 [node name="GebauteGebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
 margin_left = 84.4315
@@ -912,3 +912,4 @@ script = ExtResource( 41 )
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="confirmed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" method="_on_ConfirmationDialog_confirmed"]
+[connection signal="confirmed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog/WindowDialog" method="text"]
