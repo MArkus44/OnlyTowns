@@ -1,7 +1,7 @@
 class_name Bauunternehmen
 
 var name_unternehmen
-var bauzeit
+var beschreibung
 var multiplikator_geld
 var multiplikator_bauzeit
 
@@ -11,11 +11,11 @@ func set_name(var new_name):
 func get_name():
 	return name_unternehmen
 	
-func set_bauzeit(var new_bauzeit):
-	bauzeit = new_bauzeit
+func set_beschreibung(var new_beschreibung):
+	beschreibung = new_beschreibung
 	
 func get_bauzeit():
-	return bauzeit
+	return beschreibung
 	
 func set_multiplikator_geld(var wert):
 	multiplikator_geld = wert

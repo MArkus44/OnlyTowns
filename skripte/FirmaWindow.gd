@@ -8,7 +8,7 @@ extends WindowDialog
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen()
+#	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen()
 	pass # Replace with function body.
 
 

@@ -18,16 +18,16 @@ func get_geld_einfluss():
 	return geld_einfluss
 	
 func set_geld_einfluss(var wert):
-	geld_einfluss = int(wert)
+	geld_einfluss = float(wert)
 	
 func set_beliebtheit_einfluss(var wert):
-	beliebtheit_einfluss = int(wert)
+	beliebtheit_einfluss = float(wert)
 	
 func get_beliebtheit_einfluss():
 	return beliebtheit_einfluss
 	
 func set_bevoelkerung_einfluss(var wert):
-	bevoelkerung_einfluss = int(wert)
+	bevoelkerung_einfluss = float(wert)
 	
 func get_bevoelkerung_einfluss():
 	return bevoelkerung_einfluss
@@ -36,7 +36,7 @@ func get_zustand():
 	return zustand
 
 func set_zustand(var wert):
-	zustand = int(wert)
+	zustand = float(wert)
 	
 func set_name_gebaeude(var wert):
 	name_gebaeude = wert
