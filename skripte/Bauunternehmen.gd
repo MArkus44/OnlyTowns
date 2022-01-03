@@ -18,13 +18,13 @@ func get_bauzeit():
 	return beschreibung
 	
 func set_multiplikator_geld(var wert):
-	multiplikator_geld = wert
+	multiplikator_geld = float(wert)
 	
 func get_multiplikator_geld():
 	return multiplikator_geld
 	
 func set_multiplikator_bauzeit(var wert):
-	multiplikator_bauzeit = wert
+	multiplikator_bauzeit = float(wert)
 
 func get_multiplikator_bauzeit():
 	return multiplikator_bauzeit

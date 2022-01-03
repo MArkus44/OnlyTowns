@@ -1,14 +1,9 @@
 extends WindowDialog
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var wait = 0
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen()
+func text():
 	var n1 = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().randomG()
 	var n2 = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().randomG()
 	while(n2 == n1):
@@ -23,3 +18,8 @@ func _ready():
 	$Firma2.text = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen(n2)
 	$Firma3.text = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen(n3)
 	$Firma4.text = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen(n4)
+
+func _process(delta):
+	if(wait==0):
+		text()
+		wait = 1

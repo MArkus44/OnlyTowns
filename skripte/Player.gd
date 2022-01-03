@@ -11,6 +11,7 @@ var levelSpieler = 1
 var ereignis
 var rngG
 
+var wait = 0
 var zeit = 0
 
 var zeit_zwischen_gebauede = 12
@@ -59,6 +60,7 @@ func _process(delta):
 	geld_einfluss_gebaeude()
 	neuer_regelmaessige_mitteilung()
 	steuern()
+#	ereignis_ausloeser()
 	
 	for i in gebaeude_ausstehend:
 		if int(i.split(';')[1]) <= zeit:
@@ -88,7 +90,7 @@ func hinzufuegen():
 			bauunternehmen.set_beschreibung(beschreibung)
 			bauunternehmen.set_multiplikator_geld(multiplikator_geld)
 			bauunternehmen.set_multiplikator_bauzeit(multiplikator_bauzeit)
-			bauunternehmen_array.append(name)
+			bauunternehmen_array.append(bauunternehmen)
 	
 	config = ConfigFile.new()
 	err = config.load(g_config)
@@ -264,6 +266,14 @@ func ereignisget():
 		t_print("Ereignis besitzt zu hohes Level.")
 		ereignisget()
 
+#func ereignis_ausloeser():
+#	if(wait <= 0):
+#		var rng = RandomNumberGenerator.new()
+#		rng.randomize()
+#		var rn = rng.randi_range(4589,236523)
+#		wait = rng
+#		
+
 func get_ereignis_name():
 	return ereignis.get_name_ereignis()
 
@@ -296,19 +306,19 @@ func randomG():
 	rngG.randomize()
 # warning-ignore:unused_variable
 	var rn = rngG.randi_range(0,6)
-	return rngG
+	return rn
 
 func get_name_bauunternehmen(rngGf):
 	return bauunternehmen_array[rngGf].get_name()
 
 func get_bauzeit(rngGf):
-	return bauunternehmen_array[rngGf].get_bauzeit()
+	return (bauunternehmen_array[rngGf].get_bauzeit())
 
 func get_multiplikator_geld(rngGf):
-	return bauunternehmen_array[rngGf].get_multiplikator_geld()
+	return (bauunternehmen_array[rngGf].get_multiplikator_geld())
 
 func get_multiplikator_bauzeit(rngGf):
-	return bauunternehmen_array[rngGf].get_multiplikator_bauzeit()
+	return (bauunternehmen_array[rngGf].get_multiplikator_bauzeit())
 
 func _exit_tree():
 	Console.remove_command("set_geld")
