@@ -543,6 +543,7 @@ __meta__ = {
 }
 
 [node name="Desktop" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
+visible = false
 margin_right = 1709.0
 margin_bottom = 1002.0
 texture = ExtResource( 8 )
@@ -552,6 +553,7 @@ __meta__ = {
 }
 
 [node name="Beliebtheit" type="ProgressBar" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
+visible = false
 margin_left = 783.0
 margin_top = 464.0
 margin_right = 1425.0
@@ -577,6 +579,7 @@ align = 2
 valign = 1
 
 [node name="Geld" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
+visible = false
 margin_left = 781.0
 margin_top = 307.0
 margin_right = 1424.0
@@ -607,6 +610,7 @@ __meta__ = {
 }
 
 [node name="Bevölkerung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
+visible = false
 margin_left = 778.0
 margin_top = 620.0
 margin_right = 1431.0
@@ -630,6 +634,7 @@ align = 2
 valign = 1
 
 [node name="Level" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
+visible = false
 margin_left = 645.0
 margin_top = 764.0
 margin_right = 752.0
@@ -649,6 +654,7 @@ custom_fonts/font = SubResource( 21 )
 script = ExtResource( 48 )
 
 [node name="Save" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
+visible = false
 margin_left = 129.0
 margin_top = 478.169
 margin_right = 257.0
@@ -684,6 +690,7 @@ __meta__ = {
 }
 
 [node name="WindowAntraege" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge"]
+visible = true
 margin_left = 262.0
 margin_top = -149.0
 margin_right = 1305.0
@@ -841,6 +848,7 @@ __meta__ = {
 }
 
 [node name="WindowDialog" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog"]
+visible = true
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 292.0
@@ -852,16 +860,22 @@ margin_right = 40.0
 margin_bottom = 20.0
 
 [node name="Firma2" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog/WindowDialog"]
-margin_right = 40.0
-margin_bottom = 20.0
+margin_left = 199.5
+margin_top = -0.5
+margin_right = 239.5
+margin_bottom = 19.5
 
 [node name="Firma3" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog/WindowDialog"]
-margin_right = 40.0
-margin_bottom = 20.0
+margin_left = 115.5
+margin_top = -1.0
+margin_right = 155.5
+margin_bottom = 19.0
 
 [node name="Firma4" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/ConfirmationDialog/WindowDialog"]
-margin_right = 40.0
-margin_bottom = 20.0
+margin_left = 52.3348
+margin_top = 1.0
+margin_right = 92.3348
+margin_bottom = 21.0
 
 [node name="GebauteGebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
 margin_left = 84.4315
