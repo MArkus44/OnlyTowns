@@ -296,7 +296,7 @@ func randomG():
 	rngG.randomize()
 # warning-ignore:unused_variable
 	var rn = rngG.randi_range(0,6)
-	return rngG
+	return rn
 
 func get_name_bauunternehmen(rngGf):
 	return bauunternehmen_array[rngGf].get_name()

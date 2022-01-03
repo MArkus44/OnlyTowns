@@ -8,7 +8,6 @@ extends WindowDialog
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen()
 	var n1 = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().randomG()
 	var n2 = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().randomG()
 	while(n2 == n1):
@@ -23,3 +22,4 @@ func _ready():
 	$Firma2.text = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen(n2)
 	$Firma3.text = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen(n3)
 	$Firma4.text = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_name_bauunternehmen(n4)
+	print(str(n1) + " " + str(n2) + " " + str(n3) + " " + str(n4))
