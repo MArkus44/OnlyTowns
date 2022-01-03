@@ -488,7 +488,6 @@ __meta__ = {
 }
 
 [node name="WindowDialog" type="WindowDialog" parent="Zeitung"]
-visible = true
 margin_right = 423.0
 margin_bottom = 244.0
 
@@ -529,7 +528,6 @@ anims/RESET = SubResource( 7 )
 script = ExtResource( 25 )
 
 [node name="WindowBildschirm" type="WindowDialog" parent="Bildschirm/BildschirmBild"]
-visible = true
 margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0

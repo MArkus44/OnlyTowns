@@ -9,7 +9,7 @@ var beliebtheit = 0.54
 var bevoelkerung = 1000
 var levelSpieler = 1
 var ereignis
-var bauunternehmen
+var rngG
 
 var zeit = 0
 
@@ -39,7 +39,7 @@ var notification
 func _ready():
 	t_print("Running.")
 	setup()
-	load_game()
+#	load_game()
 #	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex))
 	set_geld_com(0)
 	set_beliebtheit_com(0.51)
@@ -93,6 +93,7 @@ func hinzufuegen():
 	config = ConfigFile.new()
 	err = config.load(g_config)
 	anzahl = config.get_value("Anzahl", "anzahl_gebaeude")
+# warning-ignore:unused_variable
 	for i in range(anzahl):
 		gebaeude_anzahl.append(int(0))
 	if err == 0:
@@ -100,18 +101,18 @@ func hinzufuegen():
 			var gebaeude = Gebaeude.new()
 			var name = config.get_value(str(i + 1), "name_gebaeude")
 			var kosten = config.get_value(str(i + 1), "kosten")
-			var geld_einfluss = config.get_value(str(i + 1), "geld_einfluss")
-			var beliebtheit_einfluss = config.get_value(str(i + 1), "beliebtheit_einfluss")
-			var bevoelkerung_einfluss = config.get_value(str(i + 1), "bevoelkerung_einfluss")
+			var geld_einfluss = float(config.get_value(str(i + 1), "geld_einfluss"))
+			var beliebtheit_einfluss = float(config.get_value(str(i + 1), "beliebtheit_einfluss"))
+			var bevoelkerung_einfluss = float(config.get_value(str(i + 1), "bevoelkerung_einfluss"))
 			var level = config.get_value(str(i + 1), "level")
 			var bauzeit = config.get_value(str(i + 1), "bauzeit")
 			var spezifischer_faktor = config.get_value(str(i + 1), "spezifischer_faktor")
 			var typ = int(config.get_value(str(i + 1), "typ"))
 			gebaeude.set_name_gebaeude(name)
 			gebaeude.set_kosten(int(kosten))
-			gebaeude.set_geld_einfluss(int(geld_einfluss))
-			gebaeude.set_beliebtheit_einfluss(int(beliebtheit_einfluss))
-			gebaeude.set_bevoelkerung_einfluss(int(bevoelkerung_einfluss))
+			gebaeude.set_geld_einfluss(geld_einfluss)
+			gebaeude.set_beliebtheit_einfluss(beliebtheit_einfluss)
+			gebaeude.set_bevoelkerung_einfluss(bevoelkerung_einfluss)
 			gebaeude.set_level(int(level))
 			gebaeude.set_bauzeit(int(bauzeit))
 			gebaeude.set_spezifischer_faktor(int(spezifischer_faktor))
@@ -250,7 +251,7 @@ func set_notification():
 	else:
 		notification = true
 
-func ereignis():
+func ereignisget():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var rn = rng.randi_range(0,28)
@@ -261,7 +262,7 @@ func ereignis():
 	else: 
 		t_print(str(get_level()) + "<" + str(ereignis.get_level()))
 		t_print("Ereignis besitzt zu hohes Level.")
-		ereignis()
+		ereignisget()
 
 func get_ereignis_name():
 	return ereignis.get_name_ereignis()
@@ -290,17 +291,24 @@ func get_ereignis_kaputt():
 func get_ereignis_antraege_verzoegerung():
 	return ereignis.antraege_verzoegerung
 
-func get_name_bauunternehmen():
-	return bauunternehmen.
-	
-func get_bauzeit():
-	return bauunternehmen.bauzeit
+func randomG():
+	rngG = RandomNumberGenerator.new()
+	rngG.randomize()
+# warning-ignore:unused_variable
+	var rn = rngG.randi_range(0,6)
+	return rngG
 
-func get_multiplikator_geld():
-	return bauunternehmen.multiplikator_geld
+func get_name_bauunternehmen(rngGf):
+	return bauunternehmen_array[rngGf].get_name()
 
-func get_multiplikator_bauzeit():
-	return bauunternehmen.multiplikator_bauzeit
+func get_bauzeit(rngGf):
+	return bauunternehmen_array[rngGf].get_bauzeit()
+
+func get_multiplikator_geld(rngGf):
+	return bauunternehmen_array[rngGf].get_multiplikator_geld()
+
+func get_multiplikator_bauzeit(rngGf):
+	return bauunternehmen_array[rngGf].get_multiplikator_bauzeit()
 
 func _exit_tree():
 	Console.remove_command("set_geld")
