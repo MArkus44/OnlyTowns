@@ -10,8 +10,8 @@ var bevoelkerung = 1000
 var levelSpieler = 1
 var ereignis
 var rngG
+onready var timer = $Timer
 
-var wait = 0
 var zeit = 0
 
 var zeit_zwischen_gebauede = 12
@@ -46,6 +46,7 @@ func _ready():
 	set_beliebtheit_com(0.51)
 	set_bevoelkerung_com(1000)
 	set_level_com(2)
+	timer_start()
 	
 	for i in range(len(gebaeude_array) - 1):
 		$Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude/gebaut_pop.add_item(gebaeude_array[i].get_name_gebaeude(), i)
@@ -60,7 +61,7 @@ func _process(delta):
 	geld_einfluss_gebaeude()
 	neuer_regelmaessige_mitteilung()
 	steuern()
-#	ereignis_ausloeser()
+	ereignis_ausloeser()
 	
 	for i in gebaeude_ausstehend:
 		if int(i.split(';')[1]) <= zeit:
@@ -266,13 +267,19 @@ func ereignisget():
 		t_print("Ereignis besitzt zu hohes Level.")
 		ereignisget()
 
-#func ereignis_ausloeser():
-#	if(wait <= 0):
-#		var rng = RandomNumberGenerator.new()
-#		rng.randomize()
-#		var rn = rng.randi_range(4589,236523)
-#		wait = rng
-#		
+func timer_start():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var rn = rng.randi_range(5,10)
+	print(rn)
+	timer.start(rn)
+
+func ereignis_ausloeser():
+	if(timer.time_left == 0):
+		ereignisget()
+		timer_start()
+		notification = true
+		t_print("EEEERRRRRREEEEOIIIIIIIGGGGGNNNIIIIIIISSSS!!!!!!!!!!!!!!!!!!!")
 
 func get_ereignis_name():
 	return ereignis.get_name_ereignis()
