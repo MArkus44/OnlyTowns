@@ -11,6 +11,7 @@ var levelSpieler = 1
 var ereignis
 var rngG
 onready var timer = $Timer
+onready var timer2 = $Timer2
 
 var zeit = 0
 
@@ -46,6 +47,7 @@ func _ready():
 	set_beliebtheit_com(0.51)
 	set_bevoelkerung_com(1000)
 	set_level_com(2)
+#	set_ereignis_com(0)
 	timer_start()
 	
 	for i in range(len(gebaeude_array) - 1):
@@ -58,7 +60,7 @@ func _process(delta):
 	zeit += delta  # in Sekunden
 	gebaeude_pop()
 	set_level()
-	geld_einfluss_gebaeude()
+	geld_einfluss_gebaeude(1)
 	neuer_regelmaessige_mitteilung()
 	steuern()
 	ereignis_ausloeser()
@@ -135,7 +137,7 @@ func hinzufuegen():
 				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu".add_item(name, i, 0)
 				$"Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu".add_separator()
 			gebaeude_array.append(gebaeude)
-				
+
 	config = ConfigFile.new()
 	err = config.load(e_config)
 	anzahl = config.get_value("Anzahl", "anzahl_ereignisse")
@@ -162,12 +164,12 @@ func hinzufuegen():
 			ereignisse.set_antraege_verzoegerung(antraege_verzoegerung)
 			ereignisse_array.append(ereignisse)
 
-func geld_einfluss_gebaeude():
+func geld_einfluss_gebaeude(geld_einfluss):
 	if zeit >= tmp_zeit_gebauede + zeit_zwischen_gebauede:
 		tmp_zeit_gebauede += zeit_zwischen_gebauede
 		# t_print("Gebaeude.")
 		for i in gebaeude_gebaut:
-			geld += i.get_geld_einfluss()
+			geld += i.get_geld_einfluss() * geld_einfluss
 			
 func steuern():
 	if zeit >= tmp_zeit_steuern + zeit_zwischen_steuern:
@@ -231,7 +233,14 @@ func set_bevoelkerung_com(wert):
 		.set_description('Sets Bevölkerung   Wert: 0<Bevölkerung')\
 		.add_argument('bevölkerung', TYPE_INT)\
 		.register()
-		
+	
+# warning-ignore:unused_argument
+func set_ereignis_com(wert):
+	Console.add_command('set_ereignis', self, ereignis_rechnen(0))\
+		.set_description('Löst Ereignis mit [index] aus')\
+		.add_argument('ereignis_index', TYPE_INT)\
+		.register()
+
 func get_level():
 	return levelSpieler
 	
@@ -262,6 +271,7 @@ func ereignisget():
 	if (get_level() >= ereignis.get_level()):
 		t_print(rn)
 		t_print(ereignis.get_name_ereignis())
+#		ereignis_rechnen(rn)
 	else: 
 		t_print(str(get_level()) + "<" + str(ereignis.get_level()))
 		t_print("Ereignis besitzt zu hohes Level.")
@@ -279,7 +289,29 @@ func ereignis_ausloeser():
 		ereignisget()
 		timer_start()
 		notification = true
-		t_print("EEEERRRRRREEEEOIIIIIIIGGGGGNNNIIIIIIISSSS!!!!!!!!!!!!!!!!!!!")
+#		t_print("EEEERRRRRREEEEOIIIIIIIGGGGGNNNIIIIIIISSSS!!!!!!!!!!!!!!!!!!!")
+
+func ereignis_rechnen(index):
+	var dauer = ereignisse_array[index].get_dauer()
+	timer2.start(dauer)
+# warning-ignore:unused_variable
+	var einkommen_einfluss = ereignisse_array[index].get_einkommen_einfluss()
+	var geld_einfluss = ereignisse_array[index].get_geld_einfluss()
+	var bevoelkerung_einfluss = ereignisse_array[index].get_bevoelkerung_einfluss()
+	var beliebtheit_einfluss = ereignisse_array[index].get_beliebtheit_einfluss()
+# warning-ignore:unused_variable
+	var kaputt = ereignisse_array[index].get_kaputt()
+# warning-ignore:unused_variable
+	var antraege_verzoegerung = ereignisse_array[index].get_antraege_verzoegerung()
+	while (timer2.time_left > 0):
+		var einmal
+		geld_einfluss_gebaeude(geld_einfluss)
+		if (einmal == 0):
+#			einkommen = einkommen * einkommen_einfluss
+			bevoelkerung = bevoelkerung + bevoelkerung * bevoelkerung_einfluss
+			beliebtheit = beliebtheit +  beliebtheit_einfluss
+			einmal = einmal +1
+
 
 func get_ereignis_name():
 	return ereignis.get_name_ereignis()
@@ -318,14 +350,23 @@ func randomG():
 func get_name_bauunternehmen(rngGf):
 	return bauunternehmen_array[rngGf].get_name()
 
-func get_bauzeit(rngGf):
-	return (bauunternehmen_array[rngGf].get_bauzeit())
+#func get_bauzeit(rngGf):
+#	return (bauunternehmen_array[rngGf].get_bauzeit())
 
 func get_multiplikator_geld(rngGf):
 	return (bauunternehmen_array[rngGf].get_multiplikator_geld())
 
 func get_multiplikator_bauzeit(rngGf):
 	return (bauunternehmen_array[rngGf].get_multiplikator_bauzeit())
+
+func get_kosten(index):
+	return gebaeude_array[index].get_kosten()
+
+func get_bauzeit(index):
+	return gebaeude_array[index].get_bauzeit()
+
+func get_beschreibung(index):
+	return bauunternehmen_array[index].get_beschreibung()
 
 func _exit_tree():
 	Console.remove_command("set_geld")
@@ -381,6 +422,7 @@ func save():
 		"gebaeude_anzahl": gebaeude_anzahl,
 		"level": levelSpieler,
 		"zeit": zeit
+		
 	}
 	
 	var file = File.new()
@@ -410,3 +452,4 @@ func load_game():
 	
 func t_print(var wert):
 	print(str(zeit) + ": >>>  " + str(wert))
+	

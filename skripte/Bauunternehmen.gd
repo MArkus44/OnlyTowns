@@ -14,6 +14,9 @@ func get_name():
 func set_beschreibung(var new_beschreibung):
 	beschreibung = new_beschreibung
 	
+func get_beschreibung():
+	return beschreibung
+	
 func get_bauzeit():
 	return beschreibung
 	
