@@ -63,6 +63,7 @@ func _process(delta):
 	neuer_regelmaessige_mitteilung()
 	steuern()
 	ereignis_ausloeser()
+	print("läuft")
 	
 	for i in gebaeude_ausstehend:
 		if int(i.split(';')[1]) <= zeit:
@@ -163,12 +164,12 @@ func hinzufuegen():
 			ereignisse.set_antraege_verzoegerung(antraege_verzoegerung)
 			ereignisse_array.append(ereignisse)
 
-func geld_einfluss_gebaeude(geld_einfluss):
+func geld_einfluss_gebaeude(einkommen_einfluss):
 	if zeit >= tmp_zeit_gebauede + zeit_zwischen_gebauede:
 		tmp_zeit_gebauede += zeit_zwischen_gebauede
 		# t_print("Gebaeude.")
 		for i in gebaeude_gebaut:
-			geld += i.get_geld_einfluss() * geld_einfluss
+			geld += i.get_geld_einfluss() * abs(einkommen_einfluss)
 			
 func steuern():
 	if zeit >= tmp_zeit_steuern + zeit_zwischen_steuern:
@@ -288,7 +289,6 @@ func ereignis_ausloeser():
 		ereignisget()
 		timer_start()
 		notification = true
-#		t_print("EEEERRRRRREEEEOIIIIIIIGGGGGNNNIIIIIIISSSS!!!!!!!!!!!!!!!!!!!")
 
 func ereignis_rechnen(index):
 	print("rechnen ausgelöst")
@@ -302,7 +302,7 @@ func ereignis_rechnen(index):
 	var kaputt = ereignisse_array[index].get_kaputt()
 	var antraege_verzoegerung = ereignisse_array[index].get_antraege_verzoegerung()
 	
-#	einkommen = einkommen * einkommen_einfluss
+	geld = geld + geld * geld_einfluss
 	bevoelkerung = bevoelkerung + bevoelkerung * bevoelkerung_einfluss
 	beliebtheit = beliebtheit +  beliebtheit_einfluss
 	print(bevoelkerung)
@@ -314,16 +314,16 @@ func ereignis_rechnen(index):
 	print(beliebtheit_einfluss)
 	print(kaputt)
 	print(antraege_verzoegerung)
-	geld_einfluss_gebaeude(geld_einfluss)
-#	while (timer2.time_left > 0):
-#		print("while ausgelöst")
-#		print(dauer)
-#		print(einkommen_einfluss)
-#		print(geld_einfluss)
-#		print(bevoelkerung_einfluss)
-#		print(beliebtheit_einfluss)
-#		print(kaputt)
-#		print(antraege_verzoegerung)
+	geld_einfluss_gebaeude(einkommen_einfluss)
+	for number in range(0,dauer*1000):
+		print("while ausgelöst")
+		print(dauer)
+		print(einkommen_einfluss)
+		print(geld_einfluss)
+		print(bevoelkerung_einfluss)
+		print(beliebtheit_einfluss)
+		print(kaputt)
+		print(antraege_verzoegerung)
 
 func get_ereignis_name():
 	return ereignis.get_name_ereignis()

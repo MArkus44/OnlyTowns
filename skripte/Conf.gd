@@ -15,20 +15,11 @@ func _on_PopupMenu_id_pressed(index):
 	id = index
 	close.visible = true
 	ok.visible = true
-	print(str(get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_level()) + "zu" + str(get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_level()))
-	if (get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_level() >= get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_level()):
-		var kosten =comma_sep(str((get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_kosten())*-1))
-		var gebaeude = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_name_gebaeude()
+	print(str(get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_level()) + "zu" + str(get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_level()))
+	if (get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_level() >= get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_level()):
+		var kosten =comma_sep(str((get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_kosten())*-1))
+		var gebaeude = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_name_gebaeude()
 		dialog_text = "Möchten sie " + gebaeude + " für " + kosten + " € wirklich bauen?" 
-		popup_centered()
-	else:
-		var level = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[id].get_level()
-		dialog_text = "Du brauchst Level " + str(level) + " um dieses Gebäude zu bauen"
-		close.visible = false
-		remove_button(close)
-		ok.visible = false
-		remove_button(ok)
-		popup_centered()
 
 func comma_sep(number):
 	var string = str(number)
@@ -43,5 +34,11 @@ func comma_sep(number):
 
 
 func _on_ConfirmationDialog_confirmed():
-	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().antrag_stellen(id)
-	$WindowDialog.popup_centered()
+	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().antrag_stellen(id)
+
+
+# warning-ignore:unused_argument
+func _on_Firma1_gui_input(event):
+	if (event is InputEventMouseButton && event.pressed && event.button_index == 1):
+		_on_PopupMenu_id_pressed(id)
+		self.popup_centered()
