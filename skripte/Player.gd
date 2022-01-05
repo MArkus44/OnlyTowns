@@ -10,6 +10,7 @@ var bevoelkerung = 1000
 var levelSpieler = 1
 var ereignis
 var rngG
+var notification
 onready var timer = $Timer
 onready var timer2 = $Timer2
 
@@ -36,8 +37,6 @@ const Gebaeude = preload("res://skripte/Gebaeude.gd")
 const Ereignisse = preload("res://skripte/Ereignisse.gd")
 # var antrag_tmp = Antrag.new()
 
-var notification
-
 func _ready():
 	t_print("Running.")
 	setup()
@@ -47,7 +46,7 @@ func _ready():
 	set_beliebtheit_com(0.51)
 	set_bevoelkerung_com(1000)
 	set_level_com(2)
-#	set_ereignis_com(0)
+#	set_ereignis_com(29)
 	timer_start()
 	
 	for i in range(len(gebaeude_array) - 1):
@@ -236,9 +235,9 @@ func set_bevoelkerung_com(wert):
 	
 # warning-ignore:unused_argument
 func set_ereignis_com(wert):
-	Console.add_command('set_ereignis', self, ereignis_rechnen(0))\
+	Console.add_command('set_ereignis', self, ereignis_rechnen(29))\
 		.set_description('Löst Ereignis mit [index] aus')\
-		.add_argument('ereignis_index', TYPE_INT)\
+		.add_argument('index', TYPE_INT)\
 		.register()
 
 func get_level():
@@ -271,7 +270,7 @@ func ereignisget():
 	if (get_level() >= ereignis.get_level()):
 		t_print(rn)
 		t_print(ereignis.get_name_ereignis())
-#		ereignis_rechnen(rn)
+		ereignis_rechnen(rn)
 	else: 
 		t_print(str(get_level()) + "<" + str(ereignis.get_level()))
 		t_print("Ereignis besitzt zu hohes Level.")
@@ -292,6 +291,7 @@ func ereignis_ausloeser():
 #		t_print("EEEERRRRRREEEEOIIIIIIIGGGGGNNNIIIIIIISSSS!!!!!!!!!!!!!!!!!!!")
 
 func ereignis_rechnen(index):
+	print("rechnen ausgelöst")
 	var dauer = ereignisse_array[index].get_dauer()
 	timer2.start(dauer)
 # warning-ignore:unused_variable
@@ -299,19 +299,31 @@ func ereignis_rechnen(index):
 	var geld_einfluss = ereignisse_array[index].get_geld_einfluss()
 	var bevoelkerung_einfluss = ereignisse_array[index].get_bevoelkerung_einfluss()
 	var beliebtheit_einfluss = ereignisse_array[index].get_beliebtheit_einfluss()
-# warning-ignore:unused_variable
 	var kaputt = ereignisse_array[index].get_kaputt()
-# warning-ignore:unused_variable
 	var antraege_verzoegerung = ereignisse_array[index].get_antraege_verzoegerung()
-	while (timer2.time_left > 0):
-		var einmal
-		geld_einfluss_gebaeude(geld_einfluss)
-		if (einmal == 0):
-#			einkommen = einkommen * einkommen_einfluss
-			bevoelkerung = bevoelkerung + bevoelkerung * bevoelkerung_einfluss
-			beliebtheit = beliebtheit +  beliebtheit_einfluss
-			einmal = einmal +1
-
+	
+#	einkommen = einkommen * einkommen_einfluss
+	bevoelkerung = bevoelkerung + bevoelkerung * bevoelkerung_einfluss
+	beliebtheit = beliebtheit +  beliebtheit_einfluss
+	print(bevoelkerung)
+	print(beliebtheit)
+	print(dauer)
+	print(einkommen_einfluss)
+	print(geld_einfluss)
+	print(bevoelkerung_einfluss)
+	print(beliebtheit_einfluss)
+	print(kaputt)
+	print(antraege_verzoegerung)
+	geld_einfluss_gebaeude(geld_einfluss)
+#	while (timer2.time_left > 0):
+#		print("while ausgelöst")
+#		print(dauer)
+#		print(einkommen_einfluss)
+#		print(geld_einfluss)
+#		print(bevoelkerung_einfluss)
+#		print(beliebtheit_einfluss)
+#		print(kaputt)
+#		print(antraege_verzoegerung)
 
 func get_ereignis_name():
 	return ereignis.get_name_ereignis()
@@ -373,6 +385,7 @@ func _exit_tree():
 	Console.remove_command("set_bevoelkerung")
 	Console.remove_command("set_beliebtheit")
 	Console.remove_command("set_level")
+	Console.remove_command("set_ereignis")
 	
 func set_level(): 
 	if(bevoelkerung <= 850):

@@ -5,8 +5,5 @@ func _ready():
 
 # warning-ignore:unused_argument
 func _process(delta):
-	self.value = get_beliebtheit()*100
-	
-func get_beliebtheit():
-	var beliebtheit = get_parent().get_parent().get_parent().get_parent().get_beliebtheit()
-	return beliebtheit
+	self.value = float(get_parent().get_parent().get_parent().get_parent().get_beliebtheit() * 100)
+

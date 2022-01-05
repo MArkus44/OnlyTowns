@@ -327,6 +327,7 @@ __meta__ = {
 one_shot = true
 
 [node name="Timer2" type="Timer" parent="."]
+one_shot = true
 
 [node name="LabelGeld" type="Label" parent="."]
 margin_left = 60.0
@@ -417,11 +418,11 @@ Das Ziel des Spiels besteht darin, eine Stadt zu bauen. Dabei muss man auf die W
 
 Funktionsweise:
 
-Es gibt drei Schwierigkeitsgrade leicht, schwer und mittelschwer.
-Man baut Gebäude, um die Bevölkerung, die Einnahmen oder die Beliebtheit zu steigern. Abhängig davon, wie viele Menschen in der Stadt leben, gibt es verschiedene Level. Für jedes neue Level schaltet man neue Gebäude frei. Zudem gibt es regelmäßige Wahlen, die maßgeblich von der Beliebtheit abhängen. Wenn man weniger als x Beliebtheit ab Level 10 hat, hat man verloren. 
+Es gibt drei Schwierigkeitsgrade leicht, mittel und schwer.
+Man baut Gebäude, um die Bevölkerung, die Einnahmen oder die Beliebtheit zu steigern. Abhängig davon, wie viele Menschen in der Stadt leben, gibt es verschiedene Level. Für jedes neue Level schaltet man neue Gebäude frei. Zudem gibt es regelmäßige Wahlen,bei denen das Ergebnis maßgeblich von der Beliebtheit abhängt. Wenn man weniger als x Beliebtheit ab Level 10 hat, hat man verloren. 
 
 
-Kommentar: x hängt von der Schwierigkeit ab (bei mittel: 50, bei leicht: 40, schwer: 60)
+Kommentar: x hängt von der Schwierigkeit ab (bei leicht: 40, bei mittel: 50, schwer: 60)
 
 "
 autowrap = true
@@ -519,6 +520,7 @@ anims/RESET = SubResource( 7 )
 script = ExtResource( 25 )
 
 [node name="WindowBildschirm" type="WindowDialog" parent="Bildschirm/BildschirmBild"]
+visible = true
 margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0
@@ -673,7 +675,6 @@ __meta__ = {
 }
 
 [node name="WindowAntraege" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge"]
-visible = true
 margin_left = 262.0
 margin_top = -149.0
 margin_right = 1305.0
@@ -834,8 +835,8 @@ __meta__ = {
 visible = true
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 677.0
-margin_bottom = 354.0
+margin_right = 292.0
+margin_bottom = 63.0
 script = ExtResource( 40 )
 __meta__ = {
 "_edit_use_anchors_": false
