@@ -63,7 +63,6 @@ func _process(delta):
 	neuer_regelmaessige_mitteilung()
 	steuern()
 	ereignis_ausloeser()
-	print("läuft")
 	
 	for i in gebaeude_ausstehend:
 		if int(i.split(';')[1]) <= zeit:
@@ -305,25 +304,22 @@ func ereignis_rechnen(index):
 	geld = geld + geld * geld_einfluss
 	bevoelkerung = bevoelkerung + bevoelkerung * bevoelkerung_einfluss
 	beliebtheit = beliebtheit +  beliebtheit_einfluss
-	print(bevoelkerung)
-	print(beliebtheit)
-	print(dauer)
-	print(einkommen_einfluss)
-	print(geld_einfluss)
-	print(bevoelkerung_einfluss)
-	print(beliebtheit_einfluss)
-	print(kaputt)
-	print(antraege_verzoegerung)
+	if(kaputt == "null"):
+		pass
+	else:
+		if(kaputt == "Haus"):
+			var einmal
+			for j in gebaeude_gebaut:
+				if(gebaeude_gebaut[j-1].get_name_gebaeude() == "Einfamilienhaus"):
+					if(einmal == true):
+						gebaeude_gebaut.remove(j)
+						einmal = true
+		elif(kaputt == "Aktuell"):
+				gebaeude_ausstehend[0] = "0;" + str(zeit+1)
 	geld_einfluss_gebaeude(einkommen_einfluss)
+# warning-ignore:unused_variable
 	for number in range(0,dauer*1000):
-		print("while ausgelöst")
-		print(dauer)
-		print(einkommen_einfluss)
-		print(geld_einfluss)
-		print(bevoelkerung_einfluss)
-		print(beliebtheit_einfluss)
-		print(kaputt)
-		print(antraege_verzoegerung)
+		pass
 
 func get_ereignis_name():
 	return ereignis.get_name_ereignis()
@@ -361,9 +357,6 @@ func randomG():
 
 func get_name_bauunternehmen(rngGf):
 	return bauunternehmen_array[rngGf].get_name()
-
-#func get_bauzeit(rngGf):
-#	return (bauunternehmen_array[rngGf].get_bauzeit())
 
 func get_multiplikator_geld(rngGf):
 	return (bauunternehmen_array[rngGf].get_multiplikator_geld())

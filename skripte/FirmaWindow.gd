@@ -7,7 +7,7 @@ func _ready():
 	player = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent()
 	
 func text(index):
-	if (get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_level() >= get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[index].get_level()):
+	if (player.get_level() >= player.gebaeude_array[index].get_level()):
 		var n1 = player.randomG()
 		var n2 = player.randomG()
 		while(n2 == n1):
@@ -19,24 +19,32 @@ func text(index):
 		while(n4 == n3 || n4 == n2 || n4 == n1):
 			n4 = player.randomG()
 		$Firma1.text = player.get_name_bauunternehmen(n1)
-		$Firma1Beschreibung.text = player.get_beschreibung(n1)
-		$Firma1Attribute.text = str(abs(float(player.get_kosten(n1)) * float(player.get_multiplikator_geld(n1)))) + " € " + str(float(player.get_bauzeit(n1)) * float(player.get_multiplikator_bauzeit(n1))) + " Monate"
+		$Firma1/Firma1Beschreibung.text = player.get_beschreibung(n1)
+		$Firma1/Firma1Attribute.text = str(abs(float(player.get_kosten(index)) * float(player.get_multiplikator_geld(n1)))) + " € " + str(float(player.get_bauzeit(index)) * float(player.get_multiplikator_bauzeit(n1))) + " Monate"
 		$Firma2.text = player.get_name_bauunternehmen(n2)
-		$Firma2Beschreibung.text = player.get_beschreibung(n2)
-		$Firma2Attribute.text = str(abs(float(player.get_kosten(n2)) * float(player.get_multiplikator_geld(n2)))) + " € " + str(float(player.get_bauzeit(n2)) * float(player.get_multiplikator_bauzeit(n2))) + " Monate"
+		$Firma2/Firma2Beschreibung.text = player.get_beschreibung(n2)
+		$Firma2/Firma2Attribute.text = str(abs(float(player.get_kosten(index)) * float(player.get_multiplikator_geld(n2)))) + " € " + str(float(player.get_bauzeit(index)) * float(player.get_multiplikator_bauzeit(n2))) + " Monate"
 		$Firma3.text = player.get_name_bauunternehmen(n3)
-		$Firma3Beschreibung.text = player.get_beschreibung(n3)
-		$Firma3Attribute.text = str(abs(float(player.get_kosten(n3)) * float(player.get_multiplikator_geld(n3)))) + " € " + str(float(player.get_bauzeit(n3)) * float(player.get_multiplikator_bauzeit(n3))) + " Monate"
+		$Firma3/Firma3Beschreibung.text = player.get_beschreibung(n3)
+		$Firma3/Firma3Attribute.text = str(abs(float(player.get_kosten(index)) * float(player.get_multiplikator_geld(n3)))) + " € " + str(float(player.get_bauzeit(index)) * float(player.get_multiplikator_bauzeit(n3))) + " Monate"
 		$Firma4.text = player.get_name_bauunternehmen(n4)
-		$Firma4Beschreibung.text = player.get_beschreibung(n4)
-		$Firma4Attribute.text = str(abs(float(player.get_kosten(n4)) * float(player.get_multiplikator_geld(n4)))) + " € " + str(float(player.get_bauzeit(n4)) * float(player.get_multiplikator_bauzeit(n4))) + " Monate"
-		print(float(player.get_kosten(n1)))
-		print(float(player.get_multiplikator_geld(n1)))
-		print(float(player.get_bauzeit(n1)))
-		print(float(player.get_multiplikator_bauzeit(n1)))
+		$Firma4/Firma4Beschreibung.text = player.get_beschreibung(n4)
+		$Firma4/Firma4Attribute.text = str(abs(float(player.get_kosten(index)) * float(player.get_multiplikator_geld(n4)))) + " € " + str(float(player.get_bauzeit(index)) * float(player.get_multiplikator_bauzeit(n4))) + " Monate"
 		popup_centered()
+		print("Firma1")
+		print(abs(float(player.get_kosten(index))))
+		print(float(player.get_multiplikator_geld(n1)))
+		print("Firma2")
+		print(abs(float(player.get_kosten(index))))
+		print(float(player.get_multiplikator_geld(n2)))
+		print("Firma3")
+		print(abs(float(player.get_kosten(index))))
+		print(float(player.get_multiplikator_geld(n3)))
+		print("Firma4")
+		print(abs(float(player.get_kosten(index))))
+		print(float(player.get_multiplikator_geld(n4)))
 	else:
-		var level = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().gebaeude_array[index].get_level()
+		var level = player.gebaeude_array[index].get_level()
 		$ConfirmationDialog.dialog_text = "Du brauchst Level " + str(level) + " um dieses Gebäude zu bauen"
 		$ConfirmationDialog.popup_centered()
 

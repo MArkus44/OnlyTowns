@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://assets/Tisch/Computer.png" type="Texture" id=1]
 [ext_resource path="res://assets/Tisch/Drucker.png" type="Texture" id=2]
@@ -49,7 +49,12 @@
 [ext_resource path="res://skripte/ButtonOK.gd" type="Script" id=47]
 [ext_resource path="res://skripte/LabelLevelDesktop.gd" type="Script" id=48]
 [ext_resource path="res://skripte/Zeitung.gd" type="Script" id=49]
+[ext_resource path="res://skripte/Firma2.gd" type="Script" id=50]
 [ext_resource path="res://assets/Zeitung.png" type="Texture" id=51]
+[ext_resource path="res://skripte/Firma3.gd" type="Script" id=52]
+[ext_resource path="res://skripte/Firma4.gd" type="Script" id=53]
+[ext_resource path="res://skripte/Firma1.gd" type="Script" id=54]
+[ext_resource path="res://Fonts/Arial.tres" type="DynamicFont" id=55]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -64,10 +69,6 @@ size = 60
 font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 60
-font_data = ExtResource( 31 )
-
-[sub_resource type="DynamicFont" id=5]
 size = 60
 font_data = ExtResource( 31 )
 
@@ -411,19 +412,17 @@ __meta__ = {
 margin_left = 8.0
 margin_right = 1305.0
 margin_bottom = 879.0
-custom_fonts/font = SubResource( 5 )
-text = "Spielprinzip:
+custom_fonts/font = ExtResource( 55 )
+text = "Spielprinzip
 
 Das Ziel des Spiels besteht darin, eine Stadt zu bauen. Dabei muss man auf die Werte Bevölkerung, Geld und Beliebtheit achten. Gegebenenfalls ist sogar eine Erweiterung der Stadtfläche nötig. 
 
-Funktionsweise:
+Funktionsweise
 
 Es gibt drei Schwierigkeitsgrade leicht, mittel und schwer.
-Man baut Gebäude, um die Bevölkerung, die Einnahmen oder die Beliebtheit zu steigern. Abhängig davon, wie viele Menschen in der Stadt leben, gibt es verschiedene Level. Für jedes neue Level schaltet man neue Gebäude frei. Zudem gibt es regelmäßige Wahlen,bei denen das Ergebnis maßgeblich von der Beliebtheit abhängt. Wenn man weniger als x Beliebtheit ab Level 10 hat, hat man verloren. 
-
+Man hat monatliche Einnahmen, die von verschiedenen Faktoren abhängen. Man baut Gebäude, um die Bevölkerung, die Einnahmen oder die Beliebtheit zu steigern. Abhängig davon, wie viele Menschen in der Stadt leben, gibt es verschiedene Level. Für jedes neue Level schaltet man neue Gebäude frei. Zudem gibt es regelmäßige Wahlen. Das Ergebnis ist +/- 5% von der Beliebtheit. Wenn man weniger als x Beliebtheit ab Level 10 hat, hat man verloren. 
 
 Kommentar: x hängt von der Schwierigkeit ab (bei leicht: 40, bei mittel: 50, schwer: 60)
-
 "
 autowrap = true
 
@@ -819,26 +818,28 @@ __meta__ = {
 }
 
 [node name="Firma1" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
-margin_right = 100.0
-margin_bottom = 29.0
+margin_top = 3.0
+margin_right = 670.0
+margin_bottom = 81.0
 mouse_filter = 0
 text = "zulzl"
+script = ExtResource( 54 )
 
-[node name="Firma1Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
+[node name="Firma1Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1"]
 margin_left = 2.0
-margin_top = 26.0
+margin_top = 23.0
 margin_right = 42.0
-margin_bottom = 46.0
+margin_bottom = 43.0
 mouse_filter = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Firma1Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
+[node name="Firma1Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1"]
 margin_left = 2.0
-margin_top = 52.0
+margin_top = 49.0
 margin_right = 48.0
-margin_bottom = 72.0
+margin_bottom = 69.0
 mouse_filter = 0
 text = "zulzl"
 __meta__ = {
@@ -846,28 +847,29 @@ __meta__ = {
 }
 
 [node name="Firma2" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
-margin_left = 3.0
-margin_top = 86.0
-margin_right = 103.0
-margin_bottom = 108.0
+margin_left = 2.0
+margin_top = 99.0
+margin_right = 667.0
+margin_bottom = 173.0
 mouse_filter = 0
 text = "zulzl"
+script = ExtResource( 50 )
 
-[node name="Firma2Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
-margin_left = 6.0
-margin_top = 114.0
-margin_right = 46.0
-margin_bottom = 134.0
+[node name="Firma2Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2"]
+margin_left = 2.0
+margin_top = 25.0
+margin_right = 42.0
+margin_bottom = 45.0
 mouse_filter = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Firma2Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
-margin_left = 8.0
-margin_top = 142.0
-margin_right = 54.0
-margin_bottom = 162.0
+[node name="Firma2Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2"]
+margin_left = 4.0
+margin_top = 46.0
+margin_right = 50.0
+margin_bottom = 66.0
 mouse_filter = 0
 text = "zulzl"
 __meta__ = {
@@ -876,53 +878,59 @@ __meta__ = {
 
 [node name="Firma3" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
 margin_left = 6.0
-margin_top = 174.0
-margin_right = 105.0
-margin_bottom = 194.0
+margin_top = 188.0
+margin_right = 669.0
+margin_bottom = 260.0
 mouse_filter = 0
 text = "zulzl"
+script = ExtResource( 52 )
 
-[node name="Firma3Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
-margin_left = 12.0
-margin_top = 198.0
-margin_right = 52.0
-margin_bottom = 218.0
+[node name="Firma3Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3"]
+margin_top = 28.0
+margin_right = 40.0
+margin_bottom = 48.0
 mouse_filter = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Firma3Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
-margin_left = 7.0
-margin_top = 229.0
-margin_right = 47.0
-margin_bottom = 249.0
+[node name="Firma3Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3"]
+margin_left = -1.0
+margin_top = 45.0
+margin_right = 39.0
+margin_bottom = 65.0
 mouse_filter = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Firma4" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
-margin_left = 7.0
-margin_top = 256.0
-margin_right = 107.0
-margin_bottom = 276.0
+margin_left = 9.0
+margin_top = 288.0
+margin_right = 667.0
+margin_bottom = 372.0
 mouse_filter = 0
 text = "zulzl"
+script = ExtResource( 53 )
 
-[node name="Firma4Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
-margin_left = 9.0
-margin_top = 284.0
-margin_right = 49.0
-margin_bottom = 304.0
+[node name="Firma4Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4"]
+margin_left = -1.0
+margin_top = 25.0
+margin_right = 39.0
+margin_bottom = 45.0
 mouse_filter = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Firma4Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
-margin_left = 9.0
-margin_top = 312.0
-margin_right = 49.0
-margin_bottom = 332.0
+[node name="Firma4Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4"]
+margin_top = 65.0
+margin_right = 40.0
+margin_bottom = 85.0
 mouse_filter = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
 margin_left = -8.0
@@ -988,24 +996,20 @@ script = ExtResource( 41 )
 [connection signal="pressed" from="Pause" to="." method="save"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
-[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog" method="text"]
-[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
+[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog" method="text"]
-[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
+[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog" method="text"]
-[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
+[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog" method="text"]
+[connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
+[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1" method="_on_Firma1_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
-[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1Beschreibung" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
-[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1Attribute" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
+[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" method="_on_Firma2_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
-[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2Beschreibung" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
-[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2Attribute" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
+[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" method="_on_Firma3_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
-[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3Beschreibung" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
-[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3Attribute" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
+[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" method="_on_Firma4_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
-[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4Beschreibung" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
-[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4Attribute" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="confirmed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_ConfirmationDialog_confirmed"]
