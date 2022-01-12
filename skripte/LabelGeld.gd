@@ -13,7 +13,10 @@ func _ready():
 # warning-ignore:unused_argument
 func _process(delta):
 	var geld_temp = str(get_parent().get_geld())
-	self.text ="Geld: " + comma_sep(geld_temp) + " €"
+	if(int(geld_temp) < 0):
+		self.text ="Geld: " + comma_sep(geld_temp) + " €"
+	else:
+		self.text ="Geld: " + comma_sep(geld_temp) + " €"
 
 func comma_sep(number):
 	var string = str(number)
@@ -22,7 +25,7 @@ func comma_sep(number):
 
 	for i in range(0, string.length()):
 		if i != 0 && i % 3 == mod:
-			res += ","
+			res += "."
 		res += string[i]
 
 	return res

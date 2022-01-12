@@ -24,7 +24,7 @@ func _on_PopupMenu_id_pressed(index):
 func set_text_dialog():
 	var gebaeude = player.gebaeude_array[id].get_name()
 	var kosten = player.gebaeude_array[id].get_kosten() * player.bauunternehmen_array[bau_id].get_multiplikator_geld()
-	dialog_text = "Möchten sie " + gebaeude + " für " + str(abs(kosten)) + " € wirklich bauen?" 
+	dialog_text = "Möchten sie " + gebaeude + "wirklich bauen?" 
 
 func comma_sep(number):
 	var string = str(number)
@@ -33,7 +33,7 @@ func comma_sep(number):
 
 	for i in range(0, string.length()):
 		if i != 0 && i % 3 == mod:
-			res += ","
+			res += "."
 		res += string[i]
 	return res
 

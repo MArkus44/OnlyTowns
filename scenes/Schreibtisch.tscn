@@ -201,12 +201,16 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
-
 [sub_resource type="DynamicFont" id=9]
 size = 1
 outline_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 60
+font_data = ExtResource( 31 )
 
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.0901961, 0.67451, 0.0313726, 1 )
@@ -214,20 +218,16 @@ bg_color = Color( 0.0901961, 0.67451, 0.0313726, 1 )
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.760784, 0.0588235, 0.0588235, 1 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 size = 60
 font_data = ExtResource( 31 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=15]
 size = 60
 font_data = ExtResource( 31 )
 
 [sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0.0156863, 0.278431, 0.0156863, 1 )
-
-[sub_resource type="DynamicFont" id=15]
-size = 60
-font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=16]
 size = 60
@@ -253,11 +253,15 @@ font_data = ExtResource( 31 )
 color = Color( 1, 1, 1, 1 )
 thickness = 3
 
+[sub_resource type="DynamicFont" id=23]
+outline_color = Color( 1, 1, 1, 0 )
+
 [sub_resource type="StyleBoxFlat" id=22]
 bg_color = Color( 0.913725, 0.913725, 0.913725, 0 )
 
-[sub_resource type="DynamicFont" id=23]
-outline_color = Color( 1, 1, 1, 0 )
+[sub_resource type="DynamicFont" id=26]
+size = 25
+font_data = ExtResource( 31 )
 
 [sub_resource type="StyleBoxFlat" id=24]
 bg_color = Color( 0, 0.333333, 0.666667, 1 )
@@ -275,10 +279,6 @@ color = Color( 1, 1, 1, 1 )
 grow_begin = 2.0
 grow_end = 2.0
 thickness = 3
-
-[sub_resource type="DynamicFont" id=26]
-size = 25
-font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=27]
 size = 60
@@ -391,6 +391,16 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Pause"]
+margin_left = -3492.0
+margin_top = -92.0
+margin_right = -3092.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 400, 140 )
+window_title = "Bitte bestätigen..."
+dialog_text = "Möchten sie wirklich das Spiel verlassen?"
+dialog_autowrap = true
 
 [node name="Help" type="TextureButton" parent="."]
 margin_left = 1753.0
@@ -529,8 +539,8 @@ margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0
 margin_bottom = 493.0
-custom_styles/panel = SubResource( 8 )
 custom_fonts/title_font = SubResource( 9 )
+custom_styles/panel = SubResource( 8 )
 window_title = "Display"
 script = ExtResource( 15 )
 __meta__ = {
@@ -551,10 +561,10 @@ margin_left = 783.0
 margin_top = 464.0
 margin_right = 1425.0
 margin_bottom = 594.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 12 )
 custom_styles/fg = SubResource( 10 )
 custom_styles/bg = SubResource( 11 )
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 value = 51.0
 script = ExtResource( 32 )
 __meta__ = {
@@ -576,10 +586,10 @@ margin_left = 781.0
 margin_top = 307.0
 margin_right = 1424.0
 margin_bottom = 437.0
-custom_styles/normal = SubResource( 14 )
-custom_fonts/font = SubResource( 15 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 15 )
+custom_styles/normal = SubResource( 14 )
 text = "0"
 align = 1
 valign = 1
@@ -685,8 +695,8 @@ margin_left = 262.0
 margin_top = -149.0
 margin_right = 1305.0
 margin_bottom = 688.0
-custom_styles/panel = SubResource( 22 )
 custom_fonts/title_font = SubResource( 23 )
+custom_styles/panel = SubResource( 22 )
 script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -720,9 +730,9 @@ margin_left = 5.0
 margin_top = 60.0
 margin_right = 88.0
 margin_bottom = 115.0
+custom_fonts/font = SubResource( 26 )
 custom_styles/panel = SubResource( 24 )
 custom_styles/separator = SubResource( 25 )
-custom_fonts/font = SubResource( 26 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -750,9 +760,9 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 28 )
 custom_styles/panel = SubResource( 24 )
 custom_styles/separator = SubResource( 25 )
-custom_fonts/font = SubResource( 28 )
 script = ExtResource( 24 )
 
 [node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
@@ -774,9 +784,9 @@ script = ExtResource( 27 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 30 )
 custom_styles/panel = SubResource( 24 )
 custom_styles/separator = SubResource( 25 )
-custom_fonts/font = SubResource( 30 )
 script = ExtResource( 30 )
 
 [node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
@@ -798,9 +808,9 @@ script = ExtResource( 28 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 32 )
 custom_styles/panel = SubResource( 24 )
 custom_styles/separator = SubResource( 25 )
-custom_fonts/font = SubResource( 32 )
 script = ExtResource( 29 )
 
 [node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
@@ -830,27 +840,6 @@ mouse_filter = 0
 text = "zulzl"
 script = ExtResource( 54 )
 
-[node name="Firma1Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1"]
-margin_left = 2.0
-margin_top = 23.0
-margin_right = 42.0
-margin_bottom = 43.0
-mouse_filter = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Firma1Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1"]
-margin_left = 2.0
-margin_top = 49.0
-margin_right = 48.0
-margin_bottom = 69.0
-mouse_filter = 0
-text = "zulzl"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Firma2" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
 margin_left = 2.0
 margin_top = 99.0
@@ -859,27 +848,6 @@ margin_bottom = 173.0
 mouse_filter = 0
 text = "zulzl"
 script = ExtResource( 50 )
-
-[node name="Firma2Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2"]
-margin_left = 2.0
-margin_top = 25.0
-margin_right = 42.0
-margin_bottom = 45.0
-mouse_filter = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Firma2Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2"]
-margin_left = 4.0
-margin_top = 46.0
-margin_right = 50.0
-margin_bottom = 66.0
-mouse_filter = 0
-text = "zulzl"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Firma3" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
 margin_left = 6.0
@@ -890,25 +858,6 @@ mouse_filter = 0
 text = "zulzl"
 script = ExtResource( 52 )
 
-[node name="Firma3Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3"]
-margin_top = 28.0
-margin_right = 40.0
-margin_bottom = 48.0
-mouse_filter = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Firma3Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3"]
-margin_left = -1.0
-margin_top = 45.0
-margin_right = 39.0
-margin_bottom = 65.0
-mouse_filter = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Firma4" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
 margin_left = 9.0
 margin_top = 288.0
@@ -917,25 +866,6 @@ margin_bottom = 372.0
 mouse_filter = 0
 text = "zulzl"
 script = ExtResource( 53 )
-
-[node name="Firma4Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4"]
-margin_left = -1.0
-margin_top = 25.0
-margin_right = 39.0
-margin_bottom = 45.0
-mouse_filter = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Firma4Attribute" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4"]
-margin_top = 65.0
-margin_right = 40.0
-margin_bottom = 85.0
-mouse_filter = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
 margin_left = -8.0
@@ -999,6 +929,7 @@ custom_styles/separator = SubResource( 36 )
 script = ExtResource( 41 )
 
 [connection signal="pressed" from="Pause" to="." method="save"]
+[connection signal="confirmed" from="Pause/ConfirmationDialog" to="Pause" method="ok"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog" method="text"]
@@ -1013,8 +944,8 @@ script = ExtResource( 41 )
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" method="_on_Firma2_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
-[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" method="_on_Firma3_gui_input"]
+[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" method="_on_Firma4_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="confirmed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_ConfirmationDialog_confirmed"]

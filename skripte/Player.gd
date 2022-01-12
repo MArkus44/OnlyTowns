@@ -6,8 +6,8 @@ var e_config = "res://configs/Ereignisse.cfg"
 
 var geld = 0
 var beliebtheit = 0.54
-var bevoelkerung = 1000
-var levelSpieler = 1
+var bevoelkerung = 100
+var levelSpieler = "1"
 var ereignis
 var rngG
 var notification
@@ -44,8 +44,8 @@ func _ready():
 #	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex))
 	set_geld_com(0)
 	set_beliebtheit_com(0.51)
-	set_bevoelkerung_com(1000)
-	set_level_com(2)
+	set_bevoelkerung_com(100)
+	set_level_com(1)
 #	set_ereignis_com(29)
 	timer_start()
 	
@@ -62,6 +62,7 @@ func _process(delta):
 	geld_einfluss_gebaeude(1)
 	neuer_regelmaessige_mitteilung()
 	steuern()
+	geld_zu_wenig()
 	ereignis_ausloeser()
 	
 	for i in gebaeude_ausstehend:
@@ -170,6 +171,11 @@ func geld_einfluss_gebaeude(einkommen_einfluss):
 		for i in gebaeude_gebaut:
 			geld += i.get_geld_einfluss() * abs(einkommen_einfluss)
 			
+
+func geld_zu_wenig():#
+	if(geld <= -5000000):
+		get_tree().change_scene("res://scenes/Menu.tscn")
+
 func steuern():
 	if zeit >= tmp_zeit_steuern + zeit_zwischen_steuern:
 		# t_print("Steuern.")
@@ -228,7 +234,7 @@ func set_bevoelkerung(wert):
 	
 # warning-ignore:unused_argument
 func set_bevoelkerung_com(wert):
-	Console.add_command('set_bevoelkerung', self, set_bevoelkerung(1000))\
+	Console.add_command('set_bevoelkerung', self, set_bevoelkerung(100))\
 		.set_description('Sets Bevölkerung   Wert: 0<Bevölkerung')\
 		.add_argument('bevölkerung', TYPE_INT)\
 		.register()
@@ -279,7 +285,7 @@ func ereignisget():
 func timer_start():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var rn = rng.randi_range(5,10)
+	var rn = rng.randi_range(60,180)
 	print(rn)
 	timer.start(rn)
 
@@ -309,10 +315,10 @@ func ereignis_rechnen(index):
 	else:
 		if(kaputt == "Haus"):
 			var einmal
-			for j in gebaeude_gebaut:
-				if(gebaeude_gebaut[j-1].get_name_gebaeude() == "Einfamilienhaus"):
+			for i in range(gebaeude_gebaut.length()):
+				if(gebaeude_gebaut[i].get_name_gebaeude() == "Einfamilienhaus"):
 					if(einmal == true):
-						gebaeude_gebaut.remove(j)
+						gebaeude_gebaut.remove(i)
 						einmal = true
 		elif(kaputt == "Aktuell"):
 				gebaeude_ausstehend[0] = "0;" + str(zeit+1)
@@ -382,28 +388,27 @@ func _exit_tree():
 	
 func set_level(): 
 	if(bevoelkerung <= 850):
-		levelSpieler = 1
+		levelSpieler = "1"
 	elif(bevoelkerung <= 1000):
-		levelSpieler = 2
+		levelSpieler = "2"
 	elif(bevoelkerung <= 1250):
-		levelSpieler = 3
+		levelSpieler = "3"
 	elif(bevoelkerung <= 1550):
-		levelSpieler = 4
+		levelSpieler = "4"
 	elif(bevoelkerung <= 1800):
-		levelSpieler = 5
+		levelSpieler = "5"
 	elif(bevoelkerung <= 2000):
-		levelSpieler = 6
+		levelSpieler = "6"
 	elif(bevoelkerung <= 2500):
-		levelSpieler = 7
+		levelSpieler = "7"
 	elif(bevoelkerung <= 3000):
-		levelSpieler = 8
+		levelSpieler = "8"
 	elif(bevoelkerung <= 5000):
-		levelSpieler = 9
+		levelSpieler = "9"
 	elif(bevoelkerung <= 20000):
-		levelSpieler = 10
+		levelSpieler = "10"
 	else:
-		levelSpieler = 11
-#		(Final)
+		levelSpieler = "Final"
 
 func gebaeude_pop():
 	var pop = $Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude/gebaut_pop
