@@ -14,7 +14,7 @@ func comma_sep(number):
 
 	for i in range(0, string.length()):
 		if i != 0 && i % 3 == mod:
-			res += ","
+			res += "."
 		res += string[i]
 
 	return res

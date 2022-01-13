@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/FASTANDRUN.mp3-7709fd1f11febb837a22116d54c8a1d8.mp3str"
+
+[deps]
+
+source_file="res://musik/FASTANDRUN.mp3"
+dest_files=[ "res://.import/FASTANDRUN.mp3-7709fd1f11febb837a22116d54c8a1d8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

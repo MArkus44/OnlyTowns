@@ -19,16 +19,16 @@ func text(index):
 		while(n4 == n3 || n4 == n2 || n4 == n1):
 			n4 = player.randomG()
 		$Firma1.text = player.get_name_bauunternehmen(n1)
-#		$Firma1/Firma1Beschreibung.text = player.get_beschreibung(n1)
+		$Firma1/Firma1Beschreibung.text = player.get_beschreibung(n1)
 #		$Firma1/Firma1Attribute.text = str(abs(float(player.get_kosten(index)) * float(player.get_multiplikator_geld(n1)))) + " € " + str(float(player.get_bauzeit(index)) * float(player.get_multiplikator_bauzeit(n1))) + " Monate"
 		$Firma2.text = player.get_name_bauunternehmen(n2)
-#		$Firma2/Firma2Beschreibung.text = player.get_beschreibung(n2)
+		$Firma2/Firma2Beschreibung.text = player.get_beschreibung(n2)
 #		$Firma2/Firma2Attribute.text = str(abs(float(player.get_kosten(index)) * float(player.get_multiplikator_geld(n2)))) + " € " + str(float(player.get_bauzeit(index)) * float(player.get_multiplikator_bauzeit(n2))) + " Monate"
 		$Firma3.text = player.get_name_bauunternehmen(n3)
-#		$Firma3/Firma3Beschreibung.text = player.get_beschreibung(n3)
+		$Firma3/Firma3Beschreibung.text = player.get_beschreibung(n3)
 #		$Firma3/Firma3Attribute.text = str(abs(float(player.get_kosten(index)) * float(player.get_multiplikator_geld(n3)))) + " € " + str(float(player.get_bauzeit(index)) * float(player.get_multiplikator_bauzeit(n3))) + " Monate"
 		$Firma4.text = player.get_name_bauunternehmen(n4)
-#		$Firma4/Firma4Beschreibung.text = player.get_beschreibung(n4)
+		$Firma4/Firma4Beschreibung.text = player.get_beschreibung(n4)
 #		$Firma4/Firma4Attribute.text = str(abs(float(player.get_kosten(index)) * float(player.get_multiplikator_geld(n4)))) + " € " + str(float(player.get_bauzeit(index)) * float(player.get_multiplikator_bauzeit(n4))) + " Monate"
 		popup_centered()
 		$ConfirmationDialog.get_ok().visible = true

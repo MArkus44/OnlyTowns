@@ -39,6 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Console="*res://addons/quentincaffeino/console/src/Console.tscn"
+MusikPlayer="*res://scenes/MusikPlayer.tscn"
 
 [display]
 

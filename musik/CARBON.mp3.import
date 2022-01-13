@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CARBON.mp3-5b794ca6296e8dc34a85539f14a8034f.mp3str"
+
+[deps]
+
+source_file="res://musik/CARBON.mp3"
+dest_files=[ "res://.import/CARBON.mp3-5b794ca6296e8dc34a85539f14a8034f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

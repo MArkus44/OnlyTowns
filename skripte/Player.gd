@@ -7,7 +7,7 @@ var e_config = "res://configs/Ereignisse.cfg"
 var geld = 0
 var beliebtheit = 0.54
 var bevoelkerung = 100
-var levelSpieler = "1"
+var levelSpieler = 1
 var ereignis
 var rngG
 var notification
@@ -388,27 +388,27 @@ func _exit_tree():
 	
 func set_level(): 
 	if(bevoelkerung <= 850):
-		levelSpieler = "1"
+		levelSpieler = 1
 	elif(bevoelkerung <= 1000):
-		levelSpieler = "2"
+		levelSpieler = 2
 	elif(bevoelkerung <= 1250):
-		levelSpieler = "3"
+		levelSpieler = 3
 	elif(bevoelkerung <= 1550):
-		levelSpieler = "4"
+		levelSpieler = 4
 	elif(bevoelkerung <= 1800):
-		levelSpieler = "5"
+		levelSpieler = 5
 	elif(bevoelkerung <= 2000):
-		levelSpieler = "6"
+		levelSpieler = 6
 	elif(bevoelkerung <= 2500):
-		levelSpieler = "7"
+		levelSpieler = 7
 	elif(bevoelkerung <= 3000):
-		levelSpieler = "8"
+		levelSpieler = 8
 	elif(bevoelkerung <= 5000):
-		levelSpieler = "9"
+		levelSpieler = 9
 	elif(bevoelkerung <= 20000):
-		levelSpieler = "10"
+		levelSpieler = 10
 	else:
-		levelSpieler = "Final"
+		levelSpieler = 11
 
 func gebaeude_pop():
 	var pop = $Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude/gebaut_pop

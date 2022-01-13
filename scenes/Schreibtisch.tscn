@@ -839,6 +839,14 @@ margin_bottom = 81.0
 mouse_filter = 0
 text = "zulzl"
 script = ExtResource( 54 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Firma1Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1"]
+margin_top = 34.0
+margin_right = 40.0
+margin_bottom = 54.0
 
 [node name="Firma2" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
 margin_left = 2.0
@@ -849,6 +857,12 @@ mouse_filter = 0
 text = "zulzl"
 script = ExtResource( 50 )
 
+[node name="Firma2Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2"]
+margin_left = -2.0
+margin_top = 34.0
+margin_right = 38.0
+margin_bottom = 54.0
+
 [node name="Firma3" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
 margin_left = 6.0
 margin_top = 188.0
@@ -858,6 +872,12 @@ mouse_filter = 0
 text = "zulzl"
 script = ExtResource( 52 )
 
+[node name="Firma3Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3"]
+margin_left = -2.0
+margin_top = 44.0
+margin_right = 38.0
+margin_bottom = 64.0
+
 [node name="Firma4" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
 margin_left = 9.0
 margin_top = 288.0
@@ -866,6 +886,12 @@ margin_bottom = 372.0
 mouse_filter = 0
 text = "zulzl"
 script = ExtResource( 53 )
+
+[node name="Firma4Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4"]
+margin_left = 3.0
+margin_top = 74.0
+margin_right = 47.0
+margin_bottom = 94.0
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
 margin_left = -8.0
