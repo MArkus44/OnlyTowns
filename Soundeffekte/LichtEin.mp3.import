@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/LichtEin.mp3-c2d9d548d5c65f74830a5288a212a9fd.mp3str"
+
+[deps]
+
+source_file="res://Soundeffekte/LichtEin.mp3"
+dest_files=[ "res://.import/LichtEin.mp3-c2d9d548d5c65f74830a5288a212a9fd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

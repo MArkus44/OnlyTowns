@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Fahrenheit.mp3-c41eb879cd24fe17dd660452761dee57.mp3str"
+
+[deps]
+
+source_file="res://Hintergrundmusik/Fahrenheit.mp3"
+dest_files=[ "res://.import/Fahrenheit.mp3-c41eb879cd24fe17dd660452761dee57.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

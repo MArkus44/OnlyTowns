@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WhamLastChristmas.mp3-50c3372b13f51fd40200a2c22cb10b5c.mp3str"
+
+[deps]
+
+source_file="res://Hintergrundmusik/WhamLastChristmas.mp3"
+dest_files=[ "res://.import/WhamLastChristmas.mp3-50c3372b13f51fd40200a2c22cb10b5c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

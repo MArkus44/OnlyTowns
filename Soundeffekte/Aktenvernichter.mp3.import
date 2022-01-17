@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Aktenvernichter.mp3-c91e2674c7a9dca5f0131a6e1d48f053.mp3str"
+
+[deps]
+
+source_file="res://Soundeffekte/Aktenvernichter.mp3"
+dest_files=[ "res://.import/Aktenvernichter.mp3-c91e2674c7a9dca5f0131a6e1d48f053.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

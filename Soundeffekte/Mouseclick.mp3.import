@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mouseclick.mp3-3be87808dd82ef9776db9fdb8afe6806.mp3str"
+
+[deps]
+
+source_file="res://Soundeffekte/Mouseclick.mp3"
+dest_files=[ "res://.import/Mouseclick.mp3-3be87808dd82ef9776db9fdb8afe6806.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

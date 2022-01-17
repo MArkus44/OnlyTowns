@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/LichtAus.mp3-43b834d6defcd438ffba65eb527cd3ed.mp3str"
+
+[deps]
+
+source_file="res://Soundeffekte/LichtAus.mp3"
+dest_files=[ "res://.import/LichtAus.mp3-43b834d6defcd438ffba65eb527cd3ed.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MKUltraTearsInTheRain.mp3-4e4da3e8ce491c7db4207b1ca79f360d.mp3str"
+
+[deps]
+
+source_file="res://Hintergrundmusik/MKUltraTearsInTheRain.mp3"
+dest_files=[ "res://.import/MKUltraTearsInTheRain.mp3-4e4da3e8ce491c7db4207b1ca79f360d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

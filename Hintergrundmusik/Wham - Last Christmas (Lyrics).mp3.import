@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Wham - Last Christmas (Lyrics).mp3-32da257d9161def12f2374b9908b946c.mp3str"
+
+[deps]
+
+source_file="res://Hintergrundmusik/Wham - Last Christmas (Lyrics).mp3"
+dest_files=[ "res://.import/Wham - Last Christmas (Lyrics).mp3-32da257d9161def12f2374b9908b946c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

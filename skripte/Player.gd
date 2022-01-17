@@ -46,7 +46,6 @@ func _ready():
 	set_beliebtheit_com(0.51)
 	set_bevoelkerung_com(100)
 	set_level_com(1)
-#	set_ereignis_com(29)
 	timer_start()
 	
 	for i in range(len(gebaeude_array) - 1):
@@ -240,11 +239,11 @@ func set_bevoelkerung_com(wert):
 		.register()
 	
 # warning-ignore:unused_argument
-func set_ereignis_com(wert):
-	Console.add_command('set_ereignis', self, ereignis_rechnen(29))\
-		.set_description('Löst Ereignis mit [index] aus')\
-		.add_argument('index', TYPE_INT)\
-		.register()
+#func set_ereignis_com(wert):
+#	Console.add_command('set_ereignis', self, ereignis_rechnen(29))\
+#		.set_description('Löst Ereignis mit [index] aus')\
+#		.add_argument('index', TYPE_INT)\
+#		.register()
 
 func get_level():
 	return levelSpieler
@@ -317,7 +316,7 @@ func ereignis_rechnen(index):
 			var einmal
 			for i in range(gebaeude_gebaut.length()):
 				if(gebaeude_gebaut[i].get_name_gebaeude() == "Einfamilienhaus"):
-					if(einmal == true):
+					if(einmal == false):
 						gebaeude_gebaut.remove(i)
 						einmal = true
 		elif(kaputt == "Aktuell"):
