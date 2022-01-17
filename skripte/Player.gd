@@ -327,7 +327,8 @@ func ereignis_rechnen(index):
 		pass
 
 func get_ereignis_name():
-	return ereignis.get_name_ereignis()
+	if(ereignis != null):
+		return ereignis.get_name_ereignis()
 
 func get_ereignis_level():
 	return ereignis.get_level()
