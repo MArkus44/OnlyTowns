@@ -249,12 +249,33 @@ func get_level():
 	return levelSpieler
 	
 func set_level2(wert):
-	levelSpieler = wert
-	
+	if(wert == 1):
+		set_bevoelkerung(100)
+	elif(wert == 2):
+		set_bevoelkerung(900)
+	elif(wert == 3):
+		set_bevoelkerung(1100)
+	elif(wert == 4):
+		set_bevoelkerung(1400)
+	elif(wert == 5):
+		set_bevoelkerung(1600)
+	elif(wert == 6):
+		set_bevoelkerung(1900)
+	elif(wert == 7):
+		set_bevoelkerung(2200)
+	elif(wert == 8):
+		set_bevoelkerung(2700)
+	elif(wert == 9):
+		set_bevoelkerung(4000)
+	elif(wert == 10):
+		set_bevoelkerung(10000)
+	elif(wert == 11):
+		set_bevoelkerung(25000)
+
 # warning-ignore:unused_argument
 func set_level_com(wert):
 	Console.add_command('set_level', self, set_level2(1))\
-		.set_description('Sets Level   Wert: 0<Level<11')\
+		.set_description('Sets Level   Wert: 0<Level<12')\
 		.add_argument('level', TYPE_INT)\
 		.register()
 
@@ -412,10 +433,10 @@ func set_level():
 
 func gebaeude_pop():
 	var pop = $Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude/gebaut_pop
-	for i in range(len(gebaeude_array) - 1):
+	for i in range(len(gebaeude_array)-1):
 		pop.set_item_text(i, "")
 		pop.set_item_text(i, gebaeude_array[i].get_name_gebaeude())
-	for i in range(len(gebaeude_anzahl) - 1):
+	for i in range(len(gebaeude_anzahl)-1):
 		pop.set_item_text(i, pop.get_item_text(i) + ":   " + str(gebaeude_anzahl[i]))
 
 func save():

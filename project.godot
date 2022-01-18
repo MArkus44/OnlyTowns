@@ -18,16 +18,10 @@ _global_script_classes=[ {
 "class": "Gebaeude",
 "language": "GDScript",
 "path": "res://skripte/Gebaeude.gd"
-}, {
-"base": "TextureButton",
-"class": "Lampe",
-"language": "GDScript",
-"path": "res://skripte/Lampe.gd"
 } ]
 _global_script_class_icons={
 "Bauunternehmen": "",
-"Gebaeude": "",
-"Lampe": ""
+"Gebaeude": ""
 }
 
 [application]

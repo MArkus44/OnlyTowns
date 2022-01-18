@@ -530,7 +530,6 @@ anims/RESET = SubResource( 6 )
 script = ExtResource( 25 )
 
 [node name="WindowBildschirm" type="WindowDialog" parent="Bildschirm/BildschirmBild"]
-visible = true
 margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0

@@ -13,4 +13,4 @@ func _ready():
 
 func _pressed():
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://scenes/Options.tscn")
+	get_tree().change_scene("res://scenes/Options2.tscn")
