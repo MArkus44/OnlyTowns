@@ -40,12 +40,8 @@ const Ereignisse = preload("res://skripte/Ereignisse.gd")
 func _ready():
 	t_print("Running.")
 	setup()
-#	load_game()
-#	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex))
-	set_geld_com(0)
-	set_beliebtheit_com(0.51)
-	set_bevoelkerung_com(100)
-	set_level_com(1)
+	load_game()
+#	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex)
 	timer_start()
 	
 	for i in range(len(gebaeude_array) - 1):
@@ -453,8 +449,10 @@ func save():
 		"gebaeude_ausstehend": gebaeude_ausstehend,
 		"gebaeude_anzahl": gebaeude_anzahl,
 		"level": levelSpieler,
-		"zeit": zeit
-		
+		"zeit": zeit,
+		"tmp_zeit_st": tmp_zeit_steuern,
+		"tmp_zeit_g": tmp_zeit_gebauede,
+		"tmp_zeit_m": tmp_zeit_mitteilungen
 	}
 	
 	var file = File.new()
@@ -465,21 +463,33 @@ func save():
 	
 func load_game():
 	var file = File.new()
-	file.open("user://savegame.save", File.READ)
-	var data = parse_json(file.get_line())
-	geld = data["geld"]
-	bevoelkerung = data["bevoelkerung"]
-	beliebtheit = data["beliebtheit"]
-	var gebaeude_load_g = data["gebaeude_gebaut"]
-	gebaeude_ausstehend = data["gebaeude_ausstehend"]
-	gebaeude_anzahl = data["gebaeude_anzahl"]
-	levelSpieler = data["level"]
-	zeit = data["zeit"]
-	
-	for i in gebaeude_load_g:
-		gebaeude_gebaut.append(gebaeude_array[i])
-	
-	t_print("Loaded: " + str(data))
+	var err = file.open("user://savegame.save", File.READ)
+	# file.open("user://savegame.save", File.READ)
+	if err == 0:
+		var data = parse_json(file.get_line())
+		geld = data["geld"]
+		bevoelkerung = data["bevoelkerung"]
+		beliebtheit = data["beliebtheit"]
+		var gebaeude_load_g = data["gebaeude_gebaut"]
+		gebaeude_ausstehend = data["gebaeude_ausstehend"]
+		gebaeude_anzahl = data["gebaeude_anzahl"]
+		levelSpieler = data["level"]
+		zeit = data["zeit"]
+		tmp_zeit_steuern = data["tmp_zeit_st"]
+		tmp_zeit_gebauede = data["tmp_zeit_g"]
+		tmp_zeit_mitteilungen = data["tmp_zeit_m"]
+		
+		for i in gebaeude_load_g:
+			gebaeude_gebaut.append(gebaeude_array[i])
+		
+		t_print("Loaded: " + str(data))
+		
+	else:
+		set_geld_com(0)
+		set_beliebtheit_com(0.51)
+		set_bevoelkerung_com(100)
+		set_level_com(1)
+		save()
 	file.close()
 	
 func t_print(var wert):
