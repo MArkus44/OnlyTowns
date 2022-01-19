@@ -22,7 +22,7 @@
 [ext_resource path="res://assets/Pause.png" type="Texture" id=20]
 [ext_resource path="res://assets/Bildschirm/Fenster_Save.png" type="Texture" id=21]
 [ext_resource path="res://skripte/Save_Dialog.gd" type="Script" id=22]
-[ext_resource path="res://skripte/Lampe.gd" type="Script" id=23]
+[ext_resource path="res://scenes/LampTexture.gd" type="Script" id=23]
 [ext_resource path="res://skripte/Freizeitgebaeudepop.gd" type="Script" id=24]
 [ext_resource path="res://skripte/AnimationPlayer.gd" type="Script" id=25]
 [ext_resource path="res://skripte/Freizeitgebaeude.gd" type="Script" id=26]
@@ -197,12 +197,16 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
-
 [sub_resource type="DynamicFont" id=8]
 size = 1
 outline_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 60
+font_data = ExtResource( 31 )
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.0901961, 0.67451, 0.0313726, 1 )
@@ -210,20 +214,16 @@ bg_color = Color( 0.0901961, 0.67451, 0.0313726, 1 )
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.760784, 0.0588235, 0.0588235, 1 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=12]
 size = 60
 font_data = ExtResource( 31 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=14]
 size = 60
 font_data = ExtResource( 31 )
 
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.0156863, 0.278431, 0.0156863, 1 )
-
-[sub_resource type="DynamicFont" id=14]
-size = 60
-font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 60
@@ -249,11 +249,15 @@ font_data = ExtResource( 31 )
 color = Color( 1, 1, 1, 1 )
 thickness = 3
 
+[sub_resource type="DynamicFont" id=22]
+outline_color = Color( 1, 1, 1, 0 )
+
 [sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.913725, 0.913725, 0.913725, 0 )
 
-[sub_resource type="DynamicFont" id=22]
-outline_color = Color( 1, 1, 1, 0 )
+[sub_resource type="DynamicFont" id=25]
+size = 25
+font_data = ExtResource( 31 )
 
 [sub_resource type="StyleBoxFlat" id=23]
 bg_color = Color( 0, 0.333333, 0.666667, 1 )
@@ -271,10 +275,6 @@ color = Color( 1, 1, 1, 1 )
 grow_begin = 2.0
 grow_end = 2.0
 thickness = 3
-
-[sub_resource type="DynamicFont" id=25]
-size = 25
-font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=26]
 size = 60
@@ -466,17 +466,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Lampe" type="TextureButton" parent="."]
-margin_left = 408.0
-margin_top = 345.0
-margin_right = 760.0
-margin_bottom = 741.0
-texture_normal = ExtResource( 5 )
-script = ExtResource( 23 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Zeitung" type="TextureButton" parent="."]
 margin_left = 758.0
 margin_top = 815.0
@@ -534,8 +523,8 @@ margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0
 margin_bottom = 493.0
-custom_styles/panel = SubResource( 7 )
 custom_fonts/title_font = SubResource( 8 )
+custom_styles/panel = SubResource( 7 )
 window_title = "Display"
 script = ExtResource( 15 )
 __meta__ = {
@@ -556,10 +545,10 @@ margin_left = 783.0
 margin_top = 464.0
 margin_right = 1425.0
 margin_bottom = 594.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
 custom_styles/fg = SubResource( 9 )
 custom_styles/bg = SubResource( 10 )
-custom_fonts/font = SubResource( 11 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 value = 51.0
 script = ExtResource( 32 )
 __meta__ = {
@@ -581,10 +570,10 @@ margin_left = 781.0
 margin_top = 307.0
 margin_right = 1424.0
 margin_bottom = 437.0
-custom_styles/normal = SubResource( 13 )
-custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 14 )
+custom_styles/normal = SubResource( 13 )
 text = "0"
 align = 1
 valign = 1
@@ -690,8 +679,8 @@ margin_left = 262.0
 margin_top = -149.0
 margin_right = 1305.0
 margin_bottom = 688.0
-custom_styles/panel = SubResource( 21 )
 custom_fonts/title_font = SubResource( 22 )
+custom_styles/panel = SubResource( 21 )
 script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -725,9 +714,9 @@ margin_left = 5.0
 margin_top = 60.0
 margin_right = 88.0
 margin_bottom = 115.0
+custom_fonts/font = SubResource( 25 )
 custom_styles/panel = SubResource( 23 )
 custom_styles/separator = SubResource( 24 )
-custom_fonts/font = SubResource( 25 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -755,9 +744,9 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 27 )
 custom_styles/panel = SubResource( 23 )
 custom_styles/separator = SubResource( 24 )
-custom_fonts/font = SubResource( 27 )
 script = ExtResource( 24 )
 
 [node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
@@ -779,9 +768,9 @@ script = ExtResource( 27 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 29 )
 custom_styles/panel = SubResource( 23 )
 custom_styles/separator = SubResource( 24 )
-custom_fonts/font = SubResource( 29 )
 script = ExtResource( 30 )
 
 [node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
@@ -803,9 +792,9 @@ script = ExtResource( 28 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
 margin_right = 20.0
 margin_bottom = 20.0
+custom_fonts/font = SubResource( 31 )
 custom_styles/panel = SubResource( 23 )
 custom_styles/separator = SubResource( 24 )
-custom_fonts/font = SubResource( 31 )
 script = ExtResource( 29 )
 
 [node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
@@ -949,10 +938,32 @@ custom_styles/panel = SubResource( 34 )
 custom_styles/separator = SubResource( 35 )
 script = ExtResource( 41 )
 
-[connection signal="confirmed" from="Pause/ConfirmationDialog" to="Pause" method="ok"]
+[node name="LampTexture" type="TextureRect" parent="."]
+margin_left = 380.0
+margin_top = 410.0
+margin_right = 786.0
+margin_bottom = 700.0
+texture = ExtResource( 5 )
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LampButton" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 500.0
+margin_top = 481.0
+margin_right = 738.0
+margin_bottom = 568.0
+toggle_mode = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="confirmed" from="Pause/ConfirmationDialog" to="." method="save"]
-[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
+[connection signal="confirmed" from="Pause/ConfirmationDialog" to="Pause" method="ok"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
+[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog" method="text"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog" method="text"]
@@ -965,8 +976,9 @@ script = ExtResource( 41 )
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" method="_on_Firma2_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
-[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" method="_on_Firma3_gui_input"]
+[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" method="_on_Firma4_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="confirmed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_ConfirmationDialog_confirmed"]
+[connection signal="toggled" from="LampButton" to="LampTexture" method="_toggle_lamp"]
