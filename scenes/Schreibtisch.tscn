@@ -72,7 +72,7 @@ font_data = ExtResource( 31 )
 size = 60
 font_data = ExtResource( 31 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("WindowBildschirm:rect_position:x")
@@ -135,7 +135,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("WindowBildschirm:rect_position:x")
 tracks/0/interp = 1
@@ -197,33 +197,37 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
+
+[sub_resource type="DynamicFont" id=8]
 size = 1
 outline_color = Color( 1, 1, 1, 0 )
 
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.0901961, 0.67451, 0.0313726, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.760784, 0.0588235, 0.0588235, 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 60
+font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 60
 font_data = ExtResource( 31 )
 
-[sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0.0901961, 0.67451, 0.0313726, 1 )
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.0156863, 0.278431, 0.0156863, 1 )
 
-[sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.760784, 0.0588235, 0.0588235, 1 )
-
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=14]
 size = 60
 font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 60
 font_data = ExtResource( 31 )
-
-[sub_resource type="StyleBoxFlat" id=14]
-bg_color = Color( 0.0156863, 0.278431, 0.0156863, 1 )
 
 [sub_resource type="DynamicFont" id=16]
 size = 60
@@ -241,25 +245,17 @@ font_data = ExtResource( 31 )
 size = 60
 font_data = ExtResource( 31 )
 
-[sub_resource type="DynamicFont" id=20]
-size = 60
-font_data = ExtResource( 31 )
-
-[sub_resource type="StyleBoxLine" id=21]
+[sub_resource type="StyleBoxLine" id=20]
 color = Color( 1, 1, 1, 1 )
 thickness = 3
 
-[sub_resource type="DynamicFont" id=23]
-outline_color = Color( 1, 1, 1, 0 )
-
-[sub_resource type="StyleBoxFlat" id=22]
+[sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.913725, 0.913725, 0.913725, 0 )
 
-[sub_resource type="DynamicFont" id=26]
-size = 25
-font_data = ExtResource( 31 )
+[sub_resource type="DynamicFont" id=22]
+outline_color = Color( 1, 1, 1, 0 )
 
-[sub_resource type="StyleBoxFlat" id=24]
+[sub_resource type="StyleBoxFlat" id=23]
 bg_color = Color( 0, 0.333333, 0.666667, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -270,47 +266,51 @@ expand_margin_right = 2.0
 expand_margin_top = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxLine" id=25]
+[sub_resource type="StyleBoxLine" id=24]
 color = Color( 1, 1, 1, 1 )
 grow_begin = 2.0
 grow_end = 2.0
 thickness = 3
 
-[sub_resource type="DynamicFont" id=27]
+[sub_resource type="DynamicFont" id=25]
+size = 25
+font_data = ExtResource( 31 )
+
+[sub_resource type="DynamicFont" id=26]
 size = 60
+font_data = ExtResource( 31 )
+
+[sub_resource type="DynamicFont" id=27]
+size = 25
 font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=28]
-size = 25
+size = 60
 font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=29]
-size = 60
+size = 25
 font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=30]
-size = 25
+size = 60
 font_data = ExtResource( 31 )
 
 [sub_resource type="DynamicFont" id=31]
-size = 60
-font_data = ExtResource( 31 )
-
-[sub_resource type="DynamicFont" id=32]
 size = 25
 font_data = ExtResource( 31 )
 
-[sub_resource type="DynamicFont" id=33]
+[sub_resource type="DynamicFont" id=32]
 size = 60
 font_data = ExtResource( 31 )
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="StyleBoxFlat" id=34]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="StyleBoxFlat" id=35]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-[sub_resource type="StyleBoxLine" id=36]
+[sub_resource type="StyleBoxLine" id=35]
 color = Color( 0.996078, 0.996078, 0.996078, 1 )
 
 [node name="Node2D" type="Node2D"]
@@ -525,8 +525,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bildschirm/BildschirmBild"]
-anims/RESET = SubResource( 6 )
-"anims/Schreibtisch -> Desktop" = SubResource( 7 )
+anims/RESET = SubResource( 5 )
+"anims/Schreibtisch -> Desktop" = SubResource( 6 )
 script = ExtResource( 25 )
 
 [node name="WindowBildschirm" type="WindowDialog" parent="Bildschirm/BildschirmBild"]
@@ -534,8 +534,8 @@ margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0
 margin_bottom = 493.0
-custom_fonts/title_font = SubResource( 9 )
-custom_styles/panel = SubResource( 8 )
+custom_styles/panel = SubResource( 7 )
+custom_fonts/title_font = SubResource( 8 )
 window_title = "Display"
 script = ExtResource( 15 )
 __meta__ = {
@@ -556,10 +556,10 @@ margin_left = 783.0
 margin_top = 464.0
 margin_right = 1425.0
 margin_bottom = 594.0
+custom_styles/fg = SubResource( 9 )
+custom_styles/bg = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 12 )
-custom_styles/fg = SubResource( 10 )
-custom_styles/bg = SubResource( 11 )
 value = 51.0
 script = ExtResource( 32 )
 __meta__ = {
@@ -571,7 +571,7 @@ margin_left = -236.587
 margin_top = 0.412598
 margin_right = -25.5873
 margin_bottom = 119.413
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 12 )
 text = "Beliebtheit"
 align = 2
 valign = 1
@@ -581,10 +581,10 @@ margin_left = 781.0
 margin_top = 307.0
 margin_right = 1424.0
 margin_bottom = 437.0
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 15 )
-custom_styles/normal = SubResource( 14 )
 text = "0"
 align = 1
 valign = 1
@@ -598,7 +598,7 @@ margin_left = -236.587
 margin_top = 0.412598
 margin_right = -25.5873
 margin_bottom = 119.413
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 15 )
 text = "Geld"
 align = 2
 valign = 1
@@ -611,7 +611,7 @@ margin_left = 778.0
 margin_top = 620.0
 margin_right = 1431.0
 margin_bottom = 744.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 text = "1000"
 align = 1
 valign = 1
@@ -624,7 +624,7 @@ __meta__ = {
 margin_left = -303.0
 margin_right = -25.0
 margin_bottom = 119.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 text = "Bevölkerung"
 align = 2
 valign = 1
@@ -634,7 +634,7 @@ margin_left = 645.0
 margin_top = 764.0
 margin_right = 752.0
 margin_bottom = 810.0
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 18 )
 text = "Level"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -645,7 +645,7 @@ margin_left = 431.0
 margin_top = 2.0
 margin_right = 492.0
 margin_bottom = 48.0
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 19 )
 text = "2"
 script = ExtResource( 48 )
 
@@ -664,7 +664,7 @@ margin_left = 403.0
 margin_top = -185.0
 margin_right = 987.0
 margin_bottom = 221.0
-custom_styles/panel = SubResource( 21 )
+custom_styles/panel = SubResource( 20 )
 script = ExtResource( 22 )
 
 [node name="TextureRect" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog"]
@@ -690,8 +690,8 @@ margin_left = 262.0
 margin_top = -149.0
 margin_right = 1305.0
 margin_bottom = 688.0
-custom_fonts/title_font = SubResource( 23 )
-custom_styles/panel = SubResource( 22 )
+custom_styles/panel = SubResource( 21 )
+custom_fonts/title_font = SubResource( 22 )
 script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -725,9 +725,9 @@ margin_left = 5.0
 margin_top = 60.0
 margin_right = 88.0
 margin_bottom = 115.0
-custom_fonts/font = SubResource( 26 )
-custom_styles/panel = SubResource( 24 )
-custom_styles/separator = SubResource( 25 )
+custom_styles/panel = SubResource( 23 )
+custom_styles/separator = SubResource( 24 )
+custom_fonts/font = SubResource( 25 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -738,7 +738,7 @@ margin_left = -44.0
 margin_top = 79.0
 margin_right = 216.0
 margin_bottom = 125.0
-custom_fonts/font = SubResource( 27 )
+custom_fonts/font = SubResource( 26 )
 text = "Wohngebäude"
 
 [node name="Freizeitgebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
@@ -755,9 +755,9 @@ __meta__ = {
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 28 )
-custom_styles/panel = SubResource( 24 )
-custom_styles/separator = SubResource( 25 )
+custom_styles/panel = SubResource( 23 )
+custom_styles/separator = SubResource( 24 )
+custom_fonts/font = SubResource( 27 )
 script = ExtResource( 24 )
 
 [node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
@@ -765,7 +765,7 @@ margin_left = -58.0
 margin_top = 80.0
 margin_right = 253.0
 margin_bottom = 126.0
-custom_fonts/font = SubResource( 29 )
+custom_fonts/font = SubResource( 28 )
 text = "Freizeitgebäude"
 
 [node name="Wirtschaftsgebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
@@ -779,9 +779,9 @@ script = ExtResource( 27 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 30 )
-custom_styles/panel = SubResource( 24 )
-custom_styles/separator = SubResource( 25 )
+custom_styles/panel = SubResource( 23 )
+custom_styles/separator = SubResource( 24 )
+custom_fonts/font = SubResource( 29 )
 script = ExtResource( 30 )
 
 [node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
@@ -789,7 +789,7 @@ margin_left = -93.0
 margin_top = 81.0
 margin_right = 305.0
 margin_bottom = 127.0
-custom_fonts/font = SubResource( 31 )
+custom_fonts/font = SubResource( 30 )
 text = "Wirtschaftsgebäude"
 
 [node name="Infrastruktur" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
@@ -803,9 +803,9 @@ script = ExtResource( 28 )
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
 margin_right = 20.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 32 )
-custom_styles/panel = SubResource( 24 )
-custom_styles/separator = SubResource( 25 )
+custom_styles/panel = SubResource( 23 )
+custom_styles/separator = SubResource( 24 )
+custom_fonts/font = SubResource( 31 )
 script = ExtResource( 29 )
 
 [node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
@@ -813,7 +813,7 @@ margin_left = -62.0
 margin_top = 74.0
 margin_right = 221.0
 margin_bottom = 120.0
-custom_fonts/font = SubResource( 33 )
+custom_fonts/font = SubResource( 32 )
 text = "Infrastruktur"
 
 [node name="WindowDialog" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
@@ -929,7 +929,7 @@ margin_left = 460.0
 margin_top = -528.0
 margin_right = 891.0
 margin_bottom = 235.0
-custom_styles/panel = SubResource( 34 )
+custom_styles/panel = SubResource( 33 )
 script = ExtResource( 38 )
 
 [node name="TextureRect" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude"]
@@ -945,14 +945,14 @@ __meta__ = {
 [node name="gebaut_pop" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude"]
 margin_right = 20.0
 margin_bottom = 20.0
-custom_styles/panel = SubResource( 35 )
-custom_styles/separator = SubResource( 36 )
+custom_styles/panel = SubResource( 34 )
+custom_styles/separator = SubResource( 35 )
 script = ExtResource( 41 )
 
-[connection signal="pressed" from="Pause" to="." method="save"]
 [connection signal="confirmed" from="Pause/ConfirmationDialog" to="Pause" method="ok"]
-[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
+[connection signal="confirmed" from="Pause/ConfirmationDialog" to="." method="save"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog" method="_on_Save_pressed"]
+[connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog" method="text"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wohngebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_PopupMenu_id_pressed"]
 [connection signal="id_pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude/PopupMenu" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog" method="text"]
@@ -965,8 +965,8 @@ script = ExtResource( 41 )
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma1" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" method="_on_Firma2_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
-[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" method="_on_Firma3_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
+[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3" method="_on_Firma3_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" method="_on_Firma4_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="confirmed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_ConfirmationDialog_confirmed"]
