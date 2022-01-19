@@ -53,7 +53,7 @@ func getMusiktitel():
 
 func _process(delta):
 	if str(conf.get_value("Musikdatei" + str(currentTrack), "DateipfadMusik")) != "null":
-		if get_playback_position() >= conf.get_value("Musikdatei" + str(currentTrack), "LaengeMusik"):
+		if get_playback_position() >= float(conf.get_value("Musikdatei" + str(currentTrack), "LaengeMusik")):
 			currentTrack = currentTrack + 1 
 			stop()
 			Soundpfad = str(conf.get_value("Musikdatei" +str(currentTrack), "DateipfadMusik"))
@@ -61,7 +61,7 @@ func _process(delta):
 			stream = Sounddatei
 			play(0)
 		
-		if get_playback_position() + 20 >= conf.get_value("Musikdatei" + str(currentTrack), "LaengeMusik"):
+		if get_playback_position() + 20 >= float(conf.get_value("Musikdatei" + str(currentTrack), "LaengeMusik")):
 			VolumeDown()
 		else:
 			VolumeUp()
@@ -77,12 +77,13 @@ func VolumeDown():
 	if StreamVolume-0.001 >= 0:
 		StreamVolume = StreamVolume-0.001
 		volume_db = linear2db(StreamVolume)
-	print(StreamVolume)
+#	print(StreamVolume)
 
 func VolumeUp():
 	if StreamVolume + 0.001 <= 1:
 		StreamVolume = StreamVolume+0.001
 		volume_db = linear2db(StreamVolume)
-	print(StreamVolume)
+#	print(StreamVolume)
+#187
 
 

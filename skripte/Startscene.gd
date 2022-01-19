@@ -10,17 +10,17 @@ extends Node
 func _ready():
 	var DateipfadOptions = "res://configs/OptionsData.cfg"
 	var confOptions = ConfigFile.new()
-	var loadResponse = confOptions.load(DateipfadOptions)
-	var Lautstaerke = confOptions.get_value("Options", "Volume")
-	var Helligkeit = confOptions.get_value("Options", "Helligkeit")
-	var laufendeMusiknummer = confOptions.get_value("Options", "Musiknummer")
+	var loadResponse = float(confOptions.load(DateipfadOptions))
+	var Lautstaerke = float(confOptions.get_value("Options", "Volume"))
+	var Helligkeit = float(confOptions.get_value("Options", "Helligkeit"))
+	var laufendeMusiknummer = float(confOptions.get_value("Options", "Musiknummer"))
 	var laufen
-	var LautstaerkeEffekte = confOptions.get_value("Options", "VolumeEffects")
+	var LautstaerkeEffekte = float(confOptions.get_value("Options", "VolumeEffects"))
 	
 	$"/root/MusicScene".prepareTrack(laufendeMusiknummer, 0)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(1))
 	
-	if confOptions.get_value("Options", "laeuft") == 1:
+	if float(confOptions.get_value("Options", "laeuft")) == 1:
 		$"/root/MusicScene"._spiele()
 	
 	if Lautstaerke == 0:

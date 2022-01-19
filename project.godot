@@ -34,8 +34,8 @@ config/icon="res://icon.png"
 
 Console="*res://addons/quentincaffeino/console/src/Console.tscn"
 MusicScene="*res://scenes/MusicScene.tscn"
-Soundeffects="*res://scenes/Soundeffects.tscn"
 Startscene="*res://scenes/Startscene.tscn"
+Soundeffects="*res://scenes/Soundeffects.tscn"
 
 [display]
 
