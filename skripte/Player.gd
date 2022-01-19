@@ -58,6 +58,7 @@ func _process(delta):
 	neuer_regelmaessige_mitteilung()
 	steuern()
 	geld_zu_wenig()
+	beliebtheit_zu_viel()
 	ereignis_ausloeser()
 	
 	for i in gebaeude_ausstehend:
@@ -170,6 +171,10 @@ func geld_einfluss_gebaeude(einkommen_einfluss):
 func geld_zu_wenig():#
 	if(geld <= -5000000):
 		get_tree().change_scene("res://scenes/Menu.tscn")
+
+func beliebtheit_zu_viel():
+	if(beliebtheit >= 100):
+		set_beliebtheit(100)
 
 func steuern():
 	if zeit >= tmp_zeit_steuern + zeit_zwischen_steuern:
