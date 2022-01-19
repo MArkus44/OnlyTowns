@@ -40,11 +40,16 @@ const Ereignisse = preload("res://skripte/Ereignisse.gd")
 func _ready():
 	t_print("Running.")
 	setup()
+	set_geld_com(0)
+	set_beliebtheit_com(0.51)
+	set_bevoelkerung_com(100)
+	set_level_com(1)
 	load_game()
 #	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex)
 	timer_start()
 	
-	for i in range(len(gebaeude_array) - 1):
+	for i in range(len(gebaeude_array)):
+		print(gebaeude_array[i].get_name_gebaeude())
 		$Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude/gebaut_pop.add_item(gebaeude_array[i].get_name_gebaeude(), i)
 
 func setup():
@@ -429,10 +434,10 @@ func set_level():
 
 func gebaeude_pop():
 	var pop = $Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude/gebaut_pop
-	for i in range(len(gebaeude_array)-1):
+	for i in range(len(gebaeude_array)):
 		pop.set_item_text(i, "")
 		pop.set_item_text(i, gebaeude_array[i].get_name_gebaeude())
-	for i in range(len(gebaeude_anzahl)-1):
+	for i in range(len(gebaeude_anzahl)):
 		pop.set_item_text(i, pop.get_item_text(i) + ":   " + str(gebaeude_anzahl[i]))
 
 func save():
@@ -485,10 +490,6 @@ func load_game():
 		t_print("Loaded: " + str(data))
 		
 	else:
-		set_geld_com(0)
-		set_beliebtheit_com(0.51)
-		set_bevoelkerung_com(100)
-		set_level_com(1)
 		save()
 	file.close()
 	
