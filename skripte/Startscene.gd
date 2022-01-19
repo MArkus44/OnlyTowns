@@ -11,7 +11,7 @@ func _ready():
 	var DateipfadOptions = "res://configs/OptionsData.cfg"
 	var confOptions = ConfigFile.new()
 	var loadResponse = float(confOptions.load(DateipfadOptions))
-	var Lautstaerke = float(confOptions.get_value("Options", "Volume"))
+	var Lautstaerke = int(confOptions.get_value("Options", "Volume"))
 	var Helligkeit = float(confOptions.get_value("Options", "Helligkeit"))
 	var laufendeMusiknummer = float(confOptions.get_value("Options", "Musiknummer"))
 	var laufen

@@ -341,7 +341,7 @@ func ereignis_rechnen(index):
 	else:
 		if(kaputt == "Haus"):
 			var einmal
-			for i in range(gebaeude_gebaut.length()):
+			for i in range(gebaeude_gebaut.size()):
 				if(gebaeude_gebaut[i].get_name_gebaeude() == "Einfamilienhaus"):
 					if(einmal == false):
 						gebaeude_gebaut.remove(i)
