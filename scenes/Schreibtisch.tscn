@@ -674,7 +674,6 @@ __meta__ = {
 }
 
 [node name="WindowAntraege" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge"]
-visible = true
 margin_left = 262.0
 margin_top = -149.0
 margin_right = 1305.0
@@ -916,17 +915,18 @@ __meta__ = {
 [node name="WindowGebaeude" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude"]
 margin_left = 460.0
 margin_top = -528.0
-margin_right = 891.0
-margin_bottom = 235.0
+margin_right = 933.0
+margin_bottom = 271.0
 custom_styles/panel = SubResource( 33 )
 script = ExtResource( 38 )
 
 [node name="TextureRect" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude"]
 margin_top = -5.0
-margin_right = 434.0
-margin_bottom = 775.0
+margin_right = 476.0
+margin_bottom = 804.0
 texture = ExtResource( 12 )
 expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -981,4 +981,5 @@ __meta__ = {
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" method="_on_Firma4_gui_input"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="confirmed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_ConfirmationDialog_confirmed"]
+[connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude/TextureRect" to="Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude" method="_on_TextureRect_gui_input"]
 [connection signal="toggled" from="LampButton" to="LampTexture" method="_toggle_lamp"]

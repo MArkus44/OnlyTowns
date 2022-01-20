@@ -9,3 +9,7 @@ extends WindowDialog
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.get_close_button().visible = false
+
+
+func _on_TextureRect_gui_input(event):
+	hide()
