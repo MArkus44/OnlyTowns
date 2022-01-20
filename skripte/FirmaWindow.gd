@@ -36,6 +36,7 @@ func text(index):
 		var level = player.gebaeude_array[index].get_level()
 		$ConfirmationDialog.dialog_text = "Du brauchst Level " + str(level) + " um dieses Gebäude zu bauen"
 		$ConfirmationDialog.get_ok().visible = false
+		$ConfirmationDialog.get_cancel().text="ok"
 		$ConfirmationDialog.popup_centered()
 
 func comma_sep(number):
