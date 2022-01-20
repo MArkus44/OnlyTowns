@@ -7,6 +7,6 @@ func _ready():
 
 func _pressed():
 # warning-ignore:return_value_discarded
-	$"/root/Soundeffekte".MausKlick()
+	$"/root/Soundeffects".MausKlick()
 	Optionen.saveGame()
 

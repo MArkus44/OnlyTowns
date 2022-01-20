@@ -21,7 +21,7 @@ func _process(delta):
 	
 
 func _ChangingVolumeByConfig(var Vol):
-	value = Vol
+	value = float(Vol)
 
 
 

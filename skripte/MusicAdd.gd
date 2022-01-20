@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 
 
 # Declare member variables here. Examples:
@@ -10,8 +10,9 @@ extends TextureButton
 func _ready():
 	pass # Replace with function body.
 
-
 func _pressed():
-# warning-ignore:return_value_discarded
 	$"/root/Soundeffects".MausKlick()
-	get_tree().change_scene("res://scenes/Options.tscn")
+	get_tree().change_scene("res://scenes/Options2.tscn")
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass

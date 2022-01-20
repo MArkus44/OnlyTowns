@@ -1,6 +1,6 @@
 extends Node2D
 
-var DateipfadOptions = "res://Config/OptionsData.cfg"
+var DateipfadOptions = "res://configs/OptionsData.cfg"
 var confOptions = ConfigFile.new()
 var loadResponse = confOptions.load(DateipfadOptions)
 var Lautstaerke
@@ -19,7 +19,7 @@ func _ready():
 	Helligkeit = confOptions.get_value("Options", "Helligkeit")
 	VolumeSoundeffects = confOptions.get_value("Options", "VolumeEffects")
 	
-	if confOptions.get_value("Options", "laeuft") == 1:
+	if int(confOptions.get_value("Options", "laeuft")) == 1:
 		laufen = true
 	else: laufen = false
 	

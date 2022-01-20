@@ -14,4 +14,4 @@ func _process(delta):
 	mylabel.text = value as String
 
 func _ChangingBrightnessByConfig(var Bright):
-	value = Bright
+	value = float(Bright)

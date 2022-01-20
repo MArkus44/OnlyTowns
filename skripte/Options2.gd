@@ -4,7 +4,7 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var Dateipfad = "res://configs/MusicData.cfg"
+var Dateipfad = "res://Config/MusicData.cfg"
 var conf = ConfigFile.new()
 var loadResponse = conf.load(Dateipfad)
 var Musiktitel
@@ -37,7 +37,7 @@ func HinzufuegenSpeichern():
 		conf.set_value("Musikdatei" + str(Bestand + 2), "DateipfadMusik", "null")
 		conf.set_value("Musikdatei" + str(Bestand+2), "LaengeMusik", 0)
 		
-		conf.save("res://configs/MusicData.cfg")
+		conf.save("res://Config/MusicData.cfg")
 		$Fehlermeldung.set_text("Die Musik wurde erfolgreich hinzugefügt!!!")
 		$"/root/MusicScene".reloadConfig()
 		$"/root/MusicScene".set_process(true)
@@ -78,7 +78,7 @@ func EntfernenSpeichern():
 				
 			
 		
-		conf.save("res://configs/MusicData.cfg")
+		conf.save("res://Config/MusicData.cfg")
 		$"/root/MusicScene".reloadConfig()
 		 
 		if $"/root/MusicScene".currentTrack < StartpunktnachLoeschen:

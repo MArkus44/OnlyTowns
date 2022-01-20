@@ -15,6 +15,7 @@ var StreamVolume = 1
 func _ready():
 	pitch_scale = 1
 	set_process(!is_processing())
+	
 
 
 
@@ -77,13 +78,14 @@ func VolumeDown():
 	if StreamVolume-0.001 >= 0:
 		StreamVolume = StreamVolume-0.001
 		volume_db = linear2db(StreamVolume)
-#	print(StreamVolume)
+
 
 func VolumeUp():
 	if StreamVolume + 0.001 <= 1:
 		StreamVolume = StreamVolume+0.001
 		volume_db = linear2db(StreamVolume)
-#	print(StreamVolume)
-#187
 
+func reloadConfig():
+	conf = ConfigFile.new()
+	loadResponse = conf.load(Dateipfad)
 

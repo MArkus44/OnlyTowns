@@ -475,7 +475,7 @@ func load_game():
 	var file = File.new()
 	var err = file.open("user://savegame.save", File.READ)
 	# file.open("user://savegame.save", File.READ)
-	if err == 0:
+	if err == null:
 		var data = parse_json(file.get_line())
 		geld = data["geld"]
 		bevoelkerung = data["bevoelkerung"]
