@@ -13,14 +13,14 @@ func _ready():
 	player = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent()
 	get_ok().text = "Ja"
 	get_cancel().text = "Nein"
-# warning-ignore:return_value_discarded
-	get_parent().get_node("Firma1").connect("bau_id1", self, "set_bau_id")
-# warning-ignore:return_value_discarded
-	get_parent().get_node("Firma2").connect("bau_id2", self, "set_bau_id")
-# warning-ignore:return_value_discarded
-	get_parent().get_node("Firma3").connect("bau_id3", self, "set_bau_id")
-# warning-ignore:return_value_discarded
-	get_parent().get_node("Firma4").connect("bau_id4", self, "set_bau_id")
+## warning-ignore:return_value_discarded
+#	get_parent().get_node("Firma1").connect("bau_id1", self, "set_bau_id")
+## warning-ignore:return_value_discarded
+#	get_parent().get_node("Firma2").connect("bau_id2", self, "set_bau_id")
+## warning-ignore:return_value_discarded
+#	get_parent().get_node("Firma3").connect("bau_id3", self, "set_bau_id")
+## warning-ignore:return_value_discarded
+#	get_parent().get_node("Firma4").connect("bau_id4", self, "set_bau_id")
 
 func _on_PopupMenu_id_pressed(index):
 	id = index
@@ -41,12 +41,8 @@ func comma_sep(number):
 		res += string[i]
 	return res
 
-func set_bau_id(bau_idn):
-	bau_id = bau_idn
-
 func _on_ConfirmationDialog_confirmed():
-	player.antrag_stellen(id)
-
+	player.antrag_stellen(id,bau_id)
 
 # warning-ignore:unused_argument
 func _on_Firma1_gui_input(event):

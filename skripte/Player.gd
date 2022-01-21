@@ -207,13 +207,16 @@ func antrag_gebaeude(index):
 	t_print(gebaeude_array[index].get_name_gebaeude())
 	return gebaeude_array[index].get_name_gebaeude()
 	
-func antrag_stellen(index):
+func antrag_stellen(index,firma):
 	var rn = RandomNumberGenerator.new().randi_range(0, 100)
 	if rn * beliebtheit > 40:
-		gebaeude_ausstehend.append(str(index) + ';' + str((gebaeude_array[index].get_bauzeit()) + zeit))
+		t_print(str(geld) + "€")
+		gebaeude_ausstehend.append(str(index) + ';' + str((gebaeude_array[index].get_bauzeit()) * bauunternehmen_array[firma].get_multiplikator_bauzeit() + zeit))
 		t_print(str(gebaeude_array[int(gebaeude_ausstehend[-1].split(';')[0])].get_name_gebaeude()) + " " + str(gebaeude_ausstehend[-1].split(';')[1]))
-		geld += gebaeude_array[index].get_kosten()
-	
+		geld += gebaeude_array[index].get_kosten() * bauunternehmen_array[firma].get_multiplikator_geld()
+		t_print(bauunternehmen_array[firma].get_multiplikator_geld())
+		t_print(bauunternehmen_array[firma].get_multiplikator_bauzeit())
+		t_print(str(geld) + "€")
 	
 func get_geld():
 	return geld
