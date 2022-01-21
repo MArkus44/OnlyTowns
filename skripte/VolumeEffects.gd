@@ -10,6 +10,7 @@ var Soundeffects
 func _ready():
 	pass # Replace with function body.
 
+# warning-ignore:unused_argument
 func _process(delta):
 	var LabelSound = $LabelEffects
 	LabelSound.text = value as String

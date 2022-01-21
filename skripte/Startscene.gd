@@ -10,10 +10,13 @@ extends Node
 func _ready():
 	var DateipfadOptions = "res://configs/OptionsData.cfg"
 	var confOptions = ConfigFile.new()
+# warning-ignore:unused_variable
 	var loadResponse = float(confOptions.load(DateipfadOptions))
 	var Lautstaerke = int(confOptions.get_value("Options", "Volume"))
+# warning-ignore:unused_variable
 	var Helligkeit = float(confOptions.get_value("Options", "Helligkeit"))
 	var laufendeMusiknummer = float(confOptions.get_value("Options", "Musiknummer"))
+# warning-ignore:unused_variable
 	var laufen
 	var LautstaerkeEffekte = float(confOptions.get_value("Options", "VolumeEffects"))
 	
@@ -40,6 +43,7 @@ func _ready():
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Soundeffects"), linear2db(LautstaerkeEffekte/100))
 	
 	
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/Menu.tscn")
 
 

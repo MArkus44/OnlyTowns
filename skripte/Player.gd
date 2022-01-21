@@ -64,6 +64,7 @@ func _process(delta):
 	steuern()
 	geld_zu_wenig()
 	beliebtheit_zu_viel()
+	beliebtheit_zu_wenig()
 	ereignis_ausloeser()
 	
 	for i in gebaeude_ausstehend:
@@ -175,11 +176,21 @@ func geld_einfluss_gebaeude(einkommen_einfluss):
 
 func geld_zu_wenig():#
 	if(geld <= -5000000):
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://scenes/Menu.tscn")
 
 func beliebtheit_zu_viel():
 	if(beliebtheit >= 100):
 		set_beliebtheit(100)
+
+func beliebtheit_zu_wenig():
+	if(get_level() == 11):
+		if(get_beliebtheit() <= 0.5):
+			set_bevoelkerung(100)
+			set_beliebtheit(0.5)
+			set_geld(0)
+			save()
+			get_tree().change_scene("res://scenes/Menu.tscn")
 
 func steuern():
 	if zeit >= tmp_zeit_steuern + zeit_zwischen_steuern:
@@ -235,7 +246,7 @@ func get_bevoelkerung():
 	return bevoelkerung
 	
 func set_bevoelkerung(wert):
-	bevoelkerung = wert
+	bevoelkerung = int(wert)
 	
 # warning-ignore:unused_argument
 func set_bevoelkerung_com(wert):
@@ -474,8 +485,9 @@ func save():
 func load_game():
 	var file = File.new()
 	var err = file.open("user://savegame.save", File.READ)
+	print(err)
 	# file.open("user://savegame.save", File.READ)
-	if err == null:
+	if err != null:
 		var data = parse_json(file.get_line())
 		geld = data["geld"]
 		bevoelkerung = data["bevoelkerung"]

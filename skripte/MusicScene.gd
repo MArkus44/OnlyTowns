@@ -52,6 +52,7 @@ func getMusiktitel():
 
 
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if str(conf.get_value("Musikdatei" + str(currentTrack), "DateipfadMusik")) != "null":
 		if get_playback_position() >= float(conf.get_value("Musikdatei" + str(currentTrack), "LaengeMusik")):

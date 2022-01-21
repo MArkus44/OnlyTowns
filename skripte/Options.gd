@@ -14,7 +14,7 @@ var VolumeSoundeffects
 
 func _ready():
 	Lautstaerke = confOptions.get_value("Options", "Volume")
-	laufenderTitel = str(confOptions.get_value("Options", "Musiktitel"))
+#	laufenderTitel = str(confOptions.get_value("Options", "Musiktitel"))
 	laufendeMusiknummer = confOptions.get_value("Options", "Musiknummer")
 	Helligkeit = confOptions.get_value("Options", "Helligkeit")
 	VolumeSoundeffects = confOptions.get_value("Options", "VolumeEffects")
@@ -40,5 +40,6 @@ func saveGame():
 	if $"Music onoff".pressed == true:
 			confOptions.set_value("Options", "laeuft", 1)
 	else: confOptions.set_value("Options", "laeuft", 0)
-	confOptions.save("res://Config/OptionsData.cfg")
+	confOptions.save("res://configs/OptionsData.cfg")
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/Menu.tscn")

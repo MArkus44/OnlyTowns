@@ -14,6 +14,7 @@ func display():
 	else: 
 		text = ""
 
+# warning-ignore:unused_argument
 func _process(delta):
 	display()
 

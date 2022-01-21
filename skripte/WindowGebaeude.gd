@@ -11,5 +11,6 @@ func _ready():
 	self.get_close_button().visible = false
 
 
+# warning-ignore:unused_argument
 func _on_TextureRect_gui_input(event):
 	hide()

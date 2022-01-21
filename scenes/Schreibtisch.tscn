@@ -331,6 +331,28 @@ one_shot = true
 [node name="Timer2" type="Timer" parent="."]
 one_shot = true
 
+[node name="LampTexture" type="TextureRect" parent="."]
+margin_left = 380.0
+margin_top = 410.0
+margin_right = 786.0
+margin_bottom = 806.0
+texture = ExtResource( 5 )
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LampButton" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 500.0
+margin_top = 481.0
+margin_right = 738.0
+margin_bottom = 568.0
+toggle_mode = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LabelGeld" type="Label" parent="."]
 margin_left = 60.0
 margin_top = 60.0
@@ -519,6 +541,7 @@ anims/RESET = SubResource( 5 )
 script = ExtResource( 25 )
 
 [node name="WindowBildschirm" type="WindowDialog" parent="Bildschirm/BildschirmBild"]
+visible = true
 margin_left = -899.0
 margin_top = -502.0
 margin_right = 811.0
@@ -674,6 +697,7 @@ __meta__ = {
 }
 
 [node name="WindowAntraege" type="WindowDialog" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge"]
+visible = true
 margin_left = 262.0
 margin_top = -149.0
 margin_right = 1305.0
@@ -830,6 +854,9 @@ __meta__ = {
 margin_top = 34.0
 margin_right = 40.0
 margin_bottom = 54.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Firma2" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog"]
 margin_left = 2.0
@@ -938,28 +965,7 @@ custom_styles/panel = SubResource( 34 )
 custom_styles/separator = SubResource( 35 )
 script = ExtResource( 41 )
 
-[node name="LampTexture" type="TextureRect" parent="."]
-margin_left = 380.0
-margin_top = 410.0
-margin_right = 786.0
-margin_bottom = 700.0
-texture = ExtResource( 5 )
-script = ExtResource( 23 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LampButton" type="Button" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 500.0
-margin_top = 481.0
-margin_right = 738.0
-margin_bottom = 568.0
-toggle_mode = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
+[connection signal="toggled" from="LampButton" to="LampTexture" method="_toggle_lamp"]
 [connection signal="confirmed" from="Pause/ConfirmationDialog" to="." method="save"]
 [connection signal="confirmed" from="Pause/ConfirmationDialog" to="Pause" method="ok"]
 [connection signal="pressed" from="Bildschirm/BildschirmBild/WindowBildschirm/Save" to="." method="save"]
@@ -982,4 +988,3 @@ __meta__ = {
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_Firma1_gui_input"]
 [connection signal="confirmed" from="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" to="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/ConfirmationDialog" method="_on_ConfirmationDialog_confirmed"]
 [connection signal="gui_input" from="Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude/TextureRect" to="Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude" method="_on_TextureRect_gui_input"]
-[connection signal="toggled" from="LampButton" to="LampTexture" method="_toggle_lamp"]

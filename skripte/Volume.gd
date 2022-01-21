@@ -1,5 +1,6 @@
 extends HSlider
 
+# warning-ignore:unused_signal
 signal Volchanged
 
 
@@ -10,6 +11,7 @@ func _ready():
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# warning-ignore:unused_argument
 func _process(delta):
 	var my_label=$Zahl
 	my_label.text = value as String

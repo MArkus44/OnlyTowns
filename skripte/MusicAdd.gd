@@ -12,6 +12,7 @@ func _ready():
 
 func _pressed():
 	$"/root/Soundeffects".MausKlick()
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/Options2.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

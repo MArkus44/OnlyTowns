@@ -8,7 +8,7 @@ func _process(delta):
 	self.text =comma_sep(str(get_parent().get_parent().get_parent().get_parent().get_bevoelkerung()))
 
 func comma_sep(number):
-	var string = str(number)
+	var string = str(int(number))
 	var mod = string.length() % 3
 	var res = ""
 

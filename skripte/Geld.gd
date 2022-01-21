@@ -9,7 +9,7 @@ func _process(delta):
 	self.text =comma_sep(geld_temp) + " €"
 
 func comma_sep(number):
-	var string = str(number)
+	var string = str(int(number))
 	var mod = string.length() % 3
 	var res = ""
 
