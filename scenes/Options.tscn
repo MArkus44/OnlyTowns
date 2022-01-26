@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Fonts/Kenney Pixel.tres" type="DynamicFont" id=1]
 [ext_resource path="res://skripte/Options.gd" type="Script" id=2]
@@ -11,6 +11,11 @@
 [ext_resource path="res://assets/Menu_Hintergrund_Options.png" type="Texture" id=9]
 [ext_resource path="res://skripte/VolumeEffects.gd" type="Script" id=10]
 [ext_resource path="res://skripte/MusicAdd.gd" type="Script" id=11]
+[ext_resource path="res://skripte/Level.gd" type="Script" id=12]
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -45,6 +50,27 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Level" type="HSlider" parent="."]
+margin_left = 514.0
+margin_top = 480.0
+margin_right = 970.0
+margin_bottom = 496.0
+rect_scale = Vector2( 2, 2 )
+max_value = 2.0
+rounded = true
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Level"]
+margin_left = 470.0
+margin_top = 3.0
+margin_right = 510.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 4 )
+text = "Zahl"
 
 [node name="Volume" type="HSlider" parent="."]
 margin_left = 514.0
@@ -196,3 +222,5 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="value_changed" from="Level" to="Level" method="_on_Level_changed"]

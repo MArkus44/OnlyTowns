@@ -11,6 +11,9 @@ var levelSpieler = 1
 var ereignis
 var rngG
 var notification
+var wahlzahl = 0
+var spiellevel
+var einmalwahl = false
 onready var timer = $Timer
 onready var timer2 = $Timer2
 
@@ -44,6 +47,8 @@ func _ready():
 	set_beliebtheit_com(0.51)
 	set_bevoelkerung_com(100)
 	set_level_com(1)
+	set_ereignis_com(30)
+	set_wahl()
 	load_game()
 #	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex)
 	timer_start()
@@ -190,6 +195,7 @@ func beliebtheit_zu_wenig():
 			set_beliebtheit(0.5)
 			set_geld(0)
 			save()
+# warning-ignore:return_value_discarded
 			get_tree().change_scene("res://scenes/Menu.tscn")
 
 func steuern():
@@ -197,6 +203,11 @@ func steuern():
 		# t_print("Steuern.")
 		tmp_zeit_steuern += zeit_zwischen_steuern
 		geld += 1000 * bevoelkerung * beliebtheit
+		print(wahlzahl)
+		if(wahlzahl >= 48):
+			wahl()
+		else: 
+			wahlzahl += 1
 			
 func neuer_regelmaessige_mitteilung():
 	if zeit >= tmp_zeit_mitteilungen + zeit_zwischen_mitteilungen:
@@ -210,19 +221,14 @@ func antrag_gebaeude(index):
 func antrag_stellen(index,firma):
 	var rn = RandomNumberGenerator.new().randi_range(0, 100)
 	if rn * beliebtheit > 40:
-		t_print(str(geld) + "€")
 		gebaeude_ausstehend.append(str(index) + ';' + str((gebaeude_array[index].get_bauzeit()) * bauunternehmen_array[firma].get_multiplikator_bauzeit() + zeit))
-		t_print(str(gebaeude_array[int(gebaeude_ausstehend[-1].split(';')[0])].get_name_gebaeude()) + " " + str(gebaeude_ausstehend[-1].split(';')[1]))
 		geld += gebaeude_array[index].get_kosten() * bauunternehmen_array[firma].get_multiplikator_geld()
-		t_print(bauunternehmen_array[firma].get_multiplikator_geld())
-		t_print(bauunternehmen_array[firma].get_multiplikator_bauzeit())
-		t_print(str(geld) + "€")
-	
+
 func get_geld():
 	return geld
 
 func set_geld(wert):
-	geld = wert
+	geld = int(wert)
 	
 
 # warning-ignore:unused_argument
@@ -259,11 +265,23 @@ func set_bevoelkerung_com(wert):
 		.register()
 	
 # warning-ignore:unused_argument
-#func set_ereignis_com(wert):
-#	Console.add_command('set_ereignis', self, ereignis_rechnen(29))\
-#		.set_description('Löst Ereignis mit [index] aus')\
-#		.add_argument('index', TYPE_INT)\
-#		.register()
+func set_ereignis_com(wert):
+	Console.add_command('set_ereignis', self, set_ereignis(30))\
+		.set_description('Löst Ereignis mit [index] aus; 0<= index < 30')\
+		.add_argument('index', TYPE_INT)\
+		.register()
+
+func set_ereignis(index):
+	print("set_ereignis " + str(index))
+	ereignis_rechnen(index)
+	timer_start()
+	notification = true
+
+
+func set_wahl():
+	Console.add_command('wahl', self, wahl())\
+		.set_description('Löst sofort Wahl aus')\
+		.register()
 
 func get_level():
 	return levelSpieler
@@ -298,6 +316,33 @@ func set_level_com(wert):
 		.set_description('Sets Level   Wert: 0<Level<12')\
 		.add_argument('level', TYPE_INT)\
 		.register()
+
+func wahl():
+	spiellevel = get_node("/root/Options").get_level()
+	if(einmalwahl == false):
+		einmalwahl = true
+	else:
+		if(spiellevel == "Leicht"):
+			var rng = RandomNumberGenerator.new()
+			rng.randomize()
+			var rn = rng.randi_range(55,99)
+			$Wahl/ProgressBar.value = rn
+			$Wahl.popup_centered()
+		elif(spiellevel == "Mittel"):
+			var rng = RandomNumberGenerator.new()
+			rng.randomize()
+			var rn = rng.randi_range(0.30,0.45)
+			var Wahlergebnis = beliebtheit * (rn + 0.05)
+			$Wahl/ProgressBar.value = Wahlergebnis
+			$Wahl.popup_centered()
+		else:
+			var rng = RandomNumberGenerator.new()
+			rng.randomize()
+			var rn = rng.randi_range(0.10,0.30)
+			var Wahlergebnis = beliebtheit * (rn + 0.1)
+			$Wahl/ProgressBar.value = Wahlergebnis
+			$Wahl.popup_centered()
+	
 
 func get_notification():
 	return notification
@@ -337,6 +382,7 @@ func ereignis_ausloeser():
 
 func ereignis_rechnen(index):
 	print("rechnen ausgelöst")
+	print(ereignisse_array[index].get_name_ereignis())
 	var dauer = ereignisse_array[index].get_dauer()
 	timer2.start(dauer)
 # warning-ignore:unused_variable
@@ -347,8 +393,8 @@ func ereignis_rechnen(index):
 	var kaputt = ereignisse_array[index].get_kaputt()
 	var antraege_verzoegerung = ereignisse_array[index].get_antraege_verzoegerung()
 	
-	geld = geld + geld * geld_einfluss
-	bevoelkerung = bevoelkerung + bevoelkerung * bevoelkerung_einfluss
+	geld = geld + int(geld * geld_einfluss)
+	bevoelkerung = bevoelkerung + int(bevoelkerung * bevoelkerung_einfluss)
 	beliebtheit = beliebtheit +  beliebtheit_einfluss
 	if(kaputt == "null"):
 		pass
@@ -426,6 +472,7 @@ func _exit_tree():
 	Console.remove_command("set_beliebtheit")
 	Console.remove_command("set_level")
 	Console.remove_command("set_ereignis")
+	Console.remove_command("wahl")
 	
 func set_level(): 
 	if(bevoelkerung <= 850):

@@ -59,7 +59,7 @@ func _process(delta):
 			currentTrack = currentTrack + 1 
 			stop()
 			Soundpfad = str(conf.get_value("Musikdatei" +str(currentTrack), "DateipfadMusik"))
-			Sounddatei = load(Soundpfad)
+#			Sounddatei = load(Soundpfad)
 			stream = Sounddatei
 			play(0)
 		
