@@ -1,4 +1,4 @@
-extends TextureButton
+extends AcceptDialog
 
 
 # Declare member variables here. Examples:
@@ -8,8 +8,5 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-func _pressed():
-	var spiellevel = get_parent().spiellevel
-	$WindowDialog.popup_centered()
+	get_close_button().visible = false
+	window_title = ""

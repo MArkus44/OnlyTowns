@@ -1,80 +1,86 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=96 format=2]
 
-[ext_resource path="res://assets/Tisch/Computer.png" type="Texture" id=1]
-[ext_resource path="res://assets/Tisch/Drucker.png" type="Texture" id=2]
-[ext_resource path="res://assets/Tisch/Deko.png" type="Texture" id=3]
-[ext_resource path="res://assets/Bildschirm/Save.png" type="Texture" id=4]
-[ext_resource path="res://assets/Tisch/LampeAus.png" type="Texture" id=5]
-[ext_resource path="res://assets/Tisch/Tisch.png" type="Texture" id=6]
-[ext_resource path="res://skripte/Bildschirm.gd" type="Script" id=7]
-[ext_resource path="res://assets/Bildschirm/Bildschirm.png" type="Texture" id=8]
-[ext_resource path="res://skripte/Anträge.gd" type="Script" id=9]
-[ext_resource path="res://assets/Bildschirm/Antraege.png" type="Texture" id=10]
-[ext_resource path="res://skripte/Pause.gd" type="Script" id=11]
-[ext_resource path="res://assets/Bildschirm/Fenster.png" type="Texture" id=12]
-[ext_resource path="res://skripte/BildschirmBild.gd" type="Script" id=13]
-[ext_resource path="res://skripte/WindowAntraege.gd" type="Script" id=14]
-[ext_resource path="res://skripte/WindowBildschirm.gd" type="Script" id=15]
-[ext_resource path="res://assets/Bildschirm/gebaut.png" type="Texture" id=16]
-[ext_resource path="res://skripte/Wohngebäude.gd" type="Script" id=17]
-[ext_resource path="res://skripte/Wohngebäudepop.gd" type="Script" id=18]
-[ext_resource path="res://skripte/Player.gd" type="Script" id=19]
-[ext_resource path="res://assets/Pause.png" type="Texture" id=20]
-[ext_resource path="res://assets/Bildschirm/Fenster_Save.png" type="Texture" id=21]
-[ext_resource path="res://skripte/Save_Dialog.gd" type="Script" id=22]
-[ext_resource path="res://skripte/LampTexture.gd" type="Script" id=23]
-[ext_resource path="res://skripte/Freizeitgebaeudepop.gd" type="Script" id=24]
-[ext_resource path="res://skripte/AnimationPlayer.gd" type="Script" id=25]
-[ext_resource path="res://skripte/Freizeitgebaeude.gd" type="Script" id=26]
-[ext_resource path="res://skripte/Wirtschaftsgebaeude.gd" type="Script" id=27]
-[ext_resource path="res://skripte/Infrastruktur.gd" type="Script" id=28]
+[ext_resource path="res://assets/Fonts Data/Kenney Pixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/Arial.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/Tisch/LampeAus.png" type="Texture" id=3]
+[ext_resource path="res://assets/Tisch/Deko.png" type="Texture" id=4]
+[ext_resource path="res://assets/Bildschirm/Save.png" type="Texture" id=5]
+[ext_resource path="res://assets/Tisch/Computer.png" type="Texture" id=6]
+[ext_resource path="res://assets/Tisch/Drucker.png" type="Texture" id=7]
+[ext_resource path="res://skripte/Help.gd" type="Script" id=8]
+[ext_resource path="res://skripte/WindowDialogHelp.gd" type="Script" id=9]
+[ext_resource path="res://skripte/Wahl.gd" type="Script" id=10]
+[ext_resource path="res://skripte/Bildschirm.gd" type="Script" id=11]
+[ext_resource path="res://skripte/Player.gd" type="Script" id=12]
+[ext_resource path="res://skripte/Pause.gd" type="Script" id=13]
+[ext_resource path="res://skripte/Anträge.gd" type="Script" id=14]
+[ext_resource path="res://assets/Bildschirm/Antraege.png" type="Texture" id=15]
+[ext_resource path="res://assets/Bildschirm/Fenster_Save.png" type="Texture" id=16]
+[ext_resource path="res://assets/Bildschirm/Fenster.png" type="Texture" id=17]
+[ext_resource path="res://assets/Bildschirm/Bildschirm.png" type="Texture" id=18]
+[ext_resource path="res://assets/Bildschirm/gebaut.png" type="Texture" id=19]
+[ext_resource path="res://assets/Tisch/Tisch.png" type="Texture" id=20]
+[ext_resource path="res://assets/Pause.png" type="Texture" id=21]
+[ext_resource path="res://skripte/LampTexture.gd" type="Script" id=22]
+[ext_resource path="res://skripte/Freizeitgebaeudepop.gd" type="Script" id=23]
+[ext_resource path="res://skripte/AnimationPlayer.gd" type="Script" id=24]
+[ext_resource path="res://skripte/Wohngebäudepop.gd" type="Script" id=25]
+[ext_resource path="res://skripte/Infrastruktur.gd" type="Script" id=26]
+[ext_resource path="res://skripte/BildschirmBild.gd" type="Script" id=27]
+[ext_resource path="res://skripte/WindowAntraege.gd" type="Script" id=28]
 [ext_resource path="res://skripte/Infrastrukturpop.gd" type="Script" id=29]
 [ext_resource path="res://skripte/Wirtschaftsgebäudepop.gd" type="Script" id=30]
-[ext_resource path="res://assets/Fonts Data/Kenney Pixel.ttf" type="DynamicFontData" id=31]
-[ext_resource path="res://skripte/Beliebtheit.gd" type="Script" id=32]
-[ext_resource path="res://skripte/Geld.gd" type="Script" id=33]
-[ext_resource path="res://skripte/Bevölkerung.gd" type="Script" id=34]
-[ext_resource path="res://skripte/Conf.gd" type="Script" id=35]
-[ext_resource path="res://skripte/LabelGeld.gd" type="Script" id=36]
-[ext_resource path="res://skripte/GebauteGebaeude.gd" type="Script" id=37]
-[ext_resource path="res://skripte/WindowGebaeude.gd" type="Script" id=38]
-[ext_resource path="res://assets/Bildschirm/Schublade.png" type="Texture" id=39]
-[ext_resource path="res://skripte/FirmaWindow.gd" type="Script" id=40]
-[ext_resource path="res://skripte/gebautpop.gd" type="Script" id=41]
-[ext_resource path="res://skripte/LabelBevölkerung.gd" type="Script" id=42]
-[ext_resource path="res://skripte/LabelBeliebtheit.gd" type="Script" id=43]
-[ext_resource path="res://skripte/LabelLevel.gd" type="Script" id=44]
-[ext_resource path="res://assets/Help.png" type="Texture" id=45]
-[ext_resource path="res://skripte/Help.gd" type="Script" id=46]
-[ext_resource path="res://skripte/ButtonOK.gd" type="Script" id=47]
-[ext_resource path="res://skripte/LabelLevelDesktop.gd" type="Script" id=48]
-[ext_resource path="res://skripte/Zeitung.gd" type="Script" id=49]
-[ext_resource path="res://skripte/Firma2.gd" type="Script" id=50]
-[ext_resource path="res://assets/Zeitung.png" type="Texture" id=51]
-[ext_resource path="res://skripte/Firma3.gd" type="Script" id=52]
-[ext_resource path="res://skripte/Firma4.gd" type="Script" id=53]
+[ext_resource path="res://skripte/Beliebtheit.gd" type="Script" id=31]
+[ext_resource path="res://skripte/Geld.gd" type="Script" id=32]
+[ext_resource path="res://skripte/Bevölkerung.gd" type="Script" id=33]
+[ext_resource path="res://skripte/Freizeitgebaeude.gd" type="Script" id=34]
+[ext_resource path="res://skripte/WindowBildschirm.gd" type="Script" id=35]
+[ext_resource path="res://skripte/Wirtschaftsgebaeude.gd" type="Script" id=36]
+[ext_resource path="res://skripte/Wohngebäude.gd" type="Script" id=37]
+[ext_resource path="res://skripte/Save_Dialog.gd" type="Script" id=38]
+[ext_resource path="res://assets/Help.png" type="Texture" id=39]
+[ext_resource path="res://assets/Bildschirm/Schublade.png" type="Texture" id=40]
+[ext_resource path="res://assets/Zeitung.png" type="Texture" id=41]
+[ext_resource path="res://skripte/Gameover.gd" type="Script" id=42]
+[ext_resource path="res://skripte/ButtonOK.gd" type="Script" id=43]
+[ext_resource path="res://skripte/Firma2.gd" type="Script" id=44]
+[ext_resource path="res://skripte/Zeitung.gd" type="Script" id=45]
+[ext_resource path="res://skripte/LabelGeld.gd" type="Script" id=46]
+[ext_resource path="res://skripte/FirmaWindow.gd" type="Script" id=47]
+[ext_resource path="res://skripte/Firma3.gd" type="Script" id=48]
+[ext_resource path="res://skripte/Firma4.gd" type="Script" id=49]
+[ext_resource path="res://skripte/WindowGebaeude.gd" type="Script" id=50]
+[ext_resource path="res://skripte/GebauteGebaeude.gd" type="Script" id=51]
+[ext_resource path="res://skripte/LabelLevelDesktop.gd" type="Script" id=52]
+[ext_resource path="res://skripte/LabelBevölkerung.gd" type="Script" id=53]
 [ext_resource path="res://skripte/Firma1.gd" type="Script" id=54]
-[ext_resource path="res://Fonts/Arial.tres" type="DynamicFont" id=55]
-[ext_resource path="res://skripte/Wahl.gd" type="Script" id=56]
+[ext_resource path="res://skripte/gebautpop.gd" type="Script" id=55]
+[ext_resource path="res://skripte/LabelBeliebtheit.gd" type="Script" id=56]
+[ext_resource path="res://skripte/Conf.gd" type="Script" id=57]
+[ext_resource path="res://skripte/LabelLevel.gd" type="Script" id=58]
+
+[sub_resource type="DynamicFont" id=37]
+size = 80
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=36]
 bg_color = Color( 0.239216, 0.227451, 0.270588, 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=5]
 length = 0.001
@@ -210,7 +216,7 @@ bg_color = Color( 0.486275, 0.345098, 0.345098, 0 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.0901961, 0.67451, 0.0313726, 1 )
@@ -220,34 +226,34 @@ bg_color = Color( 0.760784, 0.0588235, 0.0588235, 1 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=14]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.0156863, 0.278431, 0.0156863, 1 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=16]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=17]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=18]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=19]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxLine" id=20]
 color = Color( 1, 1, 1, 1 )
@@ -261,7 +267,7 @@ bg_color = Color( 0.913725, 0.913725, 0.913725, 0 )
 
 [sub_resource type="DynamicFont" id=25]
 size = 25
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=23]
 bg_color = Color( 0, 0.333333, 0.666667, 1 )
@@ -282,31 +288,31 @@ thickness = 3
 
 [sub_resource type="DynamicFont" id=26]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=27]
 size = 25
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=28]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=29]
 size = 25
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=30]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=31]
 size = 25
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=32]
 size = 60
-font_data = ExtResource( 31 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=33]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -318,12 +324,12 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 color = Color( 0.996078, 0.996078, 0.996078, 1 )
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 19 )
+script = ExtResource( 12 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
-texture = ExtResource( 6 )
+texture = ExtResource( 20 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -335,14 +341,29 @@ one_shot = true
 [node name="Timer2" type="Timer" parent="."]
 one_shot = true
 
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+margin_left = 845.0
+margin_top = 449.0
+margin_right = 1121.0
+margin_bottom = 559.0
+window_title = "Warnung!"
+script = ExtResource( 42 )
+
+[node name="Gameover" type="Label" parent="AcceptDialog"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 268.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 37 )
+text = "GAME OVER"
+
 [node name="Wahl" type="WindowDialog" parent="."]
-visible = true
 margin_left = 590.0
 margin_top = 336.0
 margin_right = 1366.0
 margin_bottom = 631.0
 custom_styles/panel = SubResource( 36 )
-script = ExtResource( 56 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -352,14 +373,17 @@ margin_left = 74.0
 margin_top = 60.0
 margin_right = 698.0
 margin_bottom = 139.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LampTexture" type="TextureRect" parent="."]
 margin_left = 380.0
 margin_top = 410.0
 margin_right = 786.0
 margin_bottom = 806.0
-texture = ExtResource( 5 )
-script = ExtResource( 23 )
+texture = ExtResource( 3 )
+script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -381,7 +405,7 @@ margin_top = 60.0
 margin_right = 171.0
 margin_bottom = 107.0
 custom_fonts/font = SubResource( 1 )
-script = ExtResource( 36 )
+script = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -392,7 +416,7 @@ margin_top = 100.0
 margin_right = 190.0
 margin_bottom = 147.0
 custom_fonts/font = SubResource( 2 )
-script = ExtResource( 42 )
+script = ExtResource( 53 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -403,7 +427,7 @@ margin_top = 150.0
 margin_right = 181.0
 margin_bottom = 195.0
 custom_fonts/font = SubResource( 3 )
-script = ExtResource( 43 )
+script = ExtResource( 56 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -414,7 +438,7 @@ margin_top = 200.0
 margin_right = 125.0
 margin_bottom = 231.0
 custom_fonts/font = SubResource( 4 )
-script = ExtResource( 44 )
+script = ExtResource( 58 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -425,9 +449,9 @@ margin_top = 46.0
 margin_right = 1860.0
 margin_bottom = 144.0
 rect_scale = Vector2( 0.5, 0.5 )
-texture_normal = ExtResource( 20 )
+texture_normal = ExtResource( 21 )
 expand = true
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -447,9 +471,9 @@ margin_left = 1753.0
 margin_top = 125.0
 margin_right = 1803.0
 margin_bottom = 192.0
-texture_normal = ExtResource( 45 )
+texture_normal = ExtResource( 39 )
 expand = true
-script = ExtResource( 46 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -459,6 +483,7 @@ margin_left = -1421.0
 margin_top = -92.0
 margin_right = -121.0
 margin_bottom = 908.0
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -467,7 +492,7 @@ __meta__ = {
 margin_left = 8.0
 margin_right = 1305.0
 margin_bottom = 879.0
-custom_fonts/font = ExtResource( 55 )
+custom_fonts/font = ExtResource( 2 )
 text = "Spielprinzip
 
 Das Ziel des Spiels besteht darin, eine Stadt zu bauen. Dabei muss man auf die Werte Bevölkerung, Geld und Beliebtheit achten. Gegebenenfalls ist sogar eine Erweiterung der Stadtfläche nötig. 
@@ -475,27 +500,38 @@ Das Ziel des Spiels besteht darin, eine Stadt zu bauen. Dabei muss man auf die W
 Funktionsweise
 
 Es gibt drei Schwierigkeitsgrade leicht, mittel und schwer.
-Man hat monatliche Einnahmen, die von verschiedenen Faktoren abhängen. Man baut Gebäude, um die Bevölkerung, die Einnahmen oder die Beliebtheit zu steigern. Abhängig davon, wie viele Menschen in der Stadt leben, gibt es verschiedene Level. Für jedes neue Level schaltet man neue Gebäude frei. Zudem gibt es regelmäßige Wahlen. Das Ergebnis ist +/- 5% von der Beliebtheit. Wenn man weniger als x Beliebtheit ab Level 10 hat, hat man verloren. 
+Man hat monatliche Einnahmen, die von verschiedenen Faktoren abhängen. Man baut Gebäude, um die Bevölkerung, die Einnahmen oder die Beliebtheit zu steigern. Abhängig davon, wie viele Menschen in der Stadt leben, gibt es verschiedene Level. Für jedes neue Level schaltet man neue Gebäude frei. Zudem gibt es regelmäßige Wahlen. Das Ergebnis ist +/- 5% von der Beliebtheit. Wenn man weniger als  Beliebtheit ab Level 10 hat, hat man verloren. 
 
-Kommentar: x hängt von der Schwierigkeit ab (bei leicht: 40, bei mittel: 50, schwer: 60)
+
 "
 autowrap = true
+
+[node name="Label2" type="Label" parent="Help/WindowDialog"]
+margin_left = 1123.0
+margin_top = 685.0
+margin_right = 1203.0
+margin_bottom = 731.0
+custom_fonts/font = ExtResource( 2 )
+text = "40%"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ButtonOK" type="Button" parent="Help/WindowDialog"]
 margin_left = 485.0
 margin_top = 928.0
 margin_right = 717.0
 margin_bottom = 977.0
-custom_fonts/font = ExtResource( 55 )
+custom_fonts/font = ExtResource( 2 )
 text = "OK"
-script = ExtResource( 47 )
+script = ExtResource( 43 )
 
 [node name="Deko" type="TextureButton" parent="."]
 margin_left = 863.0
 margin_top = 692.0
 margin_right = 926.0
 margin_bottom = 763.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -505,7 +541,7 @@ margin_left = 657.0
 margin_top = 579.0
 margin_right = 864.0
 margin_bottom = 790.0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -515,9 +551,9 @@ margin_left = 758.0
 margin_top = 815.0
 margin_right = 1037.0
 margin_bottom = 914.0
-texture_normal = ExtResource( 51 )
+texture_normal = ExtResource( 41 )
 expand = true
-script = ExtResource( 49 )
+script = ExtResource( 45 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -539,8 +575,8 @@ margin_left = 965.0
 margin_top = 497.0
 margin_right = 1296.0
 margin_bottom = 762.0
-texture_normal = ExtResource( 1 )
-script = ExtResource( 7 )
+texture_normal = ExtResource( 6 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -550,9 +586,9 @@ margin_left = 41.0
 margin_top = 40.0
 margin_right = 202.0
 margin_bottom = 160.0
-texture_normal = ExtResource( 8 )
+texture_normal = ExtResource( 18 )
 expand = true
-script = ExtResource( 13 )
+script = ExtResource( 27 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -560,7 +596,7 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bildschirm/BildschirmBild"]
 anims/RESET = SubResource( 5 )
 "anims/Schreibtisch -> Desktop" = SubResource( 6 )
-script = ExtResource( 25 )
+script = ExtResource( 24 )
 
 [node name="WindowBildschirm" type="WindowDialog" parent="Bildschirm/BildschirmBild"]
 margin_left = -899.0
@@ -570,7 +606,7 @@ margin_bottom = 493.0
 custom_fonts/title_font = SubResource( 8 )
 custom_styles/panel = SubResource( 7 )
 window_title = "Display"
-script = ExtResource( 15 )
+script = ExtResource( 35 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -578,7 +614,7 @@ __meta__ = {
 [node name="Desktop" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
 margin_right = 1709.0
 margin_bottom = 1002.0
-texture = ExtResource( 8 )
+texture = ExtResource( 18 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -594,7 +630,7 @@ custom_fonts/font = SubResource( 11 )
 custom_styles/fg = SubResource( 9 )
 custom_styles/bg = SubResource( 10 )
 value = 51.0
-script = ExtResource( 32 )
+script = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -621,7 +657,7 @@ custom_styles/normal = SubResource( 13 )
 text = "0"
 align = 1
 valign = 1
-script = ExtResource( 33 )
+script = ExtResource( 32 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -648,7 +684,7 @@ custom_fonts/font = SubResource( 16 )
 text = "1000"
 align = 1
 valign = 1
-script = ExtResource( 34 )
+script = ExtResource( 33 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -680,14 +716,14 @@ margin_right = 492.0
 margin_bottom = 48.0
 custom_fonts/font = SubResource( 19 )
 text = "2"
-script = ExtResource( 48 )
+script = ExtResource( 52 )
 
 [node name="Save" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
 margin_left = 129.0
 margin_top = 478.169
 margin_right = 257.0
 margin_bottom = 638.169
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -698,12 +734,12 @@ margin_top = -185.0
 margin_right = 987.0
 margin_bottom = 221.0
 custom_styles/panel = SubResource( 20 )
-script = ExtResource( 22 )
+script = ExtResource( 38 )
 
 [node name="TextureRect" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/Save/Save_Dialog"]
 margin_right = 582.0
 margin_bottom = 405.0
-texture = ExtResource( 21 )
+texture = ExtResource( 16 )
 expand = true
 
 [node name="Anträge" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm"]
@@ -711,8 +747,8 @@ margin_left = 129.0
 margin_top = 265.0
 margin_right = 257.0
 margin_bottom = 425.0
-texture_normal = ExtResource( 10 )
-script = ExtResource( 9 )
+texture_normal = ExtResource( 15 )
+script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -724,7 +760,7 @@ margin_right = 1305.0
 margin_bottom = 688.0
 custom_fonts/title_font = SubResource( 22 )
 custom_styles/panel = SubResource( 21 )
-script = ExtResource( 14 )
+script = ExtResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -734,7 +770,7 @@ margin_left = 23.0
 margin_top = 6.0
 margin_right = 1060.0
 margin_bottom = 841.0
-texture = ExtResource( 12 )
+texture = ExtResource( 17 )
 expand = true
 
 [node name="Wohngebaeude" type="TextureButton" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege"]
@@ -742,8 +778,8 @@ margin_left = 160.0
 margin_top = 150.0
 margin_right = 224.0
 margin_bottom = 214.0
-texture_normal = ExtResource( 39 )
-script = ExtResource( 17 )
+texture_normal = ExtResource( 40 )
+script = ExtResource( 37 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -760,7 +796,7 @@ margin_bottom = 115.0
 custom_fonts/font = SubResource( 25 )
 custom_styles/panel = SubResource( 23 )
 custom_styles/separator = SubResource( 24 )
-script = ExtResource( 18 )
+script = ExtResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -778,8 +814,8 @@ margin_left = 162.0
 margin_top = 416.0
 margin_right = 226.0
 margin_bottom = 480.0
-texture_normal = ExtResource( 39 )
-script = ExtResource( 26 )
+texture_normal = ExtResource( 40 )
+script = ExtResource( 34 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -790,7 +826,7 @@ margin_bottom = 20.0
 custom_fonts/font = SubResource( 27 )
 custom_styles/panel = SubResource( 23 )
 custom_styles/separator = SubResource( 24 )
-script = ExtResource( 24 )
+script = ExtResource( 23 )
 
 [node name="Label" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Freizeitgebaeude"]
 margin_left = -58.0
@@ -805,8 +841,8 @@ margin_left = 623.0
 margin_top = 150.0
 margin_right = 687.0
 margin_bottom = 214.0
-texture_normal = ExtResource( 39 )
-script = ExtResource( 27 )
+texture_normal = ExtResource( 40 )
+script = ExtResource( 36 )
 
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Wirtschaftsgebaeude"]
 margin_right = 20.0
@@ -829,8 +865,8 @@ margin_left = 622.0
 margin_top = 407.0
 margin_right = 686.0
 margin_bottom = 471.0
-texture_normal = ExtResource( 39 )
-script = ExtResource( 28 )
+texture_normal = ExtResource( 40 )
+script = ExtResource( 26 )
 
 [node name="PopupMenu" type="PopupMenu" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/Infrastruktur"]
 margin_right = 20.0
@@ -854,7 +890,7 @@ margin_left = 275.0
 margin_top = 261.0
 margin_right = 950.0
 margin_bottom = 701.0
-script = ExtResource( 40 )
+script = ExtResource( 47 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -885,7 +921,7 @@ margin_right = 667.0
 margin_bottom = 173.0
 mouse_filter = 0
 text = "zulzl"
-script = ExtResource( 50 )
+script = ExtResource( 44 )
 
 [node name="Firma2Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma2"]
 margin_left = -2.0
@@ -900,7 +936,7 @@ margin_right = 669.0
 margin_bottom = 260.0
 mouse_filter = 0
 text = "zulzl"
-script = ExtResource( 52 )
+script = ExtResource( 48 )
 
 [node name="Firma3Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma3"]
 margin_left = -2.0
@@ -915,7 +951,7 @@ margin_right = 667.0
 margin_bottom = 372.0
 mouse_filter = 0
 text = "zulzl"
-script = ExtResource( 53 )
+script = ExtResource( 49 )
 
 [node name="Firma4Beschreibung" type="Label" parent="Bildschirm/BildschirmBild/WindowBildschirm/Anträge/WindowAntraege/WindowDialog/Firma4"]
 margin_left = 3.0
@@ -931,7 +967,7 @@ margin_bottom = 313.0
 rect_min_size = Vector2( 300, 105 )
 window_title = "Bitte bestätigen..."
 dialog_autowrap = true
-script = ExtResource( 35 )
+script = ExtResource( 57 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -953,8 +989,8 @@ margin_left = 84.4315
 margin_top = 713.515
 margin_right = 300.431
 margin_bottom = 877.515
-texture_normal = ExtResource( 16 )
-script = ExtResource( 37 )
+texture_normal = ExtResource( 19 )
+script = ExtResource( 51 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -965,13 +1001,13 @@ margin_top = -528.0
 margin_right = 933.0
 margin_bottom = 271.0
 custom_styles/panel = SubResource( 33 )
-script = ExtResource( 38 )
+script = ExtResource( 50 )
 
 [node name="TextureRect" type="TextureRect" parent="Bildschirm/BildschirmBild/WindowBildschirm/GebauteGebaeude/WindowGebaeude"]
 margin_top = -5.0
 margin_right = 476.0
 margin_bottom = 804.0
-texture = ExtResource( 12 )
+texture = ExtResource( 17 )
 expand = true
 stretch_mode = 1
 __meta__ = {
@@ -983,8 +1019,10 @@ margin_right = 20.0
 margin_bottom = 20.0
 custom_styles/panel = SubResource( 34 )
 custom_styles/separator = SubResource( 35 )
-script = ExtResource( 41 )
+script = ExtResource( 55 )
 
+[connection signal="confirmed" from="AcceptDialog" to="." method="game_over"]
+[connection signal="modal_closed" from="AcceptDialog" to="." method="game_over"]
 [connection signal="toggled" from="LampButton" to="LampTexture" method="_toggle_lamp"]
 [connection signal="confirmed" from="Pause/ConfirmationDialog" to="." method="save"]
 [connection signal="confirmed" from="Pause/ConfirmationDialog" to="Pause" method="ok"]

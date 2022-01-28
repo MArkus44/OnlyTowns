@@ -5,7 +5,7 @@ var g_config = "res://configs/Gebaeude.cfg"
 var e_config = "res://configs/Ereignisse.cfg"
 
 var geld = 0
-var beliebtheit = 0.54
+var beliebtheit = 0.51
 var bevoelkerung = 100
 var levelSpieler = 1
 var ereignis
@@ -48,7 +48,7 @@ func _ready():
 	set_bevoelkerung_com(100)
 	set_level_com(1)
 	set_ereignis_com(30)
-	set_wahl()
+	set_wahl_com()
 	load_game()
 #	#connect("GebaeudeIndex",self,antrag_gebaeude(GebaeudeIndex)
 	timer_start()
@@ -182,7 +182,7 @@ func geld_einfluss_gebaeude(einkommen_einfluss):
 func geld_zu_wenig():#
 	if(geld <= -5000000):
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://scenes/Menu.tscn")
+		$AcceptDialog.popup_centered()
 
 func beliebtheit_zu_viel():
 	if(beliebtheit >= 100):
@@ -203,9 +203,9 @@ func steuern():
 		# t_print("Steuern.")
 		tmp_zeit_steuern += zeit_zwischen_steuern
 		geld += 1000 * bevoelkerung * beliebtheit
-		print(wahlzahl)
 		if(wahlzahl >= 48):
 			wahl()
+			wahlzahl = 0
 		else: 
 			wahlzahl += 1
 			
@@ -278,7 +278,9 @@ func set_ereignis(index):
 	notification = true
 
 
-func set_wahl():
+func set_wahl_com():
+#	var aeg = Console.get_command("wahl")
+#	print(aeg)
 	Console.add_command('wahl', self, wahl())\
 		.set_description('Löst sofort Wahl aus')\
 		.register()
@@ -322,27 +324,14 @@ func wahl():
 	if(einmalwahl == false):
 		einmalwahl = true
 	else:
-		if(spiellevel == "Leicht"):
-			var rng = RandomNumberGenerator.new()
-			rng.randomize()
-			var rn = rng.randi_range(55,99)
-			$Wahl/ProgressBar.value = rn
-			$Wahl.popup_centered()
-		elif(spiellevel == "Mittel"):
-			var rng = RandomNumberGenerator.new()
-			rng.randomize()
-			var rn = rng.randi_range(0.30,0.45)
-			var Wahlergebnis = beliebtheit * (rn + 0.05)
-			$Wahl/ProgressBar.value = Wahlergebnis
-			$Wahl.popup_centered()
-		else:
-			var rng = RandomNumberGenerator.new()
-			rng.randomize()
-			var rn = rng.randi_range(0.10,0.30)
-			var Wahlergebnis = beliebtheit * (rn + 0.1)
-			$Wahl/ProgressBar.value = Wahlergebnis
-			$Wahl.popup_centered()
-	
+		var rng = RandomNumberGenerator.new()
+		rng.randomize()
+		var rn = rng.randf_range(-0.05,0.05)
+		var Wahlergebnis = (beliebtheit + rn) * 100
+		$Wahl/ProgressBar.value = Wahlergebnis
+		$Wahl.popup_centered()
+		if(Wahlergebnis <= 50):
+			$AcceptDialog.popup_centered()
 
 func get_notification():
 	return notification
@@ -506,6 +495,16 @@ func gebaeude_pop():
 	for i in range(len(gebaeude_anzahl)):
 		pop.set_item_text(i, pop.get_item_text(i) + ":   " + str(gebaeude_anzahl[i]))
 
+func game_over():
+	Console.remove_command("set_geld")
+	Console.remove_command("set_bevoelkerung")
+	Console.remove_command("set_beliebtheit")
+	Console.remove_command("set_level")
+	Console.remove_command("set_ereignis")
+	Console.remove_command("wahl")
+	Directory.new().remove("user://savegame.save")
+	get_tree().change_scene("res://scenes/Menu.tscn")
+
 func save():
 	var gebaeude_save_g = []
 	
@@ -535,9 +534,8 @@ func save():
 func load_game():
 	var file = File.new()
 	var err = file.open("user://savegame.save", File.READ)
-	print(err)
 	# file.open("user://savegame.save", File.READ)
-	if err != null:
+	if err == 0:
 		var data = parse_json(file.get_line())
 		geld = data["geld"]
 		bevoelkerung = data["bevoelkerung"]
@@ -557,8 +555,11 @@ func load_game():
 		t_print("Loaded: " + str(data))
 		
 	else:
+		set_geld_com(0)
+		set_beliebtheit_com(0.51)
+		set_bevoelkerung_com(100)
+		set_level_com(1)
 		save()
-	file.close()
 	
 func t_print(var wert):
 	print(str(zeit) + ": >>>  " + str(wert))
